@@ -50,16 +50,6 @@ flashcardSetRoutes.route('/search/').get(function(req, res){
     });
 });
 
-<<<<<<< HEAD
-flashcardSetRoutes.route('/:id').get(function(req, res) {
-    let id = req.params.id;
-    FlashcardSet.findById(id, function(err, flashcardSet) {
-        res.json(flashcardSet);
-    });
-});
-=======
-
->>>>>>> cc3168a640e0cbdec5219705ace62ba3e42607ad
 
 flashcardSetRoutes.route('/update/:id').post(function(req, res) {
     FlashcardSet.findById(req.params.id, function(err, flashcardSet) {
