@@ -19,7 +19,8 @@ connection.once('open', function() {
 })
 
 flashcardSetRoutes.route('/').get(function(req, res) {
-    FlashcardSet.find(function(err, flashcardSet) {
+    
+    FlashcardSet.find({}, function(err, flashcardSet) {
         if (err) {
             console.log(err);
         } else {
@@ -28,15 +29,6 @@ flashcardSetRoutes.route('/').get(function(req, res) {
     });
 });
 
-flashcardSetRoutes.route('/list').get(function(req, res) {
-    FlashcardSet.find(function(err, flashcardSet) {
-        if (err) {
-            console.log(err);
-        } else {
-            res.json(flashcardSet);
-        }
-    });
-});
 
 flashcardSetRoutes.route('/:id').get(function(req, res) {
     let id = req.params.id;
@@ -44,6 +36,30 @@ flashcardSetRoutes.route('/:id').get(function(req, res) {
         res.json(flashcardSet);
     });
 });
+
+
+//search page
+flashcardSetRoutes.route('/search/').get(function(req, res){
+    FlashcardSet.find({flashcardSet_title: "English"}, function(err, flashcardSet) {
+        
+        if (err) {
+            console.log(err);
+        } else {
+            res.json(flashcardSet);
+        }
+    });
+});
+
+<<<<<<< HEAD
+flashcardSetRoutes.route('/:id').get(function(req, res) {
+    let id = req.params.id;
+    FlashcardSet.findById(id, function(err, flashcardSet) {
+        res.json(flashcardSet);
+    });
+});
+=======
+
+>>>>>>> cc3168a640e0cbdec5219705ace62ba3e42607ad
 
 flashcardSetRoutes.route('/update/:id').post(function(req, res) {
     FlashcardSet.findById(req.params.id, function(err, flashcardSet) {
