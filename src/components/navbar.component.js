@@ -21,7 +21,7 @@ export default class Navbar extends Component {
 
                     <form class="navbar-form">
                         <input class="navbar-text" placeholder="Search" />
-                        <a class="navbar-submit" >Search</a>
+                        <a class="navbar-submit" href="/search" >Search</a>
                     </form>
 
                     <ul class="navbar-right">
