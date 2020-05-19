@@ -14,8 +14,10 @@ export default class Footer extends Component{
                                 <li><a href ="/" Home>Home</a></li> 
                                 <li><a href ="/create" Create>Create</a></li> 
                                 <li><a href ="/list" List>List</a></li>
-                                <li><a href ="/search" Search>Search</a></li> 
-                                <li>© 2020 All Rights Reserved ~ Authored by AD410 Group C</li> 
+                                <li><a href ="/search" Search>Search</a></li>
+                                <div class = "copy-colorblack">
+                                  <a >© 2020 All Rights Reserved ~ Authored by AD410 Group C</a>
+                                  </div> 
                             </ul>
                         
                </div>
