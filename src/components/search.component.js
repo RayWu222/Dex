@@ -57,9 +57,7 @@ onSubmit(e) {
     console.log('Search value submitted');
     
     console.log(`Search Value:${this.state.search_value}`);
-    var search_value = this.state.search_value;
-    console.log('search_value' + search_value)
-    
+    var search_value = this.state.search_value;    
     axios.get('http://localhost:4000/search/')
         .then(response => {
             this.setState({ searchResultList: response.data });
