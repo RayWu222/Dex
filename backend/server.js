@@ -8,6 +8,7 @@ const PORT = 4000;
 
 let FlashcardSet = require('./flashcardSet.model');
 
+
 app.use(cors());
 app.use(bodyParser.json());
 
@@ -17,6 +18,7 @@ const connection = mongoose.connection;
 connection.once('open', function() {
     console.log("MongoDB database connection established successfully");
 })
+
 
 flashcardSetRoutes.route('/').get(function(req, res) {
     
@@ -37,16 +39,11 @@ flashcardSetRoutes.route('/:id').get(function(req, res) {
     });
 });
 
-
-//search page
-flashcardSetRoutes.route('/search/').get(function(req, res){
-    FlashcardSet.find({flashcardSet_title: "English"}, function(err, flashcardSet) {
-        
-        if (err) {
-            console.log(err);
-        } else {
-            res.json(flashcardSet);
-        }
+//search page component, search the database for that value and return flashcardset with that value
+flashcardSetRoutes.route('/search/:value').get(function(req, res){
+    let value = req.params.value;
+    FlashcardSet.find({flashcardSet_title: value}, function(err, flashcardSet) {       
+        res.json(flashcardSet);
     });
 });
 
