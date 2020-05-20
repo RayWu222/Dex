@@ -1,16 +1,203 @@
-.container {
+/* I have no idea what this stuff is for */
+.container-landing {
   background-color: #03CC83;
-  text-emphasis-color: #0F3B1C;
+  border: 3px solid green;
 }
 
-.landing_page_body {
-  background-color: darkgray;
+.title {
+  background-color: #03cc83;
+  color:#014f33;
+  text-align: center;
+}
 
-}
-.navbar-brand {
-  width: 100px;
-  height: 100px;
-}
-.landing_page_icon {
+.icon {
   float: left;
+  width: 50px;
+  height: 100px;
+  padding: 0 5%;
+}
+
+.body-text {
+  padding: 5%;
+  color: #014f33;
+}
+
+/* Navigation Bar */
+    /* Style the navigation bar */
+
+    .nav-container {
+      display: flex;
+      height: 100px;
+      overflow: hidden;
+      background-color: #03cc83;
+      padding: 0 10%;
+    }
+
+    .navbar {
+      display: flex;
+      flex-grow: 1;
+    }
+
+    /* Navbar Containers */
+    .logo {
+      height: 100px;
+      padding: 5px;
+    }
+
+    .navbar-left {
+      display: flex;
+        height: 100px;
+        flex-grow: 1;
+        justify-content: flex-start;
+    }
+
+    .navbar-form {
+        display: flex;
+        flex-grow: .2;
+        height: 100px;
+        align-items: center;
+    }
+
+    .navbar-right {
+        display: flex;
+        height: 100px;
+        flex-grow: .2;
+        justify-content: flex-end;
+    }
+
+
+    /* Navbar Button */
+    .navbar a {
+      color: black;
+      text-decoration: none;
+      display: flex;
+      width: 100px;
+      flex-grow: 0;
+      justify-content: center;
+      align-items: center;
+    }
+
+
+    /* Navbar Form */
+    .navbar-submit {
+      border: 1px solid black;
+      background: #026843;
+      display: flex;
+      flex-grow: 3;
+      height: 50px;
+    }
+
+    .navbar-text {
+      border: 1px solid black;
+      display: flex;
+      flex-grow: 1;
+      padding-left: 5px;
+      height: 50px;
+    }
+
+    /* Navbar links on mouse-over */
+    .navbar a:hover {
+      background-color: #029a63;
+    }
+
+    .navbar a:focus {
+      background-color: #03b373;
+    }
+
+    .navbar a:active {
+      background-color: #03b373;
+    }
+
+
+    /* NavBar List Properties */
+    .navbar ul {
+      list-style: none;
+    }
+
+
+/* Create New Flashcard Set */
+
+/* Containers */
+.set-container {
+  border: 1px solid orangered;
+  display: flex;
+  flex-direction: column;
+  padding: 0px 10%;
+  background: #028153;
+}
+.title-container {
+  border: 1px solid greenyellow;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 50%;
+  background: whitesmoke;
+}
+
+.form-group {
+  display: flex;
+  padding: 5px;
+  border: 1px solid black;
+}
+
+.form-title {
+  display: flex;
+  flex-grow: 0;
+  border: 1px solid black;
+  width: 15%;
+}
+
+.form-input {
+  display: flex;
+  flex-grow: 0;
+  border: 1px solid black;
+  width: 40%;
+}
+
+.flashcard-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background: #03b373;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  border: 1px solid black;
+}
+
+.top-flashcard {
+  display: flex;
+  flex-grow: 1;
+  background: red;
+  height: 40px;
+  margin: 20px;
+}
+
+.bottom-flashcard {
+  display: flex;
+  height: 300px;
+}
+
+.left-flashcard {
+  display: flex;
+  margin: 20px;
+  width: 50%;
+  background-image: url(https://i.pinimg.com/originals/e1/89/13/e189135cecb98637bc67e79c5f19e3ea.jpg);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.right-flashcard {
+  display: flex;
+  margin: 20px;
+  width: 50%;
+  background-image: url(https://i.pinimg.com/originals/e1/89/13/e189135cecb98637bc67e79c5f19e3ea.jpg);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.submitBar {
+  display: flex;
+  flex-direction: row-reverse;
+  border: solid 1px black;
+
+  padding: 20px;
 }

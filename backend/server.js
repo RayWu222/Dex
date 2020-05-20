@@ -6,9 +6,6 @@ const mongoose = require('mongoose');
 const flashcardSetRoutes = express.Router();
 const PORT = 4000;
 
-
-//var debug = require('debug')('test')
-
 let FlashcardSet = require('./flashcardSet.model');
 
 
@@ -42,7 +39,6 @@ flashcardSetRoutes.route('/:id').get(function(req, res) {
     });
 });
 
-
 //search page component, search the database for that value and return flashcardset with that value
 flashcardSetRoutes.route('/search/:value').get(function(req, res){
     let value = req.params.value;
@@ -50,7 +46,6 @@ flashcardSetRoutes.route('/search/:value').get(function(req, res){
         res.json(flashcardSet);
     });
 });
-
 
 
 flashcardSetRoutes.route('/update/:id').post(function(req, res) {
@@ -62,6 +57,7 @@ flashcardSetRoutes.route('/update/:id').post(function(req, res) {
             flashcardSet.flashcardSet_author = req.body.flashcardSet_author;
             flashcardSet.flashcardSet_description = req.body.flashcardSet_description;
             flashcardSet.flashcardSet_category = req.body.flashcardset_category;
+
             flashcardSet.save().then(flashcardSet => {
                 res.json('FlashcardSet updated!');
             })
@@ -81,8 +77,6 @@ flashcardSetRoutes.route('/add').post(function(req, res) {
             res.status(400).send('adding new flashcardSet failed');
         });
 });
-
-
 
 app.use('/flashcardSet', flashcardSetRoutes);
 

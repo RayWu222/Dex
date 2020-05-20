@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import "../App.css";
 
 export default class CreateFlashcardSet extends Component {
 
@@ -73,76 +74,118 @@ export default class CreateFlashcardSet extends Component {
 
     render() {
         return (
-            <div style={{marginTop: 10}}>
-                <h3>Create New FlashcardSet</h3>
-                <form onSubmit={this.onSubmit}>
-                    <div className="form-group"> 
-                        <label>Title: </label>
-                        <input  type="text"
-                                className="form-control"
-                                value={this.state.flashcardSet_title}
-                                onChange={this.onChangeFlashcardSetTitle}
-                                />
+            <div class="set-container">
+                <div class="title-container">
+                    <div class="title-name">
+                        <h3>Create New Flashcard Set</h3>
                     </div>
-                    <div className="form-group">
-                        <label>Author: </label>
-                        <input 
-                                type="text" 
-                                className="form-control"
-                                value={this.state.flashcardSet_author}
-                                onChange={this.onChangeFlashcardSetAuthor}
-                                />
-                    </div>
-                    <div className="form-group">
-                        <label>Description: </label>
-                        <input 
-                                type="text" 
-                                className="form-control"
-                                value={this.state.flashcardSet_description}
-                                onChange={this.onChangeFlashcardSetDescription}
-                                />
-                    </div>
-                    <div className="form-group">
-                        <div className="form-check form-check-inline">
-                            <input  className="form-check-input" 
-                                    type="radio" 
-                                    name="categoryOptions" 
-                                    id="categoryMath" 
-                                    value="Math"
-                                    checked={this.state.flashcardSet_category==='Math'} 
-                                    onChange={this.onChangeFlashcardSetCategory}
+                    <form onSubmit={this.onSubmit}>
+                        <div className="form-group">
+                            <div class="form-title"> 
+                                <label>Title: </label>
+                            </div>
+                            <div class="form-input">
+                                <input  type="text"
+                                    className="form-control"
+                                    value={this.state.flashcardSet_title}
+                                    onChange={this.onChangeFlashcardSetTitle}
                                     />
-                            <label className="form-check-label">Math</label>
+                            </div>        
                         </div>
-                        <div className="form-check form-check-inline">
-                            <input  className="form-check-input" 
-                                    type="radio" 
-                                    name="categoryOptions" 
-                                    id="categoryScience" 
-                                    value="Science" 
-                                    checked={this.state.flashcardSet_category==='Science'} 
-                                    onChange={this.onChangeFlashcardSetCategory}
+                        <div className="form-group">
+                            <div class="form-title">
+                                <label>Author: </label>
+                            </div>
+                            <div class="form-input">
+                                <input 
+                                    type="text" 
+                                    className="form-control"
+                                    value={this.state.flashcardSet_author}
+                                    onChange={this.onChangeFlashcardSetAuthor}
                                     />
-                            <label className="form-check-label">Science</label>
+                            </div>        
                         </div>
-                        <div className="form-check form-check-inline">
-                            <input  className="form-check-input" 
-                                    type="radio" 
-                                    name="categoryOptions" 
-                                    id="categoryEnglish" 
-                                    value="English" 
-                                    checked={this.state.flashcardSet_category==='English'} 
-                                    onChange={this.onChangeFlashcardSetCategory}
+                        <div className="form-group">
+                            <div class="form-title">
+                                <label>Description: </label>
+                            </div>
+                            <div class="form-input">
+                                <input 
+                                    type="text"
+                                    className="form-control"
+                                    value={this.state.flashcardSet_description}
+                                    onChange={this.onChangeFlashcardSetDescription}
                                     />
-                            <label className="form-check-label">English</label>
+                            </div>
+                        </div>
+                        <div className="form-group">
+                            <div className="form-check form-check-inline">
+                                <input  className="form-check-input" 
+                                        type="radio" 
+                                        name="categoryOptions" 
+                                        id="categoryMath" 
+                                        value="Math"
+                                        checked={this.state.flashcardSet_category==='Math'} 
+                                        onChange={this.onChangeFlashcardSetCategory}
+                                        />
+                                <label className="form-check-label">Math</label>
+                            </div>
+                            <div className="form-check form-check-inline">
+                                <input  className="form-check-input" 
+                                        type="radio" 
+                                        name="categoryOptions" 
+                                        id="categoryScience" 
+                                        value="Science" 
+                                        checked={this.state.flashcardSet_category==='Science'} 
+                                        onChange={this.onChangeFlashcardSetCategory}
+                                        />
+                                <label className="form-check-label">Science</label>
+                            </div>
+                            <div className="form-check form-check-inline">
+                                <input  className="form-check-input" 
+                                        type="radio" 
+                                        name="categoryOptions" 
+                                        id="categoryEnglish" 
+                                        value="English" 
+                                        checked={this.state.flashcardSet_category==='English'} 
+                                        onChange={this.onChangeFlashcardSetCategory}
+                                        />
+                                <label className="form-check-label">English</label>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div className="flashcard-container">
+                    <div className="top-flashcard">
+                        Hello
+                    </div>
+                    <div className="bottom-flashcard">
+                        <div className="left-flashcard">
+                            Hello
+                        </div>
+                        <div className="right-flashcard">
+                            Hello
                         </div>
                     </div>
-
-                    <div className="form-group">
-                        <input type="submit" value="Create FlashcardSet" className="btn btn-primary" />
+                </div>
+                <div className="flashcard-container">
+                    <div className="top-flashcard">
+                        Hello
                     </div>
-                </form>
+                    <div className="bottom-flashcard">
+                        <div className="left-flashcard">
+                            Hello
+                        </div>
+                        <div className="right-flashcard">
+                            Hello
+                        </div>
+                    </div>
+                </div>
+                <div className="submitBar">
+                    <input type="submit" value="Create FlashcardSet" className="btn btn-primary" />
+                </div>        
             </div>
+                
         )
     }
 }
