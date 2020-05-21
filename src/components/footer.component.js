@@ -6,8 +6,9 @@ export default class Footer extends Component{
     render(){
         return(
             <div class = "footer-container">
-            <div class = "footer links left"></div>
+            <div class = "footer links left">
                <Logo class = "footer-logo"/>
+               </div>
                <div class = "footer-links">
                 <strong>Links</strong> 
                             <ul>
@@ -16,13 +17,23 @@ export default class Footer extends Component{
                                 <li><a href ="/list" List>List</a></li>
                                 <li><a href ="/search" Search>Search</a></li>
                                 <div class = "copy-colorblack">
-                                  <a >© 2020 All Rights Reserved ~ Authored by AD410 Group C</a>
-                                  </div> 
+                                  <p>© 2020 All Rights Reserved ~ Authored by AD410 Group C</p>
+                                </div> 
                             </ul>
                         
                </div>
-               </div>
                
+               <div class = "subject-right">
+               <strong>Links</strong> 
+                            <ul>
+                                <li><a href ="/" Home>Home</a></li> 
+                                <li><a href ="/create" Create>Create</a></li> 
+                                <li><a href ="/list" List>List</a></li>
+                                <li><a href ="/search" Search>Search</a></li>
+                            </ul>
+               
+               </div>
+               </div>
                
 
             
