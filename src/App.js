@@ -22,7 +22,7 @@ class App extends Component {
         <br/>
                 <Route path="/" exact component={LandingPage} />
                 <Route path="/list" exact component={FlashcardSetList} />
-                <Route path="/search" exact component={SearchPage} />
+                <Route path="/flashcardSet/search/:search" exact component={SearchPage} />
                 <Route path="/edit/:id" component={EditFlashcardSet} />
                 <Route path="/create" component={CreateFlashcardSet} />
                 <Route path="/signup" component={SignUp} />

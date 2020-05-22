@@ -34,6 +34,8 @@ searchResultList() {
 
 //do something right when you call the route, change the route name to return different value
 componentDidMount() {
+   
+    
     axios.get('http://localhost:4000/flashcardSet/search/English')
         .then(response => {
             console.log(response.data);
