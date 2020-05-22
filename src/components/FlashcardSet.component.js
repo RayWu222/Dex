@@ -18,6 +18,57 @@ export default class FlashcardSet extends Component {
       }
     }
 
+    onChangeFlashcardSetTitle(e) {
+        this.setState({
+            flashcardSet_title: e.target.value
+        });
+      }
+      
+      onChangeFlashcardSetAuthor(e) {
+        this.setState({
+            flashcardSet_author: e.target.value
+        });
+      }
+      
+      onChangeFlashcardSetDescription(e) {
+        this.setState({
+            flashcardSet_description: e.target.value
+        });
+      }
+      
+      onChangeFlashcardSetCategory(e) {
+        this.setState({
+            flashcardSet_category: e.target.value
+        });
+      }
+      
+      onChangeFlashcardSetFlashcard(e) {
+        this.setState({
+            flashcardSet_flaschard: e.target.value
+        });
+      }
+      
+      onSubmit(e) {
+        e.preventDefault();
+        
+        const newFlashcardSet = {
+            flashcardSet_title: this.state.flashcardSet_title,
+            flashcardSet_author: this.state.flashcardSet_author,
+            flashcardSet_description: this.state.flashcardSet_description,
+            flashcardSet_category: this.state.flashcardSet_category
+        };
+      
+        axios.post('http://localhost:4000/flashcardSet/add', newFlashcardSet)
+            .then(res => console.log(res.data));
+      
+        this.setState({
+            flashcardSet_title: '',
+            flashcardSet_author: '',
+            flashcardSet_description: '',
+            flashcardSet_category: ''
+        })
+      }
+
     render() {
         return (
             
@@ -89,7 +140,7 @@ export default class FlashcardSet extends Component {
                         </div>
                         <div className="form-check form-check-inline">
                             <input  className="form-check-input" 
-                                    type="radio" 
+                                    type="radio"
                                     name="categoryOptions" 
                                     id="categoryEnglish" 
                                     value="English" 
@@ -101,7 +152,6 @@ export default class FlashcardSet extends Component {
                     </div>
                 </form>
 
-// ----------------------------------------------------------------------
                 <Flashcard />
             </div>
         )
