@@ -25,7 +25,7 @@ export default class Navbar extends Component {
                     </form>
 
                     <ul class="navbar-right">
-                            <a class="nav-right" href="/signup">Sign Out</a>
+                            <a class="nav-right" href="/signout">Sign Out</a>
                             <a class="nav-right" href="/signin">Login</a>
                     </ul>
                 </nav>
