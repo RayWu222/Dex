@@ -18,62 +18,7 @@ class Flashcard extends Component {
   }
 }
 
-onChangeFlashcardSetTitle(e) {
-  this.setState({
-      flashcardSet_title: e.target.value
-  });
-}
 
-onChangeFlashcardSetAuthor(e) {
-  this.setState({
-      flashcardSet_author: e.target.value
-  });
-}
-
-onChangeFlashcardSetDescription(e) {
-  this.setState({
-      flashcardSet_description: e.target.value
-  });
-}
-
-onChangeFlashcardSetCategory(e) {
-  this.setState({
-      flashcardSet_category: e.target.value
-  });
-}
-
-onChangeFlashcardSetFlashcard(e) {
-  this.setState({
-      flashcardSet_flaschard: e.target.value
-  });
-}
-
-onSubmit(e) {
-  e.preventDefault();
-  
-  console.log(`Form submitted:`);
-  console.log(`FlashcardSet Title: ${this.state.flashcardSet_title}`);
-  console.log(`FlashcardSet Author: ${this.state.flashcardSet_author}`);
-  console.log(`FlashcardSet Description: ${this.state.flashcardSet_description}`);
-  console.log(`FlashcardSet Category: ${this.state.flashcardSet_category}`);
-  
-  const newFlashcardSet = {
-      flashcardSet_title: this.state.flashcardSet_title,
-      flashcardSet_author: this.state.flashcardSet_author,
-      flashcardSet_description: this.state.flashcardSet_description,
-      flashcardSet_category: this.state.flashcardSet_category
-  };
-
-  axios.post('http://localhost:4000/flashcardSet/add', newFlashcardSet)
-      .then(res => console.log(res.data));
-
-  this.setState({
-      flashcardSet_title: '',
-      flashcardSet_author: '',
-      flashcardSet_description: '',
-      flashcardSet_category: ''
-  })
-}
   componentDidMount() {
 
 
