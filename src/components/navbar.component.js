@@ -9,7 +9,6 @@ import Axios from 'axios';
 
 
 
-
 export default class Navbar extends Component {
 
     
@@ -17,7 +16,8 @@ export default class Navbar extends Component {
         //var search = document.getElementsByName("Test");
         var searchValue = document.getElementById("search").value;
         console.log(searchValue);
-        window.location.replace("http://localhost:3000/flashcardSet/search/" + searchValue)
+        //window.location.replace("http://localhost:3000/flashcardSet/search/" + searchValue)
+        window.location.replace("http://localhost:3000/flashcardSet/search/search?flashcardSet_title=" + searchValue)
         
     }
     

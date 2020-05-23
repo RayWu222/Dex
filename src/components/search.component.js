@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import queryString from 'query-string';
+
 
 //flash card table component
 const SearchResult = props => (
@@ -20,7 +22,11 @@ export default class SearchPage extends Component{
     
 //create array for the table of the search results
 constructor(props) {
+    
+
     super(props);
+    
+   
     this.state = {searchResult: []};
 }
 
@@ -32,11 +38,20 @@ searchResultList() {
     })
 }
 
+
 //do something right when you call the route, change the route name to return different value
 componentDidMount() {
+
+    //let value = queryString.stringify(location.search)
+    console.log(JSON.stringify(this.props.location.search))
+    let value = JSON.stringify(this.props.location.search);
+    value = value.split('=').pop();
+    value = value.substring(0, value.length-1);
+    console.log("value " + value)
    
-    
-    axios.get('http://localhost:4000/flashcardSet/search/English')
+    //let value = this.props.location.search
+    //console.log(`flashcardSet_Title` + value)
+    axios.get('http://localhost:4000/flashcardSet/search/' + value)
         .then(response => {
             console.log(response.data);
             this.setState({ searchResult: response.data });
