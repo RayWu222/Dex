@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import queryString from 'query-string';
 
 
-//flash card table component
+//flash card table componen, to put the result information into the table, such as title/author/description/category
 const SearchResult = props => (
     <tr>
         <td>{props.searchResult.flashcardSet_title}</td>
@@ -20,13 +20,9 @@ const SearchResult = props => (
 //perform search with mongoDB by taking the search value submitted by the user
 export default class SearchPage extends Component{
     
-//create array for the table of the search results
+//create an empty array for the table of the search results
 constructor(props) {
-    
-
     super(props);
-    
-   
     this.state = {searchResult: []};
 }
 
@@ -39,15 +35,21 @@ searchResultList() {
 }
 
 
-//do something right when you call the route, change the route name to return different value
+//return flashcard sets after user input the title of the set they want to search for, and it will return flashcard sets with same name 
 componentDidMount() {
-
-    //let value = queryString.stringify(location.search)
+ 
     console.log(JSON.stringify(this.props.location.search))
     let value = JSON.stringify(this.props.location.search);
+    var n;
     value = value.split('=').pop();
     value = value.substring(0, value.length-1);
-    console.log("value " + value)
+    if(value === ""){
+        value = "empty";
+    }
+    if(value.indexOf('%20') > -1){
+        n = value.replace('%20', ' ')
+    }
+    console.log("value " + n)
    
     //let value = this.props.location.search
     //console.log(`flashcardSet_Title` + value)
@@ -63,37 +65,6 @@ componentDidMount() {
 }
 
 
-//Working on the onSubmit Button to take the input user provide and return a list of the FlashCardSetTitle
-
-/*
-onSubmit(e) {
-    e.preventDefault();
-
-    console.log('Search value submitted');
-  
-    console.log(`Search Value:${search_value}`);
-    var search_value = search_value;
-    //console.log('search_value' + search_value)
-    
-    axios.get('http://localhost:4000/flashcardSet/search/' + search_value)
-        .then(response => {
-            this.setState({ searchResult: response.data });
-            console.log("The search Result data is " + response.data);
-    console.log(`Search Value:${this.state.search_value}`);
-    var search_value = this.state.search_value;    
-    axios.get('http://localhost:4000/search/')
-        .then(response => {
-            this.setState({ searchResultList: response.data });
-            console.log("The search Result data is " + SearchResultList);
-        })
-        .catch(function (error){
-            console.log(error);
-        })
-}
-
-*/
-
-//working on a button to take user value
 render() {
     return (
         <div>
@@ -115,66 +86,6 @@ render() {
         </div>
     )
 }
-
-
-/*
-render(){
-    return(
-        <div style = {{marginTop: 10}}>
-            <h3>Search</h3>
-            <form onSubmit = {this.onSubmit}>
-                <div className = "form-group">                   
-                    <input type = "text"
-                        className = "form-control"
-                        value = {this.state.search_value}
-                        onChange = {this.onChangeSearchValue}
-                        />
-                </div>
-                <div className = "form-group">
-                    <input type = "submit" value = "Search" className = "btn-btn-primary" />
-
-                </div>
-
-                <div className="form-group">
-                    <div className="form-check form-check-inline">
-                                <input  className="form-check-input" 
-                                        type="radio" 
-                                        name="categoryOptions" 
-                                        id="categoryTitle" 
-                                        value="Title" 
-                                        checked={this.state.flashcardSet_category==='Title'} 
-                                        onChange={this.onChangeFlashcardSetCategory}
-                                        />
-                                <label className="form-check-label">Title</label>
-                        </div>
-                        <div className="form-check form-check-inline">
-                            <input  className="form-check-input" 
-                                    type="radio" 
-                                    name="categoryOptions" 
-                                    id="categoryAuthor" 
-                                    value="Author"
-                                    checked={this.state.flashcardSet_category==='Author'} 
-                                    onChange={this.onChangeFlashcardSetCategory}
-                                    />
-                            <label className="form-check-label">Author</label>
-                        </div>
-                        <div>
-                            <h3>Search Result:</h3>
-                    
-                        
-                        </div>
-                        
-                        
-                    </div>
-            </form>
-            
-        </div>
-
-        
-    )
-}
-*/
-
 }
 
  
