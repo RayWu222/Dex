@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import Bar from './search-bar.component';
 
 
-//Take user input from search-bar component, return results from MongoDB and handoff to search-results component.
+//Take user input from search-bar component, return results from MongoDB and dsiplays the results.
 const SearchResult = props => (
     <tr>
         <td>{props.searchResult.flashcardSet_title}</td>
@@ -68,6 +69,7 @@ render() {
     return (
         <div>
             <h3>FlashcardSet List</h3>
+            <Bar></Bar>
             <table className="table table-striped" style={{ marginTop: 20 }} >
                 <thead>
                     <tr>

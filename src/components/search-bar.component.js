@@ -12,11 +12,8 @@ export default class SearchBar extends Component{
     }
 
     getSearch(){
-        //var search = document.getElementsByName("Test");
         var searchTerm = document.getElementById("search-bar-input").value;
-        //var searchValue = document.getElementsByID("search-bar-input").value;
         console.log("searchTerm" + searchTerm);
-        //window.location.replace("http://localhost:3000/flashcardSet/search/" + searchValue)
         window.location.replace("http://localhost:3000/flashcardSet/search/search?flashcardSet_title=" + searchTerm)
         
     }
