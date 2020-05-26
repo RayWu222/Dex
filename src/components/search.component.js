@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import queryString from 'query-string';
 
 
-//flash card table componen, to put the result information into the table, such as title/author/description/category
+//Take user input from search-bar component, return results from MongoDB and handoff to search-results component.
 const SearchResult = props => (
     <tr>
         <td>{props.searchResult.flashcardSet_title}</td>
