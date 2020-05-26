@@ -1,11 +1,27 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import "../App.css";
 
 //import logo from './logo.png';
 import { ReactComponent as Logo } from './img/dexOwl.svg'; 
+import Axios from 'axios';
+
+//submit a value and search
+
+
 
 export default class Navbar extends Component {
+
+    
+    getSearch(){
+        //var search = document.getElementsByName("Test");
+        var searchValue = document.getElementById("search").value;
+        console.log(searchValue);
+        //window.location.replace("http://localhost:3000/flashcardSet/search/" + searchValue)
+        window.location.replace("http://localhost:3000/flashcardSet/search/search?flashcardSet_title=" + searchValue)
+        
+    }
+    
+
     render (){
                     return (
             <div class="nav-container">     
@@ -19,9 +35,9 @@ export default class Navbar extends Component {
                             <a class="nav-left" href="/list">List</a>
                     </ul>
 
-                    <form class="navbar-form">
-                        <input class="navbar-text" placeholder="Search" />
-                        <a class="navbar-submit" >Search</a>
+                    <form class="navbar-form" name = "Test" >
+                        <input class="navbar-text"  placeholder="Search" id ="search"/>
+                        <a class="navbar-submit"  type = "submit" onClick ={this.getSearch} > Submit</a>
                     </form>
 
                     <ul class="navbar-right">
