@@ -13,10 +13,11 @@ export default class SearchBar extends Component{
 
     getSearch(){
         //var search = document.getElementsByName("Test");
-        var searchValue = document.getElementById("search-bar-input").value;
-        console.log(searchValue);
+        var searchTerm = document.getElementById("search-bar-input").value;
+        //var searchValue = document.getElementsByID("search-bar-input").value;
+        console.log("searchTerm" + searchTerm);
         //window.location.replace("http://localhost:3000/flashcardSet/search/" + searchValue)
-        window.location.replace("http://localhost:3000/flashcardSet/search/search?flashcardSet_title=" + searchValue)
+        window.location.replace("http://localhost:3000/flashcardSet/search/search?flashcardSet_title=" + searchTerm)
         
     }
 
@@ -31,7 +32,7 @@ export default class SearchBar extends Component{
     render(){
         return(
             <div class="navbar-search">
-                <input class="navbar-form" placeholder="Search"></input>
+                <input  class="navbar-form" placeholder="Search" id="search-bar-input"></input>
                 <button class="navbar-submit" type="submit" onClick = {this.getSearch}>Submit</button>
             </div>
         )
