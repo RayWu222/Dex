@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import "../App.css";
 
 
 //Take user input from the input field, validate and hand off to seach.component.
@@ -21,15 +22,17 @@ export default class SearchBar extends Component{
 
     onSubmit(e){
         e.preventDefault();
-
     }
 
+    testFunction(){
+        return alert("test alert")
+    }
 
     render(){
         return(
-            <div id="search-bar-container">
-                <input id="search-bar-input" placeholder="Search"></input>
-                <button id="search-bar-submit" type="submit" onClick = {this.getSearch}>Submit</button>
+            <div class="navbar-search">
+                <input class="navbar-form" placeholder="Search"></input>
+                <button class="navbar-submit" type="submit" onClick = {this.getSearch}>Submit</button>
             </div>
         )
     }

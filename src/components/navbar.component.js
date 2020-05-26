@@ -20,13 +20,9 @@ export default class Navbar extends Component {
                             <a class="nav-left" href="/create">Create</a>
                             <a class="nav-left" href="/list">List</a>
                     </ul>
-
-                    <form class="navbar-form" name = "Test" >
+                    <ul>
                         <Bar></Bar>
-                        <input class="navbar-text"  placeholder="Search" id ="search"/>
-                        <a class="navbar-submit"  type = "submit" onClick ={this.getSearch} > Submit</a>
-                    </form>
-
+                    </ul>
                     <ul class="navbar-right">
                             <a class="nav-right" href="/signup">Sign Up</a>
                             <a class="nav-right" href="/signin">Login</a>
