@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import queryString from 'query-string';
 
 
 //Take user input from search-bar component, return results from MongoDB and handoff to search-results component.
