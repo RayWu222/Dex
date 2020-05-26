@@ -220,3 +220,12 @@
     border: solid 1px black;
     padding: 20px;
   }
+
+  .navbar-search {
+    display: flex;
+    padding-top: 20px;
+  }
+
+  .navbar-form {
+    border: 1px solid black;
+  }
