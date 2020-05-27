@@ -5,13 +5,7 @@ let FlashcardSet = new Schema({
     flashcardSet_title: {
         type: String
     },
-    flashcardSet_author: {
-        type: String
-    },
     flashcardSet_description: {
-        type: String
-    },
-    flashcardSet_category: {
         type: String
     }
 });
