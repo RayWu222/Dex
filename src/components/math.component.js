@@ -83,7 +83,15 @@ render()
                     { this.searchResultList() }
                 </tbody>
             </table>
+
+            
         </div>
     )
+<<<<<<< Updated upstream
 
 
+=======
+    }
+    
+}
+>>>>>>> Stashed changes
