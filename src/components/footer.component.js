@@ -23,7 +23,7 @@ export default class Footer extends Component{
                <strong>Subjects</strong> 
                             <ul>
                                 <li><a href ="/" Math>Math</a></li> 
-                                <li><a href ="/create" Science>ience</a></li> 
+                                <li><a href ="/create" Science>Science</a></li> 
                                 <li><a href ="/list" English>English</a></li>
                                 <li><a href ="/search" Search>Search</a></li>
                             </ul>
