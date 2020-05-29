@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, version } from 'react';
 import { ReactComponent as Logo } from './img/dexOwl.svg';
 import { Link } from 'react-router-dom';
 import Math, { Component } from 'math';
@@ -43,7 +43,7 @@ componentDidMount() {
     value = value.split('=').pop();
     value = value.substring(0, value.length-1);
     if(value === ""){
-        value = "empty";
+        value = "empty"
     }
     if(value.indexOf('%20') > -1){
         n = value.replace('%20', ' ')
