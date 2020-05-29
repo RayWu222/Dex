@@ -1,7 +1,7 @@
 import React, { Component, version } from 'react';
 import { ReactComponent as Logo } from './img/dexOwl.svg';
 import { Link } from 'react-router-dom';
-import Math, { Component } from 'math';
+import Subject, { Component } from 'subject';
 
 //flash card table componen, to put the result information into the table, such as title/author/description/category
 const SearchResult = props => (
