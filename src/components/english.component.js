@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { ReactComponent as Logo } from './img/dexOwl.svg';
 import { Link } from 'react-router-dom';
+import Science, { Component } from 'science';
 
 //flash card table componen, to put the result information into the table, such as title/author/description/category
 const SearchResult = props => (
@@ -66,17 +67,9 @@ componentDidMount() {
 render() {
     return (
         <div>
-            <h3>FlashcardSet List</h3>
+            <h3>English</h3>
             <table className="table table-striped" style={{ marginTop: 20 }} >
-                <thead>
-                    <tr>
-                        <th>Title</th>
-                        <th>Author</th>
-                        <th>Description</th>
-                        <th>Category</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
+               
                 <tbody>
                     { this.searchResultList() }
                 </tbody>
