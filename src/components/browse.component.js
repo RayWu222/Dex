@@ -4,6 +4,7 @@ import { ReactComponent as Logo } from './img/dexOwl.svg';
 import { Link } from 'react-router-dom';
 
 
+
 const BrowseResult = props => (
     <tr>
         <td>{props.browseResult.flashcardSet_title}</td>
