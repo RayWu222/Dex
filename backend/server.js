@@ -3,8 +3,10 @@ const app = express();
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
-const flashcardSetRoutes = express.Router();
+const router = express.Router();
 const PORT = 4000;
+
+var testAPIRouter = require('./routes/testAPI');
 
 let FlashcardSet = require('./flashcardSet.model');
 
@@ -18,7 +20,9 @@ connection.once('open', function() {
     console.log("MongoDB database connection established successfully");
 })
 
-flashcardSetRoutes.route('/').get(function(req, res) {
+app.use('/testAPI', testAPIRouter);
+/*
+router.route('/').get(function(req, res) {
     FlashcardSet.find(function(err, flashcardSet) {
         if (err) {
             console.log(err);
@@ -28,7 +32,7 @@ flashcardSetRoutes.route('/').get(function(req, res) {
     });
 });
 
-flashcardSetRoutes.route('/list').get(function(req, res) {
+router.route('/list').get(function(req, res) {
     FlashcardSet.find(function(err, flashcardSet) {
         if (err) {
             console.log(err);
@@ -38,14 +42,14 @@ flashcardSetRoutes.route('/list').get(function(req, res) {
     });
 });
 
-flashcardSetRoutes.route('/:id').get(function(req, res) {
+router.route('/:id').get(function(req, res) {
     let id = req.params.id;
     FlashcardSet.findById(id, function(err, flashcardSet) {
         res.json(flashcardSet);
     });
 });
 
-flashcardSetRoutes.route('/update/:id').post(function(req, res) {
+router.route('/update/:id').post(function(req, res) {
     FlashcardSet.findById(req.params.id, function(err, flashcardSet) {
         if (!flashcardSet)
             res.status(404).send("data is not found (server.js:41)");
@@ -64,7 +68,7 @@ flashcardSetRoutes.route('/update/:id').post(function(req, res) {
     });
 });
 
-flashcardSetRoutes.route('/add').post(function(req, res) {
+router.route('/add').post(function(req, res) {
     let flashcardSet = new FlashcardSet(req.body);
     flashcardSet.save()
         .then(flashcardSet => {
@@ -74,6 +78,7 @@ flashcardSetRoutes.route('/add').post(function(req, res) {
             res.status(400).send('adding new flashcardSet failed');
         });
 });
+*/
 
 app.use('/flashcardSet', flashcardSetRoutes);
 
