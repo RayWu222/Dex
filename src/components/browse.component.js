@@ -23,13 +23,14 @@ export default class Browse extends Component{
     }
     
     
-     //Reult lit
+    //Put the result in a list
     browseResultList() {
         return this.state.browseResult.map(function(currentFlashcardSet, i){
             return <BrowseResult browseResult={currentFlashcardSet} key={i} />;
         })
     }
 
+    
     componentDidMount() {
  
         console.log(JSON.stringify(this.props.location.search))
@@ -47,9 +48,7 @@ export default class Browse extends Component{
        
         //let value = this.props.location.search
         //console.log(`flashcardSet_Title` + value)
-        axios.get('http://localhost:4000/flashcardSet/browse/Math')
-        axios.get('http://localhost:4000/flashcardSet/browse/Science')
-        axios.get('http://localhost:4000/flashcardSet/browse/English')
+        axios.get('http://localhost:4000/flashcardSet/browse/' +  value)
         //axios.get('http://localhost:4000/flashcardSet/browse/' + value)
             .then(response => {
                 console.log(response.data);
@@ -70,10 +69,10 @@ export default class Browse extends Component{
                 <div>
                <strong>Subjects</strong> 
                 <ul>
-                 <li><a href ="/browse/math" Math>Math</a></li> 
-                 <li><a href ="/browse/science" Science>Science</a></li> 
-                 <li><a href ="/browse/english" English>English</a></li>
-                 <li><a href ="/search" Search>Search</a></li>
+                 <li><a href ="/browse/browse?flashcardSet_category=Math" Math>Math</a></li> 
+                 <li><a href ="/browse/browse?flashcardSet_category=Science" Science>Science</a></li> 
+                 <li><a href ="/browse/browse?flashcardSet_category=English" English>English</a></li>
+                 <li><a href ="/browse/" Search></a></li>
                 </ul>
                 </div>
                 <div>
@@ -107,5 +106,4 @@ export default class Browse extends Component{
 
 
     
-
 
