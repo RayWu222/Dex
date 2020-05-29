@@ -71,8 +71,8 @@ export default class Browse extends Component{
                <strong>Subjects</strong> 
                 <ul>
                  <li><a href ="/browse/math" Math>Math</a></li> 
-                 <li><a href ="/create" Science>Science</a></li> 
-                 <li><a href ="/list" English>English</a></li>
+                 <li><a href ="/browse/science" Science>Science</a></li> 
+                 <li><a href ="/browse/english" English>English</a></li>
                  <li><a href ="/search" Search>Search</a></li>
                 </ul>
                 </div>
