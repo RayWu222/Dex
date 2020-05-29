@@ -24,7 +24,7 @@ export default class Navbar extends Component {
                         <Bar></Bar>
                     </ul>
                     <ul class="navbar-right">
-                            <a class="nav-right" href="/signup">Sign Up</a>
+                            <a class="nav-right" href="/signout">Sign Out</a>
                             <a class="nav-right" href="/signin">Login</a>
                     </ul>
                 </nav>

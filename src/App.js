@@ -9,9 +9,14 @@ import LandingPage from "./components/landing-page.component";
 import CreateFlashcardSet from "./components/create-flashcardset.component";
 import EditFlashcardSet from "./components/edit-flashcardset.component";
 import FlashcardSetList from "./components/flashcardset-list.component";
+<<<<<<< HEAD
 import SearchPage from "./components/search.component";
 import SignIn from "./components/signup.component";
 import SignUp from "./components/signup.component";
+=======
+import SignIn from "./components/signin.component";
+import SignOut from "./components/signout.component";
+>>>>>>> b7824bbfc6edc2d5ef455155f9d5931506986d13
 
 
 class App extends Component {
@@ -25,7 +30,7 @@ class App extends Component {
                 <Route path="/flashcardSet/search/:search" exact component={SearchPage} />
                 <Route path="/edit/:id" component={EditFlashcardSet} />
                 <Route path="/create" component={CreateFlashcardSet} />
-                <Route path="/signup" component={SignUp} />
+                <Route path="/signout" component={SignOut} />
                 <Route path="/signin" component={SignIn} />
       </Router>
     );
