@@ -13,7 +13,7 @@ import SearchPage from "./components/search.component";
 import SignIn from "./components/signup.component";
 import SignUp from "./components/signup.component";
 import Browse from  "./components/browse.component";
-
+import Subject from "./components/subject.component";
 
 class App extends Component {
   render() {
@@ -29,6 +29,7 @@ class App extends Component {
                 <Route path="/signup" component={SignUp} />
                 <Route path="/signin" component={SignIn} />
                 <Route path="/browse" component={Browse} />
+                <Route path="/subject/:subject" component={Subject} />
       </Router>
     );
   }
