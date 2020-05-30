@@ -12,8 +12,8 @@ import FlashcardSetList from "./components/flashcardset-list.component";
 import SearchPage from "./components/search.component";
 import SignIn from "./components/signup.component";
 import SignUp from "./components/signup.component";
-import Browse from  "./components/browse.component";
-import Subject from "./components/subject.component";
+import Browse from  "./components/browseLink.component";
+import Subject from "./components/browse.component";
 
 class App extends Component {
   render() {

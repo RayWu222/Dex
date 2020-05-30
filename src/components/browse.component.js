@@ -49,7 +49,7 @@ export default class Browse extends Component{
        
         //let value = this.props.location.search
         //console.log(`flashcardSet_Title` + value)
-        axios.get('http://localhost:4000/flashcardSet/browse/' +  value)
+        axios.get('http://localhost:4000/flashcardSet/browse/Math' )
         //axios.get('http://localhost:4000/flashcardSet/browse/' + value)
             .then(response => {
                 console.log(response.data);
