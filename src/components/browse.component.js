@@ -49,7 +49,7 @@ export default class Browse extends Component{
        
         //let value = this.props.location.search
         //console.log(`flashcardSet_Title` + value)
-        axios.get('http://localhost:4000/flashcardSet/browse/Math' )
+        axios.get('http://localhost:4000/flashcardSet/subject/' + value )
         //axios.get('http://localhost:4000/flashcardSet/browse/' + value)
             .then(response => {
                 console.log(response.data);
@@ -70,9 +70,9 @@ export default class Browse extends Component{
                 <div>
                <strong>Subjects</strong> 
                 <ul>
-                 <li><a href ="/browse/browse?flashcardSet_category=Math" Math>Math</a></li> 
-                 <li><a href ="/browse/browse?flashcardSet_category=Science" Science>Science</a></li> 
-                 <li><a href ="/browse/browse?flashcardSet_category=English" English>English</a></li>
+                 <li><a href ="/subject/browse?flashcardSet_category=Math" Math>Math</a></li> 
+                 <li><a href ="/subject/browse?flashcardSet_category=Science" Science>Science</a></li> 
+                 <li><a href ="/subject/browse?flashcardSet_category=English" English>English</a></li>
                  <li><a href ="/browse/" Search></a></li>
                 </ul>
                 </div>

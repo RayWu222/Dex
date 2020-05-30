@@ -47,6 +47,13 @@ flashcardSetRoutes.route('/search/:value').get(function(req, res){
     });
 });
 
+flashcardSetRoutes.route('/subject/:value').get(function(req, res){
+    let value = req.params.value;
+    FlashcardSet.find({flashcardSet_category: value}, function(err, flashcardSet) {       
+        res.json(flashcardSet);
+    });
+});
+
 
 flashcardSetRoutes.route('/update/:id').post(function(req, res) {
     FlashcardSet.findById(req.params.id, function(err, flashcardSet) {
