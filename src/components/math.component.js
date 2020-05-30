@@ -65,7 +65,7 @@ componentDidMount() {
 }
 
 
-render() 
+render() {
     return (
         <div>
             <h3>FlashcardSet List</h3>
@@ -87,11 +87,6 @@ render()
             
         </div>
     )
-<<<<<<< Updated upstream
 
-
-=======
-    }
-    
 }
->>>>>>> Stashed changes
+}
