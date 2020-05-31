@@ -1,91 +1,67 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import "../App.css";
 import Flashcard from './flashcard.component';
 
-import ReactDOM from "react-dom";
-import CanvasDraw from "react-canvas-draw";
+const flashcardList = [<Flashcard />, <Flashcard />]
+const FlashcardSet = () => {
+    const [title, setTitle] = useState('');
+    const [author, setAuthor] = useState('');
+    const [description, setDescription] = useState('');
+    const [category, setCategory] = useState('');
+    const [flashcards, setFlashcards] = useState(flashcardList);
 
-export default class FlashcardSet extends Component {
-    constructor(props) {
-        super(props)
-    
-        this.state = {
-          flashcardSet_title: '',
-          flashcardSet_author: '',
-          flashcardSet_description: '',
-          flashcardSet_category: ''
-      }
+    /*
+    // re-rendering in response to some kind of change, such as state change, API requests, etc.
+    React.useEffect(() => {
+        localStorage.setItem('myValueInLocalStorage', value);
+    }, [value]);
+    axios.post('http://localhost:4000/flashcardSet/add', newFlashcardSet)
+            .then(res => console.log(res.data));
+    */
+
+    const onChangeTitle = event => setTitle(event.target.title)
+    const onChangeAuthor = event => setAuthor(event.target.author)
+    const onChangeDescription = event => setDescription(event.target.description)
+    const onChangeCategory = event => setCategory(event.target.category)
+    const onChangeFlashcards = event => setFlashcards(event.target.flashcards)
+
+    const handleClick = () => {
+        if (flashcards) {
+            setFlashcards(flashcardList.concat(flashcards))
+
+            onChangeTitle('Submited')
+        }
     }
 
-    onChangeFlashcardSetTitle(e) {
-        this.setState({
-            flashcardSet_title: e.target.value
-        });
-      }
-      
-      onChangeFlashcardSetAuthor(e) {
-        this.setState({
-            flashcardSet_author: e.target.value
-        });
-      }
-      
-      onChangeFlashcardSetDescription(e) {
-        this.setState({
-            flashcardSet_description: e.target.value
-        });
-      }
-      
-      onChangeFlashcardSetCategory(e) {
-        this.setState({
-            flashcardSet_category: e.target.value
-        });
-      }
-      
-      onChangeFlashcardSetFlashcard(e) {
-        this.setState({
-            flashcardSet_flaschard: e.target.value
-        });
-      }
-      
-      onSubmit(e) {
-        e.preventDefault();
-        
-        const newFlashcardSet = {
-            flashcardSet_title: this.state.flashcardSet_title,
-            flashcardSet_author: this.state.flashcardSet_author,
-            flashcardSet_description: this.state.flashcardSet_description,
-            flashcardSet_category: this.state.flashcardSet_category
-        };
-      
-        axios.post('http://localhost:4000/flashcardSet/add', newFlashcardSet)
-            .then(res => console.log(res.data));
-      
-        this.setState({
-            flashcardSet_title: '',
-            flashcardSet_author: '',
-            flashcardSet_description: '',
-            flashcardSet_category: ''
-        })
-      }
 
-    render() {
+    const submitHandler = e => {
+        e.preventDefault()
+    }
+
+    
+
+    
+
+
+        
+
+
         return (
-            
+            <form onSubmit={submitHandler}>
             <div class="title-container">
                 <div class="title-name">
                     <h3>Create New Flashcard Set</h3>
                 </div>
-                <form onSubmit={this.onSubmit}>
                     <div className="form-group">
                         <div class="form-title"> 
                             <label>Title: </label>
                         </div>
                         <div class="form-input">
-                            <input  type="text"
+                            <input  
+                                type="text"
                                 className="form-control"
-                                value={this.state.flashcardSet_title}
-                                onChange={this.onChangeFlashcardSetTitle}
+                                onChange={onChangeTitle}
                                 />
                         </div>        
                     </div>
@@ -97,8 +73,7 @@ export default class FlashcardSet extends Component {
                             <input 
                                 type="text" 
                                 className="form-control"
-                                value={this.state.flashcardSet_author}
-                                onChange={this.onChangeFlashcardSetAuthor}
+                                onChange={onChangeAuthor}
                                 />
                         </div>        
                     </div>
@@ -110,50 +85,30 @@ export default class FlashcardSet extends Component {
                             <input 
                                 type="text"
                                 className="form-control"
-                                value={this.state.flashcardSet_description}
-                                onChange={this.onChangeFlashcardSetDescription}
+                                onChange={onChangeDescription}
                                 />
                         </div>
                     </div>
-                    <div className="form-group">
-                        <div className="form-check form-check-inline">
-                            <input  className="form-check-input" 
-                                    type="radio" 
-                                    name="categoryOptions" 
-                                    id="categoryMath" 
-                                    value="Math"
-                                    checked={this.state.flashcardSet_category==='Math'} 
-                                    onChange={this.onChangeFlashcardSetCategory}
-                                    />
-                            <label className="form-check-label">Math</label>
-                        </div>
-                        <div className="form-check form-check-inline">
-                            <input  className="form-check-input" 
-                                    type="radio" 
-                                    name="categoryOptions" 
-                                    id="categoryScience" 
-                                    value="Science" 
-                                    checked={this.state.flashcardSet_category==='Science'} 
-                                    onChange={this.onChangeFlashcardSetCategory}
-                                    />
-                            <label className="form-check-label">Science</label>
-                        </div>
-                        <div className="form-check form-check-inline">
-                            <input  className="form-check-input" 
-                                    type="radio"
-                                    name="categoryOptions" 
-                                    id="categoryEnglish" 
-                                    value="English" 
-                                    checked={this.state.flashcardSet_category==='English'} 
-                                    onChange={this.onChangeFlashcardSetCategory}
-                                    />
-                            <label className="form-check-label">English</label>
-                        </div>
-                    </div>
-                </form>
 
-                <Flashcard />
+                <div>
+                    <ul>
+                        {flashcards.map(flashcard => (
+                            <li key={flashcard}>{flashcard}</li>
+                        ))}
+                    </ul>
+                </div>
+
+                <button
+                    className="search-field-button"
+                    type="button"
+                    onClick={handleClick}>
+                    Submit
+                </button>
+                
             </div>
+            </form>
         )
-    }
+    
 }
+
+export default FlashcardSet;

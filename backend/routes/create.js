@@ -1,9 +1,8 @@
 var express = require('express');
 var router = express.Router();
 
-    router.get('/', function(req, res, next) {
-        res.send('API is working properly');
-    /*
+
+router.route('/').post(function(req, res) {
     let flashcardSet = new FlashcardSet(req.body);
     flashcardSet.save()
         .then(flashcardSet => {
@@ -12,7 +11,6 @@ var router = express.Router();
         .catch(err => {
             res.status(400).send('adding new flashcardSet failed');
         });
-        */
-    });
+});
 
   module.exports = router;
