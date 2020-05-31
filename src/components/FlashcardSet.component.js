@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+//import axios from 'axios';
 import "../App.css";
 import Flashcard from './flashcard.component';
 
 const flashcardList = [<Flashcard />, <Flashcard />]
+const num = 2;
 const FlashcardSet = () => {
     const [title, setTitle] = useState('');
     const [author, setAuthor] = useState('');
     const [description, setDescription] = useState('');
     const [category, setCategory] = useState('');
+    const [numFlashcards] = useState(num);
     const [flashcards, setFlashcards] = useState(flashcardList);
 
     /*
