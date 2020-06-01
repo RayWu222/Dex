@@ -1,11 +1,15 @@
 const mongoose = require('mongoose');
+
 const Schema = mongoose.Schema;
 
 let FlashcardSet = new Schema({
-    flashcardSet_title: {
+    title: {
         type: String
     },
-    flashcardSet_description: {
+    author: {
+        type: String
+    },
+    description: {
         type: String
     }
 });

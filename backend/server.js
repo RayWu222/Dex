@@ -14,12 +14,11 @@ var listRouter = require('./routes/list');
 var testAPIRouter = require('./routes/testAPI');
 
 
-var FlashcardSet = require('./models/flashcardset.model');
 
 app.use(cors());
-var jsonParser = bodyParser.json();
-var urlencodedParser = bodyParser.urlencoded({extended: false});
+app.use(bodyParser.json());
 
+mongoose.Promise = global.Promise;
 
 mongoose.connect('mongodb+srv://AD410_User:dbPassword@dex-cluster-o3nrm.mongodb.net/test', { useNewUrlParser: true });
 const connection = mongoose.connection;
@@ -28,18 +27,46 @@ connection.once('open', function() {
     console.log("MongoDB database connection established successfully");
 })
 
+var flashcardSet = new mongoose.Schema({
+    title: String,
+    author: String,
+    description: String
+});
+
+var FlashcardSet = mongoose.model("FlashcardSet", flashcardSet)
 
 app.use('/', function (req, res) {
-    res.send('Hello bitch! - /');
+    res.send('Home');
+    
+    var flashcardSet = new FlashcardSet(req.body);
+    flashcardSet.save()
+        .then(flashcardSet => {
+            res.status(200).json({flashcardSet: 'flashcardSet added successfully'});
+        })
+        .catch(err => {
+            res.status(400).send('adding new flashcardSet failed');
+        });
 });
+
+app.post('/', function (req, res) {
+    var flashcardSet = new FlashcardSet(req.body);
+    flashcardSet.save()
+        .then(flashcardSet => {
+            res.status(200).json({flashcardSet: 'flashcardSet added successfully'});
+        })
+        .catch(err => {
+            res.status(400).send('adding new flashcardSet failed');
+        });
+});
+
 app.use('/create', function (req, res) {
-    res.send('Hello bitch! - /create');
+    res.send('Create');
 });
 app.use('/list', function (req, res) {
-    res.send('Hello bitch! - /list');
+    res.send('List');
 });
-app.use('/testAPI', jsonParser, function (req, res) {
-    res.send('Hello bitch! - /testAPI');
+app.use('/testAPI', function (req, res) {
+    res.send('TestAPI');
 });
 
 

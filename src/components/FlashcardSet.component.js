@@ -1,44 +1,50 @@
 import React, { useState, useEffect } from 'react';
-//import axios from 'axios';
+import axios from 'axios';
 import "../App.css";
 import Flashcard from './flashcard.component';
 
-const flashcardList = [<Flashcard />, <Flashcard />]
+const flashcardList = [<Flashcard />]
 const num = 2;
+
 const FlashcardSet = () => {
     const [title, setTitle] = useState('');
     const [author, setAuthor] = useState('');
     const [description, setDescription] = useState('');
-    const [category, setCategory] = useState('');
-    const [numFlashcards] = useState(num);
+    //const [category, setCategory] = useState('');
+    //const [numFlashcards] = useState(num);
     const [flashcards, setFlashcards] = useState(flashcardList);
 
-    /*
+    
     // re-rendering in response to some kind of change, such as state change, API requests, etc.
     React.useEffect(() => {
-        localStorage.setItem('myValueInLocalStorage', value);
-    }, [value]);
-    axios.post('http://localhost:4000/flashcardSet/add', newFlashcardSet)
-            .then(res => console.log(res.data));
-    */
+        
+    });
+    
+    
 
-    const onChangeTitle = event => setTitle(event.target.title)
-    const onChangeAuthor = event => setAuthor(event.target.author)
-    const onChangeDescription = event => setDescription(event.target.description)
-    const onChangeCategory = event => setCategory(event.target.category)
-    const onChangeFlashcards = event => setFlashcards(event.target.flashcards)
 
     const handleClick = () => {
         if (flashcards) {
             setFlashcards(flashcardList.concat(flashcards))
-
-            onChangeTitle('Submited')
         }
     }
 
 
     const submitHandler = e => {
         e.preventDefault()
+        alert(title + ", " + author + ", " + description);
+       
+
+        
+        axios.post('http://localhost:4000/create', {
+            title, author, description
+        })
+        .then(res => console.log(res.data));
+        
+        setTitle(' ');
+        setAuthor(' ');
+        setDescription(' ');
+        
     }
 
     
@@ -50,7 +56,7 @@ const FlashcardSet = () => {
 
 
         return (
-            <form onSubmit={submitHandler}>
+            <form onSubmit={submitHandler} method="post" action='/create'>
             <div class="title-container">
                 <div class="title-name">
                     <h3>Create New Flashcard Set</h3>
@@ -63,7 +69,8 @@ const FlashcardSet = () => {
                             <input  
                                 type="text"
                                 className="form-control"
-                                onChange={onChangeTitle}
+                                onChange={event => setTitle(event.target.value)}
+                                value={title}
                                 />
                         </div>        
                     </div>
@@ -75,7 +82,7 @@ const FlashcardSet = () => {
                             <input 
                                 type="text" 
                                 className="form-control"
-                                onChange={onChangeAuthor}
+                                onChange={event => setAuthor(event.target.value)}
                                 />
                         </div>        
                     </div>
@@ -87,7 +94,7 @@ const FlashcardSet = () => {
                             <input 
                                 type="text"
                                 className="form-control"
-                                onChange={onChangeDescription}
+                                onChange={event => setDescription(event.target.value)}
                                 />
                         </div>
                     </div>
@@ -104,6 +111,13 @@ const FlashcardSet = () => {
                     className="search-field-button"
                     type="button"
                     onClick={handleClick}>
+                    Add Flashcard
+                </button>
+
+                <button
+                    className="search-field-button"
+                    type="button"
+                    onClick={submitHandler}>
                     Submit
                 </button>
                 
