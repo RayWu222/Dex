@@ -11,10 +11,10 @@ export default class Browse extends Component{
                 <div>
                <strong>Subjects</strong> 
                 <ul>
-                 <li><a href ="/browse/browse?flashcardSet_category=Math" Math>Math</a></li> 
-                 <li><a href ="/browse/browse?flashcardSet_category=Science" Science>Science</a></li> 
-                 <li><a href ="/browse/browse?flashcardSet_category=English" English>English</a></li>
-                 <li><a href ="/browse/" Search></a></li>
+                 <li><a href ="/subject/browse?flashcardSet_category=Math" Math>Math</a></li> 
+                 <li><a href ="/subject/browse?flashcardSet_category=Science" Science>Science</a></li> 
+                 <li><a href ="/subject/browse?flashcardSet_category=English" English>English</a></li>
+                 <li><a href ="/subject/" Search></a></li>
                 </ul>
                 </div>
         )
