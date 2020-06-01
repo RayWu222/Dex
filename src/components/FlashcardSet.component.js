@@ -17,7 +17,9 @@ const FlashcardSet = () => {
     
     // re-rendering in response to some kind of change, such as state change, API requests, etc.
     React.useEffect(() => {
-        
+        setTitle(' ');
+        setAuthor(' ');
+        setDescription(' ');
     });
 
 
@@ -37,12 +39,7 @@ const FlashcardSet = () => {
         axios.post('http://localhost:4000/create', {
             title, author, description, category, flashcards
         })
-        .then(res => console.log(res.data));
-        
-        setTitle(' ');
-        setAuthor(' ');
-        setDescription(' ');
-        
+        .then(res => console.log(res.data));        
     }
 
         return (
@@ -61,7 +58,6 @@ const FlashcardSet = () => {
                                     type="text"
                                     className="form-control"
                                     onChange={event => setTitle(event.target.value)}
-                                    value={title}
                                     />
                             </div>        
                         </div>

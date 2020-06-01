@@ -3,7 +3,7 @@ var router = express.Router();
 var axios = require('axios');
 
 router.route('/').get(function(req, res) {
-    axios.get('http://localhost:4000/flashcardSet/')
+    axios.get('/')
     .then(response => {
         this.setState({ flashcardSet: response.data });
     })

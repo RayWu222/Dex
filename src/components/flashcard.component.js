@@ -36,6 +36,10 @@ const Flashcard = () => {
         alert('Swapped');
     }
 
+    const doSomething = () => {
+        
+    }
+
     return (  
         <div class="set-container">
                                                 
@@ -128,10 +132,10 @@ const Flashcard = () => {
 
             {editState && 
             <div className="save-container">
-                <button type="button" onClick={}>
+                <button type="button" onClick={() => doSomething}>
                     Clear
                 </button>
-                <button type="button" onClick={}> 
+                <button type="button" onClick={() => doSomething}> 
                     Undo
                 </button>
                 </div>

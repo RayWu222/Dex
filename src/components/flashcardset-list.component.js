@@ -22,7 +22,7 @@ export default class FlashcardSetList extends Component {
     }
 
     componentDidMount() {
-        axios.get('./backend/routes/list')
+        axios.get('http://localhost:4000/list')
         .then(response => {
             this.setState({ flashcardSet: response.data });
         })
