@@ -171,8 +171,7 @@
 .title-container {
   border: 1px solid greenyellow;
   flex-direction: column;
-  justify-content: flex-start;
-  width: 50%;
+  width: 80%;
   background: whitesmoke;
 }
 
@@ -206,41 +205,145 @@
   border: 1px solid black;
 }
 
-.top-flashcard {
-  display: flex;
-  flex-grow: 1;
-  background: red;
-  height: 40px;
-  margin: 20px;
-}
-
+/* Bottom Flashcard */
 .bottom-flashcard {
   display: flex;
   height: 300px;
 }
 
-.left-flashcard {
+  /* Left Flashcard */
+  .left-flashcard {
+    display: flex;
+    width: 45%;
+    border: solid 1px blue;
+  }
+
+  /* Middle Flashcard */
+  .middle-flashcard {
+    display: flex;
+    width: 10%;
+    border: solid 1px blue;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .middle-swap {
+    display: flex;
+  }
+
+  .middle-button {
+    height: 30px;
+  }
+
+  /* Right Flashcard */
+  .right-flashcard {
+    display: flex;
+    width: 45%;
+    border: solid 1px blue;
+  }
+
+
+
+/* Toolbar Properties */
+.tools-container {
   display: flex;
-  margin: 20px;
-  width: 50%;
-  background-image: url(https://i.pinimg.com/originals/e1/89/13/e189135cecb98637bc67e79c5f19e3ea.jpg);
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
+  flex-direction: row;
+  justify-content: space-evenly;
+  height: 50px;
+  border: solid 1px red;
 }
 
-.right-flashcard {
-  display: flex;
-  margin: 20px;
-  width: 50%;
-  background-image: url(https://i.pinimg.com/originals/e1/89/13/e189135cecb98637bc67e79c5f19e3ea.jpg);
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-}
+  /* Brush */
+      .brush-container {
+        display: flex;
+        width: 20%;
+        border: solid 1px green;
+      }
 
-.submitBar {
-  display: flex;
-  flex-direction: row-reverse;
-  border: solid 1px black;
+      .brush-group {
+        display: flex;
+        width: 50%;
+      }
 
-  padding: 20px;
-}
+  /* Text */
+    .text-container {
+      display: flex;
+      width: 40%;
+      border: solid 1px blue;
+    }
+
+    .text-button {
+      border: solid 1px blue;
+    }
+
+
+  /* Color */
+    .color-container {
+      display: flex;
+      width: 10%;
+      border: solid 1px yellow;    
+    }
+
+    .color-selected {
+      border: solid 1px yellow;
+    }
+
+    .color-picker {
+      border: solid 1px yellow;
+    }
+
+  /* Background */
+    .background-container {
+      display: flex;
+      width: 20%;
+      border: solid 1px orange;
+    }
+
+    .background-group {
+      display: flex;
+      width: 50%;
+    }
+
+    .background-dropdown {
+      border: solid 1px orange;
+    }
+
+
+  /* Save Container */
+    .save-container {
+      display: flex;
+      border: solid 1px purple;
+    }
+
+
+
+  /* Submit Bar */
+    .submitBar {
+      display: flex;
+      flex-direction: row-reverse;
+      border: solid 1px black;
+      padding: 20px;
+    }
+
+
+
+  .toolbar-icon {
+    display: flex;
+    height: 48px;
+    width: 60%;
+    justify-content: center;
+    align-items: center;
+    background-color: green;
+    border: 1px solid black;
+  }
+
+  .toolbar-input {
+    display: flex;
+    background-color: lightgreen;
+    width: 40%;
+  }
+
+  .toolbar-group {
+    display: flex;
+    width:10%;
+  }

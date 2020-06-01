@@ -1,18 +1,22 @@
 const mongoose = require('mongoose');
+
 const Schema = mongoose.Schema;
 
 let FlashcardSet = new Schema({
-    flashcardSet_title: {
+    title: {
         type: String
     },
-    flashcardSet_author: {
+    author: {
         type: String
     },
-    flashcardSet_description: {
+    description: {
         type: String
     },
-    flashcardSet_category: {
+    category: {
         type: String
+    },
+    flashcards: {
+        type: Array
     }
 });
 
