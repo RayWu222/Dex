@@ -1,152 +1,158 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import CanvasDraw from "react-canvas-draw";
 import "../App.css";
 
 
-class Flashcard extends Component {
-  constructor(props) {
-    super(props)
 
-    this.state = {
-      // Default Properties
-      color: "#ffc600",
-      width: 537,
-      height: 298,
-      brushRadius: 10,
-      lazyRadius: 4
-  }
-}
+const Flashcard = () => {
+      const [color, setColor] = useState('#ffc600');
+      const [width, setWidth] = useState(500);
+      const [height, setHeight] = useState(250);
+      const [brushRadius, setBrushRadius] = useState(10);
+      const [lazyRadius, setLazyRadius] = useState(2);
+      const [editState, setEditState] = useState(false);
 
+    var front = <CanvasDraw 
+        brushColor={color}
+        brushRadius={brushRadius}
+        lazyRadius={lazyRadius}
+        canvasWidth={width}
+        canvasHeight={height} 
+        disabled={!editState}
+        />
+    var back = <CanvasDraw 
+        brushColor={color}
+        brushRadius={brushRadius}
+        lazyRadius={lazyRadius}
+        canvasWidth={width}
+        canvasHeight={height} 
+        disabled={true} />
 
-  componentDidMount() {
+    const [flashcards, setFlashcards] = useState([front, back]);
 
+    const triggerClear = () => {
+        front.clear()
+    }
 
-  }
+  
+    React.useEffect( () => {
 
-  render() {
-    return (
+    });
 
-      
-    <div class="set-container">
-                                            
-        <div className="flashcard-container">
-            <div class="tools-container">
+    const swapFlashcard = () => {
+        var temp = {front};
+        front = {back};
+        back = {temp};
+        alert('Swapped');
+    }
 
-                <div class="brush-container">
-                    <div class="brush-group">
-                        <div class="toolbar-icon">
-                            Brush-Radius:
-                        </div>
-                        <input
-                            class="toolbar-input"
-                            type="number"
-                            value={this.state.brushRadius}
-                            onChange={e =>
-                                this.setState({ brushRadius: parseInt(e.target.value, 10) })
-                            }
-                        />
-                    </div>
-                    <div class="brush-group">
-                        <div class="toolbar-icon">
-                            Lazy-Radius:
-                        </div>
-                        <input
-                                class="toolbar-input"
-                            type="number"
-                            value={this.state.lazyRadius}
-                            onChange={e =>
-                                this.setState({ lazyRadius: parseInt(e.target.value, 10) })
-                            }
-                        />
-                    </div>
-                </div>
+    return (  
+        <div class="set-container">
+                                                
+            <div className="flashcard-container">
+                {editState && <div class="tools-container">
 
-                <div class="text-container">
-                    Text
-                </div>
-
-                <div class="color-container">
-                    Color
-                </div>
-
-                <div class="background-container">
-                    <div class="background-group">
-                        <div class="toolbar-icon">Width:</div>
-                            <input 
+                    <div class="brush-container">
+                        <div class="brush-group">
+                            <div class="toolbar-icon">
+                                Brush-Radius:
+                            </div>
+                            <input
                                 class="toolbar-input"
                                 type="number"
-                                value={this.state.width}
+                                value={brushRadius}
                                 onChange={e =>
-                                this.setState({ width: parseInt(e.target.value, 10) })
+                                    setBrushRadius(e.target.value)
                                 }
                             />
-                    </div>
-                    <div class="background-group">
-                        <div class="toolbar-icon">
-                            Height:
                         </div>
-                        <input
-                            class="toolbar-input"
-                            type="number"
-                            value={this.state.height}
-                            onChange={e =>
-                                this.setState({ height: parseInt(e.target.value, 10) })
-                            }
-                        />
+                        <div class="brush-group">
+                            <div class="toolbar-icon">
+                                Lazy-Radius:
+                            </div>
+                            <input
+                                    class="toolbar-input"
+                                type="number"
+                                value={lazyRadius}
+                                onChange={e =>
+                                    setLazyRadius(e.target.value)
+                                }
+                            />
+                        </div>
+                    </div>
+
+                    <div class="text-container">
+                        Text
+                    </div>
+
+                    <div class="color-container">
+                        Color
+                    </div>
+
+                    <div class="background-container">
+                        <div class="background-group">
+                            <div class="toolbar-icon">Width:</div>
+                                <input 
+                                    class="toolbar-input"
+                                    type="number"
+                                    value={width}
+                                    onChange={e =>
+                                        setWidth(e.target.value)
+                                    }
+                                />
+                        </div>
+                        <div class="background-group">
+                            <div class="toolbar-icon">
+                                Height:
+                            </div>
+                            <input
+                                class="toolbar-input"
+                                type="number"
+                                value={height}
+                                onChange={e =>
+                                    setHeight(e.target.value)
+                                }
+                            />
+                        </div>
+                    </div>
+                </div>}
+
+                <div className="bottom-flashcard">
+                    <div className="left-flashcard">
+                    {front}            
+                    </div>
+
+                <div className="middle-flashcard">
+                    <div class="middle-swap">
+                        <button type="button" class="middle-button" onClick={swapFlashcard}>
+                            Swap
+                        </button>
+                        <button type="button" class="middle-button" onClick={() => setEditState(!editState)}>Edit</button>
                     </div>
                 </div>
-            </div>
 
-            <div className="bottom-flashcard">
-                <div className="left-flashcard">
-                <CanvasDraw 
-                    brushColor={this.state.color}
-                    brushRadius={this.state.brushRadius}
-                    lazyRadius={this.state.lazyRadius}
-                    canvasWidth={this.state.width}
-                    canvasHeight={this.state.height}
-                />              
-                </div>
-
-            <div className="middle-flashcard">
-                <div class="middle-swap">
-                    <button class="middle-button">
-                        Swap
-                    </button>
+                <div className="right-flashcard">
+                {back}
                 </div>
             </div>
 
-            <div className="right-flashcard">
-            <CanvasDraw 
-                ref={canvasDraw => (this.saveableCanvas = canvasDraw)}
-                brushColor={this.state.color}
-                brushRadius={this.state.brushRadius}
-                lazyRadius={this.state.lazyRadius}
-                canvasWidth={this.state.width}
-                canvasHeight={this.state.height}
-            />  
-            </div>
-        </div>
-
-        <div className="save-container">
-                <button onClick={() => {this.loadableCanvas.loadSaveData(localStorage.getItem("savedDrawing") ); }}>
-                    Load
-                </button>  
-                <button onClick={() => {localStorage.setItem("savedDrawing", this.saveableCanvas.getSaveData() ); }}>
-                    Save
-                </button>
-                <button onClick={() => {this.saveableCanvas.clear();}}>
+            {editState && 
+            <div className="save-container">
+                <button type="button" onClick={() => front.clear()}>
                     Clear
                 </button>
-                <button onClick={() => {this.saveableCanvas.undo();}}>
+                <button type="button" onClick={() => front.undo()}> 
                     Undo
                 </button>
+                </div>
+            }
             </div>
-        </div>
+            
 
-    </div>
+        </div>
     )
-  }
-}
+}// line 179 undo
+// line 453 clear
+
 
 export default Flashcard;

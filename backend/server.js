@@ -30,7 +30,9 @@ connection.once('open', function() {
 var flashcardSet = new mongoose.Schema({
     title: String,
     author: String,
-    description: String
+    description: String,
+    category: String,
+    flashcards: Array
 });
 
 var FlashcardSet = mongoose.model("FlashcardSet", flashcardSet)

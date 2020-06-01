@@ -128,8 +128,7 @@
 .title-container {
   border: 1px solid greenyellow;
   flex-direction: column;
-  justify-content: flex-start;
-  width: 50%;
+  width: 80%;
   background: whitesmoke;
 }
 
