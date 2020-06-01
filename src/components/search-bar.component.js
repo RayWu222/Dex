@@ -8,13 +8,14 @@ export default class SearchBar extends Component{
     //create an array for the search results
     constructor(props){
         super(props);
-        this.state = {searchResult: []};
+        this.state = {searchResult: [], searchTerm: " error", instanceID: 0};
     }
 
     getSearch(){
-        var searchTerm = document.getElementById("search-bar-input").value;
-        console.log("searchTerm" + searchTerm);
-        window.location.replace("http://localhost:3000/flashcardSet/search/search?flashcardSet_title=" + searchTerm)
+        var terms = document.getElementById("search-input-field").value;
+        //this.setState({ searchTerm: terms});
+        console.log("searchTerm: " + terms);
+        window.location.replace("http://localhost:3000/flashcardSet/search/search?flashcardSet_title=" + terms);
         
     }
 
@@ -22,15 +23,11 @@ export default class SearchBar extends Component{
         e.preventDefault();
     }
 
-    testFunction(){
-        return alert("test alert")
-    }
-
     render(){
         return(
-            <div class="navbar-search">
-                <input  class="navbar-form" placeholder="Search" id="search-bar-input"></input>
-                <button class="navbar-submit" type="submit" onClick = {this.getSearch}>Submit</button>
+            <div className="search-bar-container">
+                <input className="search-input-field" id="search-input-field" placeholder={this.state.testProp}></input>
+                <button className="search-submit-button" type="submit" onClick = {this.getSearch}>Submit</button>
             </div>
         )
     }

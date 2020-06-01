@@ -1,19 +1,23 @@
+.app-wrapper{
+  background-color: floralwhite;
+}
+
 /*Landing Page*/
   .landing-container {
     background-color: #03CC83;
-    border: 2px solid green;
+    border-radius: 25px;
   }
 
   .landing-title {
-    background-color: #03cc83;
+    background-color: #029a63;
     color:#014f33;
     text-align: center;
   }
 
   .landing-icon {
     float: left;
-    width: 40%;
-    height: 50%;
+    width: 32%;
+    height: 40%;
     padding: 0 5%;
   }
 
@@ -23,9 +27,13 @@
   }
 
 /* Navigation Bar */
-/* Style the navigation bar */
+
+
+
+/*Top Level NavBar Container*/
   .nav-container {
     display: flex;
+    align-items: center;
     height: 20%;
     overflow: hidden;
     background-color: #03cc83;
@@ -37,53 +45,41 @@
     flex-grow: 1;
   }
 
-/* Navbar Containers */
-  .logo {
-    height: 50%;
-    width: 30%;
-    padding-top: 10px;
+/* Navbar Items (logo, links, search bar, buttons) */
+
+
+  .navbar-logo {
+    height: 100px;
+    width: 75px;
+    padding: 2px;
+    justify-content: space-evenly;
   }
 
   .navbar-left {
     display: flex;
     height: 100px;
     flex-grow: 1;
-    justify-content: flex-start;
-  }
-
-  .navbar-form {
-    display: flex;
-    flex-grow: .2;
-    align-items: center;
+    justify-content: space-evenly;
   }
 
   .navbar-right {
     display: flex;
     height: 100px;
     flex-grow: .2;
-    justify-content: flex-end;
+    justify-content: space-evenly;
   }
 
 /* Navbar Items*/
   .navbar a {
-    color: black;
+    color: #014f33;
     text-decoration: none;
     display: flex;
     width: 100px;
     flex-grow: 0;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
   }
 
-  .navbar-submit {
-    border: 1px solid black;
-    background: #026843;
-    display: flex;
-    flex-grow: 3;
-    height: 50px;
-  }
-
-/* Navbar links on mouse-over */
   .navbar a:hover {
     background-color: #029a63;
   }
@@ -101,6 +97,42 @@
     list-style: none;
   }
 
+  .search-bar-container {
+    display: flex;
+    height: 100px;
+    flex-grow: .2;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+  
+  .search-input-field {
+    display: flex;
+    width: 100px;
+    background-color: transparent;
+    border: hidden;
+
+  }
+
+  .search-input-field ::placeholder {
+    color:red;
+  }
+
+  #search-bar-input:focus {
+    background-color: floralwhite;
+  }
+
+  #results-bar {
+    background-color: ;
+  }
+  
+  .navbar-submit {
+    color: #014f33;
+    text-decoration: none;
+    display: flex;
+    flex-grow: 0;
+    justify-content: space-evenly;
+  }
+
 /* Footer */
   .footer-container{
     display: flex;
@@ -115,7 +147,7 @@
   
 /*copyright color*/
   .copy-colorblack{
-    color: #060e0b;
+    color: #014f33;
     display: flex;
     flex-grow: 1;
     padding-left: 5px;
@@ -156,20 +188,20 @@
   .form-group {
     display: flex;
     padding: 5px;
-    border: 1px solid black;
+    border: 1px solid #014f33;
   }
 
   .form-title {
     display: flex;
     flex-grow: 0;
-    border: 1px solid black;
+    border: 1px solid #014f33;
     width: 15%;
   }
 
   .form-input {
     display: flex;
     flex-grow: 0;
-    border: 1px solid black;
+    border: 1px solid #014f33;
     width: 40%;
   }
 
@@ -180,7 +212,7 @@
     background: #03b373;
     margin-top: 40px;
     margin-bottom: 40px;
-    border: 1px solid black;
+    border: 1px solid #014f33;
   }
 
   .top-flashcard {
@@ -217,7 +249,7 @@
   .submitBar {
     display: flex;
     flex-direction: row-reverse;
-    border: solid 1px black;
+    border: solid 1px #014f33;
     padding: 20px;
   }
 
@@ -227,5 +259,5 @@
   }
 
   .navbar-form {
-    border: 1px solid black;
+    border: 1px solid #014f33;
   }

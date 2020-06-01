@@ -26,7 +26,8 @@ constructor(props) {
     this.state = {searchResult: []};
 }
 
-
+//testing how to put custom title's and placeholder texts
+getSearchTerms(){}
 //Put the result in a list
 searchResultList() {
     return this.state.searchResult.map(function(currentFlashcardSet, i){
@@ -68,7 +69,7 @@ componentDidMount() {
 render() {
     return (
         <div>
-            <h3>FlashcardSet List</h3>
+            <h3>{}}</h3>
             <Bar></Bar>
             <table className="table table-striped" style={{ marginTop: 20 }} >
                 <thead>

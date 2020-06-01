@@ -10,22 +10,20 @@ export default class Navbar extends Component {
     
     render (){
                     return (
-            <div class="nav-container">     
-                <div class="navbar-brand" href="/">
-                <Logo class="logo" />
-                </div>
-                <nav class="navbar">    
-                    <ul class="navbar-left">
-                            <a class="nav-left" href="/">Home</a>
-                            <a class="nav-left" href="/create">Create</a>
-                            <a class="nav-left" href="/list">List</a>
+            <div className="nav-container">     
+                <Logo className="navbar-logo"/>
+                <nav className="navbar">    
+                    <ul className="navbar-left">
+                            <a className="nav-left" href="/">Home</a>
+                            <a className="nav-left" href="/create">Create</a>
+                            <a className="nav-left" href="/list">List</a>
                     </ul>
                     <ul>
-                        <Bar></Bar>
+                        <Bar id="navbar-search-bar"></Bar>
                     </ul>
-                    <ul class="navbar-right">
-                            <a class="nav-right" href="/signout">Sign Out</a>
-                            <a class="nav-right" href="/signin">Login</a>
+                    <ul className="navbar-right">
+                            <a className="nav-right" href="/signout">Sign Out</a>
+                            <a className="nav-right" href="/signin">Login</a>
                     </ul>
                 </nav>
             </div> 
