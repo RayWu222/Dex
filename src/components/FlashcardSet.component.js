@@ -17,9 +17,7 @@ const FlashcardSet = () => {
     
     // re-rendering in response to some kind of change, such as state change, API requests, etc.
     React.useEffect(() => {
-        setTitle(' ');
-        setAuthor(' ');
-        setDescription(' ');
+        
     });
 
 
