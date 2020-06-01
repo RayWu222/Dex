@@ -26,18 +26,8 @@ const Flashcard = () => {
         lazyRadius={lazyRadius}
         canvasWidth={width}
         canvasHeight={height} 
-        disabled={true} />
-
-    const [flashcards, setFlashcards] = useState([front, back]);
-
-    const triggerClear = () => {
-        front.clear()
-    }
-
-  
-    React.useEffect( () => {
-
-    });
+        disabled={true} 
+        />
 
     const swapFlashcard = () => {
         var temp = {front};
@@ -138,10 +128,10 @@ const Flashcard = () => {
 
             {editState && 
             <div className="save-container">
-                <button type="button" onClick={() => front.clear()}>
+                <button type="button" onClick={}>
                     Clear
                 </button>
-                <button type="button" onClick={() => front.undo()}> 
+                <button type="button" onClick={}> 
                     Undo
                 </button>
                 </div>
