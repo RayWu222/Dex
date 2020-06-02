@@ -3,8 +3,7 @@ import CanvasDraw from "react-canvas-draw";
 import "../App.css";
 
 
-
-const Flashcard = () => {
+const Flashcard = (counter) => {
       const [color, setColor] = useState('#ffc600');
       const [width, setWidth] = useState(500);
       const [height, setHeight] = useState(250);
@@ -13,6 +12,7 @@ const Flashcard = () => {
       const [editState, setEditState] = useState(false);
       const [frontFlashcard, setFrontFlashcard] = useState('')
       const [backFlashcard, setBackFlashcard] = useState('')
+      const [flashcardNum, setFlashcardNum] = useState(counter)
 
     var front = <CanvasDraw 
       brushColor={color}
@@ -22,7 +22,6 @@ const Flashcard = () => {
       canvasHeight={height} 
       disabled={!editState}
       ref={canvasDraw => (setFrontFlashcard(canvasDraw))}
-      saveData={localStorage.getItem("frontFlashcard")}
       />
 
     var back = <CanvasDraw 
@@ -33,13 +32,12 @@ const Flashcard = () => {
       canvasHeight={height} 
       disabled={!editState} 
       ref={canvasDraw => (setBackFlashcard(canvasDraw))}
-      saveData={localStorage.getItem("backFlashcard")}
       />
 
     const swapFlashcard = () => {
         var frontData = frontFlashcard.getSaveData()
         localStorage.setItem(
-            "frontFlashcard",
+            ("frontFlashcard" + flashcardNum),
             backFlashcard.getSaveData()
           );
 
@@ -49,10 +47,10 @@ const Flashcard = () => {
           );
 
           frontFlashcard.loadSaveData(
-            localStorage.getItem("frontFlashcard")
+            localStorage.getItem("frontFlashcard" + flashcardNum)
           );
         backFlashcard.loadSaveData(
-            localStorage.getItem("backFlashcard")
+            localStorage.getItem("backFlashcard" + flashcardNum)
         );
     }
     return (  
@@ -80,7 +78,7 @@ const Flashcard = () => {
                                 Lazy-Radius:
                             </div>
                             <input
-                                    class="toolbar-input"
+                                class="toolbar-input"
                                 type="number"
                                 value={lazyRadius}
                                 onChange={e =>
@@ -154,7 +152,7 @@ const Flashcard = () => {
                             type="button"
                             onClick={() => {
                                 localStorage.setItem(
-                                "frontFlashcard",
+                                ("frontFlashcard" + flashcardNum),
                                 frontFlashcard.getSaveData()
                                 );
                                 
@@ -176,10 +174,7 @@ const Flashcard = () => {
                                 type="button"
                                 onClick={() => {
                                     frontFlashcard.loadSaveData(
-                                        localStorage.getItem("frontFlashcard")
-                                    );
-                                    backFlashcard.loadSaveData(
-                                        localStorage.getItem("backFlashcard")
+                                        localStorage.getItem("frontFlashcard" + flashcardNum)
                                     );
                                 }}
                             >
@@ -191,7 +186,7 @@ const Flashcard = () => {
                         type="button"
                         onClick={() => {
                             localStorage.setItem(
-                                "backFlashcard",
+                                ("backFlashcard" + flashcardNum),
                                 backFlashcard.getSaveData()
                             );
                         }}>
@@ -207,11 +202,8 @@ const Flashcard = () => {
                         <button
                             type="button"
                             onClick={() => {
-                                frontFlashcard.loadSaveData(
-                                    localStorage.getItem("frontFlashcard")
-                                );
                                 backFlashcard.loadSaveData(
-                                    localStorage.getItem("backFlashcard")
+                                    localStorage.getItem("backFlashcard" + flashcardNum)
                                 );
                             }}
                         >
@@ -225,8 +217,7 @@ const Flashcard = () => {
 
         </div>
     )
-}// line 179 undo
-// line 453 clear
+}
 
 
 export default Flashcard;

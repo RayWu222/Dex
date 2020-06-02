@@ -28,15 +28,35 @@ connection.once('open', function() {
     console.log("MongoDB database connection established successfully");
 })
 
+
+
+
+
+
+
+var flashcard = new mongoose.Schema({
+    front: String,
+    back: String
+});
+
 var flashcardSet = new mongoose.Schema({
     title: String,
     author: String,
     description: String,
     category: String,
-    flashcards: Array
+    flashcards: [flashcard]
 });
-
 var FlashcardSet = mongoose.model("FlashcardSet", flashcardSet)
+
+
+
+
+
+
+
+
+
+
 
 app.route('/').get(function(req, res) {
     

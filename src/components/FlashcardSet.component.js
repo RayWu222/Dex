@@ -3,14 +3,16 @@ import axios from 'axios';
 import "../App.css";
 import Flashcard from './flashcard.component';
 
-const flashcardList = [<Flashcard />]
 
 const FlashcardSet = () => {
+    var num = 1;
     const [title, setTitle] = useState('');
     const [author, setAuthor] = useState('');
     const [description, setDescription] = useState('');
     const [category, setCategory] = useState('');
-    const [flashcards, setFlashcards] = useState(flashcardList);
+    const [numFlashcards, setNumFlashcards] = useState(num);
+    const [flashcards, setFlashcards] = useState([<Flashcard numFlashcards={numFlashcards}/>]);
+   
 
     
     // re-rendering in response to some kind of change, such as state change, API requests, etc.
@@ -21,20 +23,25 @@ const FlashcardSet = () => {
 
 
     const addNewFlashcard = () => {
-            var newFlashcard = <Flashcard />
-            setFlashcards(flashcardList.concat(newFlashcard))
+            var newFlashcard = <Flashcard num={numFlashcards}/>
+            setFlashcards(flashcards.concat(newFlashcard))
+            num++
+            setNumFlashcards(num)
     }
+
 
     const submitFlashcardSet = (e) => {
         e.preventDefault()
-        alert("Flashcard Set");
-       
 
-        
         axios.post('http://localhost:4000/create', {
             title, author, description, category, flashcards
         })
-        .then(res => console.log(res.data));        
+        .then(res => console.log(res.data));     
+        
+        alert("Flashcard Set Submitted");
+        setTitle('');
+        setAuthor('');
+        setDescription('');
     }
 
         return (
@@ -113,7 +120,7 @@ const FlashcardSet = () => {
                 <div>
                     <ul>
                         {flashcards.map(flashcard => (
-                            <li key={flashcard}>{flashcard}</li>
+                            <li key={flashcard.id}>{flashcard}</li>
                         ))}
                     </ul>
                 </div>
