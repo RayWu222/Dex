@@ -8,7 +8,7 @@ export default class Footer extends Component{
                <Logo class = "footer-logo"/>
                </div>
                <div class = "footer-links">
-                <strong>Links</strong> 
+                <strong>Pages</strong> 
                             <ul>
                                 <li><a class = "home" href ="/" Home>Home</a></li> 
                                 <li><a href ="/create" Create>Create</a></li> 
