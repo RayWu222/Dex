@@ -5,12 +5,13 @@ import Flashcard from './flashcard.component';
 
 
 const FlashcardSet = () => {
+    var num = 1;
     const [title, setTitle] = useState('');
     const [author, setAuthor] = useState('');
     const [description, setDescription] = useState('');
     const [category, setCategory] = useState('');
-    const [numFlashcards, setNumFlashcards] = useState(0);
-    const [flashcards, setFlashcards] = useState([]);
+    const [numFlashcards, setNumFlashcards] = useState(num);
+    const [flashcards, setFlashcards] = useState([<Flashcard numFlashcards={numFlashcards}/>]);
    
 
     
@@ -19,15 +20,15 @@ const FlashcardSet = () => {
 
     });
 
-    const getNumFlashcards = () => {
-        return (numFlashcards)
-    }
+
 
     const addNewFlashcard = () => {
-            var newFlashcard = <Flashcard counter={getNumFlashcards()}/>
+            var newFlashcard = <Flashcard num={numFlashcards}/>
             setFlashcards(flashcards.concat(newFlashcard))
-            setNumFlashcards(numFlashcards+1)
+            num++
+            setNumFlashcards(num)
     }
+
 
     const submitFlashcardSet = (e) => {
         e.preventDefault()
@@ -45,7 +46,6 @@ const FlashcardSet = () => {
 
         return (
             <form onSubmit={submitFlashcardSet} method="post" action='/create'>
-
             <div class="title-container">
                 <div class="title-name">
                     <h3>Create New Flashcard Set</h3>
@@ -120,7 +120,7 @@ const FlashcardSet = () => {
                 <div>
                     <ul>
                         {flashcards.map(flashcard => (
-                            <li key={getNumFlashcards()}>{flashcard}</li>
+                            <li key={flashcard.id}>{flashcard}</li>
                         ))}
                     </ul>
                 </div>

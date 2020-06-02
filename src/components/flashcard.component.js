@@ -42,7 +42,7 @@ const Flashcard = (counter) => {
           );
 
         localStorage.setItem(
-            ("backFlashcard" + flashcardNum),
+            "backFlashcard",
             frontData
           );
 
@@ -72,8 +72,8 @@ const Flashcard = (counter) => {
                                     setBrushRadius(e.target.value)
                                 }
                             />
-                    </div>
-                    <div class="brush-group">
+                        </div>
+                        <div class="brush-group">
                             <div class="toolbar-icon">
                                 Lazy-Radius:
                             </div>
@@ -128,22 +128,20 @@ const Flashcard = (counter) => {
                     <div className="left-flashcard">
                         {front}            
                     </div>
-                
-                    <div className="middle-flashcard">
-                        <div class="middle-swap">
-                            <button type="button" class="middle-button" onClick={() => setEditState(!editState)}>
-                                Edit
-                            </button>
-                        </div>
-                        <div class="middle-swap">
-                            <button type="button" class="middle-button" onClick={() => swapFlashcard()}>
-                                Swap
-                            </button>
-                        </div>
+
+                <div className="middle-flashcard">
+                    <div class="middle-swap">
+                        <button type="button" class="middle-button" onClick={() => swapFlashcard()}>
+                            Swap
+                        </button>
+                        <button type="button" class="middle-button" onClick={() => setEditState(!editState)}>
+                            Edit
+                        </button>
                     </div>
-                    <div className="right-flashcard">
-                        {back}
-                    </div>
+                </div>
+
+                <div className="right-flashcard">
+                    {back}
                 </div>
             </div>
 
@@ -157,8 +155,11 @@ const Flashcard = (counter) => {
                                 ("frontFlashcard" + flashcardNum),
                                 frontFlashcard.getSaveData()
                                 );
+                                
+
                             }}
                             >
+                                
                                 Save
                             </button>
                             <button
@@ -211,6 +212,9 @@ const Flashcard = (counter) => {
                     </div>
                 </div>
             }
+            </div>
+            
+
         </div>
     )
 }
