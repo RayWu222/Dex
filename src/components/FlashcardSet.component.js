@@ -27,10 +27,6 @@ const FlashcardSet = () => {
               )}/>
             setFlashcards(flashcards.concat(newFlashcard))
             setNumFlashcards(numFlashcards+1)
-            localStorage.setItem(
-                ("flashcardPair" + numFlashcards),
-                newFlashcard.getSaveData()
-            );
     }
 
     const submitFlashcardSet = (e) => {
