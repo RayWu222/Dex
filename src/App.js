@@ -23,8 +23,8 @@ import Subject from "./components/browse.component";
 class App extends Component {
   render() {
     return (
+      
       <div>
-        
       <Router>
         <NavBar> </NavBar>
         <br/>
@@ -39,7 +39,8 @@ class App extends Component {
                 <Route path="/browse" component={Browse} />
                 <Route path="/subject/:subject" component={Subject} />
       </Router>
-
+      <Footer></Footer>
+      </div>
     );
   }
 }

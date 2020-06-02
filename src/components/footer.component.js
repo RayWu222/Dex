@@ -24,9 +24,9 @@ export default class Footer extends Component{
 
                <strong>Subjects</strong> 
                             <ul>
-                                <li><a href ="/" Math>Math</a></li> 
-                                <li><a href ="/create" Science>Science</a></li> 
-                                <li><a href ="/list" English>English</a></li>
+                                <li><a href ="/subject/browse?flashcardSet_category=Math"Math>Math</a></li> 
+                                <li><a href ="/subject/browse?flashcardSet_category=Science" Science>Science</a></li> 
+                                <li><a href ="/subject/browse?flashcardSet_category=English">English</a></li>
  
                             </ul>
                </div>
