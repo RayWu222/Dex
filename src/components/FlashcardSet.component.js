@@ -4,28 +4,25 @@ import "../App.css";
 import Flashcard from './flashcard.component';
 
 const flashcardList = [<Flashcard />]
-const num = 2;
 
 const FlashcardSet = () => {
     const [title, setTitle] = useState('');
     const [author, setAuthor] = useState('');
     const [description, setDescription] = useState('');
     const [category, setCategory] = useState('');
-    //const [numFlashcards] = useState(num);
     const [flashcards, setFlashcards] = useState(flashcardList);
 
     
     // re-rendering in response to some kind of change, such as state change, API requests, etc.
     React.useEffect(() => {
-        
+
     });
 
 
 
-    const handleClick = () => {
-        if (flashcards) {
-            setFlashcards(flashcardList.concat(flashcards))
-        }
+    const addNewFlashcard = () => {
+            var newFlashcard = <Flashcard />
+            setFlashcards(flashcardList.concat(newFlashcard))
     }
 
     const submitFlashcardSet = (e) => {
@@ -124,7 +121,7 @@ const FlashcardSet = () => {
                 <button
                     className="search-field-button"
                     type="button"
-                    onClick={handleClick}>
+                    onClick={event => addNewFlashcard()}>
                     Add Flashcard
                 </button>
 

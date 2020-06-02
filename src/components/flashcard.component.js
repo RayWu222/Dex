@@ -31,7 +31,7 @@ const Flashcard = () => {
       lazyRadius={lazyRadius}
       canvasWidth={width}
       canvasHeight={height} 
-      disabled={true} 
+      disabled={!editState} 
       ref={canvasDraw => (setBackFlashcard(canvasDraw))}
       saveData={localStorage.getItem("backFlashcard")}
       />
@@ -47,13 +47,14 @@ const Flashcard = () => {
             "backFlashcard",
             frontData
           );
-        alert('Swapped');
-    }
 
-    const helperGetSaveData = () => {
-        return (backFlashcard.getSaveData());
+          frontFlashcard.loadSaveData(
+            localStorage.getItem("frontFlashcard")
+          );
+        backFlashcard.loadSaveData(
+            localStorage.getItem("backFlashcard")
+        );
     }
-
     return (  
         <div class="set-container">
                                                 
@@ -148,40 +149,75 @@ const Flashcard = () => {
 
             {editState && 
             <div className="save-container">
-                    <button
-                    type="button"
-                    onClick={() => {
-                        localStorage.setItem(
-                          "frontFlashcard",
-                          frontFlashcard.getSaveData()
-                        );
+                <div className="left-save">
+                            <button
+                            type="button"
+                            onClick={() => {
+                                localStorage.setItem(
+                                "frontFlashcard",
+                                frontFlashcard.getSaveData()
+                                );
+                                
 
-                      }}
-                    >
-                          
-                        Save
-                    </button>
-                    <button
-                    type="button"
-                    onClick={() => {
-                        frontFlashcard.clear();
-                      }}
-                    >
-                        Clear
-                    </button>
-                    <button
+                            }}
+                            >
+                                
+                                Save
+                            </button>
+                            <button
+                            type="button"
+                            onClick={() => {
+                                frontFlashcard.clear();
+                            }}
+                            >
+                                Clear
+                            </button>
+                            <button
+                                type="button"
+                                onClick={() => {
+                                    frontFlashcard.loadSaveData(
+                                        localStorage.getItem("frontFlashcard")
+                                    );
+                                    backFlashcard.loadSaveData(
+                                        localStorage.getItem("backFlashcard")
+                                    );
+                                }}
+                            >
+                                Load
+                            </button>
+                    </div>
+                    <div className="right-save">
+                        <button
                         type="button"
                         onClick={() => {
-                            frontFlashcard.loadSaveData(
-                                localStorage.getItem("frontFlashcard")
-                              );
-                            backFlashcard.loadSaveData(
-                                localStorage.getItem("backFlashcard")
+                            localStorage.setItem(
+                                "backFlashcard",
+                                backFlashcard.getSaveData()
                             );
-                        }}
-                    >
-                        Load
-                    </button>
+                        }}>
+                            Save
+                        </button>
+                        <button
+                            type="button"
+                            onClick={() => {
+                                backFlashcard.clear();
+                            }}>
+                                Clear
+                        </button>
+                        <button
+                            type="button"
+                            onClick={() => {
+                                frontFlashcard.loadSaveData(
+                                    localStorage.getItem("frontFlashcard")
+                                );
+                                backFlashcard.loadSaveData(
+                                    localStorage.getItem("backFlashcard")
+                                );
+                            }}
+                        >
+                            Load
+                        </button>
+                    </div>
                 </div>
             }
             </div>
