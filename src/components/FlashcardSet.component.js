@@ -19,14 +19,18 @@ const FlashcardSet = () => {
 
     });
 
-    const getNumFlashcards = () => {
-        return (numFlashcards)
-    }
+    
 
     const addNewFlashcard = () => {
-            var newFlashcard = <Flashcard counter={getNumFlashcards()}/>
+            var newFlashcard = <Flashcard counter={num => (
+                numFlashcards
+              )}/>
             setFlashcards(flashcards.concat(newFlashcard))
             setNumFlashcards(numFlashcards+1)
+            localStorage.setItem(
+                ("flashcardPair" + numFlashcards),
+                newFlashcard.getSaveData()
+            );
     }
 
     const submitFlashcardSet = (e) => {
@@ -120,7 +124,7 @@ const FlashcardSet = () => {
                 <div>
                     <ul>
                         {flashcards.map(flashcard => (
-                            <li key={getNumFlashcards()}>{flashcard}</li>
+                            <li key={flashcard.id}>{flashcard}</li>
                         ))}
                     </ul>
                 </div>
@@ -128,14 +132,14 @@ const FlashcardSet = () => {
                 <button
                     className="search-field-button"
                     type="button"
-                    onClick={event => addNewFlashcard()}>
+                    onClick={() => addNewFlashcard()}>
                     Add Flashcard
                 </button>
 
                 <button
                     className="search-field-button"
                     type="button"
-                    onClick={submitFlashcardSet}>
+                    onClick={() => submitFlashcardSet}>
                     Submit
                 </button>
                 
