@@ -3,11 +3,14 @@ import {ReactComponent as Logo} from './img/dexOwl.svg';
 export default class Footer extends Component{
     render(){
         return(
+
             <footer class = "footer-container">
+
             <div class = "footer links left">
                <Logo class = "footer-logo"/>
                </div>
                <div class = "footer-links">
+
                 <strong>Pages</strong> 
                             <ul>
                                 <li><a class = "home" href ="/" Home>Home</a></li> 
@@ -18,11 +21,13 @@ export default class Footer extends Component{
                             </ul>
                </div>
                <div class = "footer-subject">
+
                <strong>Subjects</strong> 
                             <ul>
                                 <li><a href ="/" Math>Math</a></li> 
                                 <li><a href ="/create" Science>Science</a></li> 
                                 <li><a href ="/list" English>English</a></li>
+ 
                             </ul>
                </div>
                <div class = "footer-social-media">
@@ -39,6 +44,7 @@ export default class Footer extends Component{
                                   <p>© 2020 All Rights Reserved ~ Authored by AD410 Group C</p>
                                 </div> 
                </footer>
+
         )
     }
 }

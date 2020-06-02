@@ -8,6 +8,7 @@ const PORT = 4000;
 
 let FlashcardSet = require('./flashcardSet.model');
 
+
 app.use(cors());
 app.use(bodyParser.json());
 
@@ -18,8 +19,10 @@ connection.once('open', function() {
     console.log("MongoDB database connection established successfully");
 })
 
+
 flashcardSetRoutes.route('/').get(function(req, res) {
-    FlashcardSet.find(function(err, flashcardSet) {
+    
+    FlashcardSet.find({}, function(err, flashcardSet) {
         if (err) {
             console.log(err);
         } else {
@@ -28,15 +31,6 @@ flashcardSetRoutes.route('/').get(function(req, res) {
     });
 });
 
-flashcardSetRoutes.route('/list').get(function(req, res) {
-    FlashcardSet.find(function(err, flashcardSet) {
-        if (err) {
-            console.log(err);
-        } else {
-            res.json(flashcardSet);
-        }
-    });
-});
 
 flashcardSetRoutes.route('/:id').get(function(req, res) {
     let id = req.params.id;
@@ -44,6 +38,22 @@ flashcardSetRoutes.route('/:id').get(function(req, res) {
         res.json(flashcardSet);
     });
 });
+
+//search page component, search the database for that value and return flashcardset with that value
+flashcardSetRoutes.route('/search/:value').get(function(req, res){
+    let value = req.params.value;
+    FlashcardSet.find({flashcardSet_title: value}, function(err, flashcardSet) {       
+        res.json(flashcardSet);
+    });
+});
+
+flashcardSetRoutes.route('/subject/:value').get(function(req, res){
+    let value = req.params.value;
+    FlashcardSet.find({flashcardSet_category: value}, function(err, flashcardSet) {       
+        res.json(flashcardSet);
+    });
+});
+
 
 flashcardSetRoutes.route('/update/:id').post(function(req, res) {
     FlashcardSet.findById(req.params.id, function(err, flashcardSet) {

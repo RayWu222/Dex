@@ -7,7 +7,7 @@
 ### Search Page Ray and Brandan 5/15
     FlashCardResults Body - Brandan 5/15
     FlashCardResults Sidebar (filter) - Brandan 5/15
-    Search Terms Title -- Ray & Poul 5/8
+    Search Terms Title -- Ray & Brandan 5/8(as of 5/15)
     List too long navigation
 ### Browse Page
     Sidebar/Filter
@@ -28,10 +28,10 @@
     FlashcardMaterial -- Andrew 5/15
 ### Login Page
     Login With Google
-    UserName Box - Sherrod 5/15
-    Password Box - Sherrod 5/15
-    Forgot Creds Button - Sherrod 5/15
-    Login Button - Sherrod 5/15
+    UserName Box
+    Password Box
+    Forgot Creds Button
+    Login Button
 ### Sign Up Page
     Sign Up with Google
     Profile Name - Poul 5/15

@@ -121,6 +121,7 @@ a{
     /* Footer */
     .footer-container{
       display: flex;
+
       height: 180px;
       overflow: hidden;
       background-color: #03cc83;
@@ -215,6 +216,7 @@ a{
       background: #dd4b39;
       color: white;
     }
+
     
 /* Create New Flashcard Set */
 
