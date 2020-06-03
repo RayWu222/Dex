@@ -16,7 +16,7 @@ export default class Footer extends Component{
                                 <li><a class = "home" href ="/" Home>Home</a></li> 
                                 <li><a href ="/create" Create>Create</a></li> 
                                 <li><a href ="/list" List>List</a></li>
-                                <li><a href ="/search" Search>Search</a></li>
+                               
                                 
                             </ul>
                </div>
