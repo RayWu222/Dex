@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import queryString from 'query-string';
+import Bar from './search-bar.component';
 
 
-//flash card table componen, to put the result information into the table, such as title/author/description/category
+//Take user input from search-bar component, return results from MongoDB and dsiplays the results.
 const SearchResult = props => (
     <tr>
         <td>{props.searchResult.flashcardSet_title}</td>
@@ -26,7 +26,8 @@ constructor(props) {
     this.state = {searchResult: []};
 }
 
-
+//testing how to put custom title's and placeholder texts
+getSearchTerms(){}
 //Put the result in a list
 searchResultList() {
     return this.state.searchResult.map(function(currentFlashcardSet, i){
@@ -68,7 +69,8 @@ componentDidMount() {
 render() {
     return (
         <div>
-            <h3>FlashcardSet List</h3>
+            <h3>{}}</h3>
+            <Bar></Bar>
             <table className="table table-striped" style={{ marginTop: 20 }} >
                 <thead>
                     <tr>

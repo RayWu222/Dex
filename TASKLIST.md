@@ -49,4 +49,4 @@
     Search Icon and TextField onClick X
 ## Components finished.
 # Landing Page
-# Navbar
+# Navbar A change

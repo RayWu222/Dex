@@ -1,21 +1,34 @@
 import React, { Component } from 'react';
+import ReactDOM from "react-dom";
+import GoogleLogin from 'react-google-login';
 
-
+const clientId = '293901008493-duqun9t52bo7dtjbo4n1900nite8sube.apps.googleusercontent.com'
 
 export default class SignIn extends Component {
-/*
-    render() {
-        return <div />;
+
+  componentDidMount() {
+    console.log('Loading')
+    window.gapi.load('auth2', () => {
+        window.gapi.auth2.init({
+            client_id: clientId
+        })
+    })
+    console.log('Api inited')
     }
-}
-*/
+
+   
     render() {
         return (
             <div>
                 <h3>SignIn Page</h3>
-                <button>Sign In With Google</button>
-            </div>
+                <div class="g-signin2" data-onsuccess="onSignIn"></div>
+                
+              </div>
         )
+
+        
+       
     }
+
     
 }
