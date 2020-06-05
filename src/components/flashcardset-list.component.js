@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
+var axios = require('axios');
 
 const FlashcardSet = props => (
     <tr>
@@ -22,13 +22,13 @@ export default class FlashcardSetList extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:4000/flashcardSet/')
-            .then(response => {
-                this.setState({ flashcardSet: response.data });
-            })
-            .catch(function (error){
-                console.log(error);
-            })
+        axios.get('http://localhost:4000/list')
+        .then(response => {
+            this.setState({ flashcardSet: response.data });
+        })
+        .catch(function (error){
+            console.log(error);
+        })
     }
 
     flashcardSetList() {

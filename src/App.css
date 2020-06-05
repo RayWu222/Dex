@@ -260,4 +260,202 @@
 
   .navbar-form {
     border: 1px solid #014f33;
+=======
+.set-container {
+  border: 1px solid orangered;
+  display: flex;
+  flex-direction: column;
+  padding: 0px 10%;
+  background: #028153;
+}
+.title-container {
+  border: 1px solid greenyellow;
+  flex-direction: column;
+  width: 80%;
+  background: whitesmoke;
+}
+
+.form-group {
+  display: flex;
+  padding: 5px;
+  border: 1px solid black;
+}
+
+.form-title {
+  display: flex;
+  flex-grow: 0;
+  border: 1px solid black;
+  width: 15%;
+}
+
+.form-input {
+  display: flex;
+  flex-grow: 0;
+  border: 1px solid black;
+  width: 40%;
+}
+
+.flashcard-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background: #03b373;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  border: 1px solid black;
+}
+
+/* Bottom Flashcard */
+.bottom-flashcard {
+  display: flex;
+  flex-direction: row;
+  height: 300px;
+}
+
+  /* Left Flashcard */
+  .left-flashcard {
+    display: flex;
+    width: 45%;
+    border: solid 1px blue;
+  }
+
+  /* Middle Flashcard */
+  .middle-flashcard {
+    display: flex;
+    width: 10%;
+    border: solid 1px blue;
+    justify-content: center;
+    align-items: center;
+    
+    flex-direction: column;
+  }
+
+  .middle-swap {
+    display: flex;
+  }
+
+  .middle-button {
+    height: 30px;
+  }
+
+  /* Right Flashcard */
+  .right-flashcard {
+    display: flex;
+    width: 45%;
+    border: solid 1px blue;
+  }
+
+
+
+/* Toolbar Properties */
+.tools-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  height: 50px;
+  border: solid 1px red;
+}
+
+  /* Brush */
+      .brush-container {
+        display: flex;
+        width: 20%;
+        border: solid 1px green;
+      }
+
+      .brush-group {
+        display: flex;
+        width: 50%;
+      }
+
+  /* Text */
+    .text-container {
+      display: flex;
+      width: 40%;
+      border: solid 1px blue;
+    }
+
+    .text-button {
+      border: solid 1px blue;
+    }
+
+
+  /* Color */
+    .color-container {
+      display: flex;
+      width: 10%;
+      border: solid 1px yellow;    
+    }
+
+    .color-selected {
+      border: solid 1px yellow;
+    }
+
+    .color-picker {
+      border: solid 1px yellow;
+    }
+
+  /* Background */
+    .background-container {
+      display: flex;
+      width: 20%;
+      border: solid 1px orange;
+    }
+
+    .background-group {
+      display: flex;
+      width: 50%;
+    }
+
+    .background-dropdown {
+      border: solid 1px orange;
+    }
+
+
+  /* Save Container */
+    .save-container {
+      display: flex;
+      justify-content: space-between;
+      border: solid 1px purple;
+    }
+
+    .left-save {
+      display: flex;
+    }
+
+    .right-save {
+      display: flex;
+    }
+
+
+
+  /* Submit Bar */
+    .submitBar {
+      display: flex;
+      flex-direction: row-reverse;
+      border: solid 1px black;
+      padding: 20px;
+    }
+
+
+
+  .toolbar-icon {
+    display: flex;
+    height: 48px;
+    width: 60%;
+    justify-content: center;
+    align-items: center;
+    background-color: green;
+    border: 1px solid black;
+  }
+
+  .toolbar-input {
+    display: flex;
+    background-color: lightgreen;
+    width: 40%;
+  }
+
+  .toolbar-group {
+    display: flex;
+    width:10%;
   }
