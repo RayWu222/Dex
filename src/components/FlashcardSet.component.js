@@ -33,7 +33,7 @@ const FlashcardSet = () => {
         e.preventDefault()
 
         axios.post('http://localhost:4000/create', {
-            title, author, description, category, flashcards
+            title, author, description, category, numFlashcards, flashcards
         })
         .then(res => console.log(res.data));     
         
@@ -111,7 +111,7 @@ const FlashcardSet = () => {
                             </div>
                             <div>
                                 <label>
-                                    <input type="radio" value="other" checked={category === 'English'} onChange={event => setCategory('Other')}/>
+                                    <input type="radio" value="other" checked={category === 'Other'} onChange={event => setCategory('Other')}/>
                                     Other
                                 </label>
                             </div>
@@ -135,8 +135,8 @@ const FlashcardSet = () => {
                 <button
                     className="search-field-button"
                     type="button"
-                    onClick={() => submitFlashcardSet}>
-                    Submit
+                    onClick={(e) => submitFlashcardSet(e)}>
+                    Submit Flashcard Set
                 </button>
                 
             </div>

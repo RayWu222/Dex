@@ -4,16 +4,8 @@ const app = express();
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
-const router = express.Router();
 
 const PORT = 4000;
-
-var indexRouter = require('./routes/index');
-var createRouter = require('./routes/create');
-var listRouter = require('./routes/list');
-var testAPIRouter = require('./routes/testAPI');
-
-
 
 
 app.use(cors());
@@ -29,11 +21,6 @@ connection.once('open', function() {
 })
 
 
-
-
-
-
-
 var flashcard = new mongoose.Schema({
     front: String,
     back: String
@@ -44,16 +31,10 @@ var flashcardSet = new mongoose.Schema({
     author: String,
     description: String,
     category: String,
+    numFlashcards: String,
     flashcards: [flashcard]
 });
 var FlashcardSet = mongoose.model("FlashcardSet", flashcardSet)
-
-
-
-
-
-
-
 
 
 
@@ -95,26 +76,6 @@ app.route('/search/:value').get(function(req, res){
 });
 
 
-app.route('/update/:id').post(function(req, res) {
-    FlashcardSet.findById(req.params.id, function(err, flashcardSet) {
-        if (!flashcardSet)
-            res.status(404).send("data is not found (server.js:41)");
-        else
-            flashcardSet.flashcardSet_title = req.body.flashcardSet_title;
-            //WILL NOT BE EXECUTED
-            flashcardSet.flashcardSet_author = req.body.flashcardSet_author;
-            flashcardSet.flashcardSet_description = req.body.flashcardSet_description;
-            flashcardSet.flashcardSet_category = req.body.flashcardset_category;
-
-            flashcardSet.save().then(flashcardSet => {
-                res.json('FlashcardSet updated!');
-            })
-            .catch(err => {
-                res.status(400).send("Update not possible");
-            });
-    });
-
-});
 
 
 app.use('/create', function (req, res) {
@@ -128,15 +89,6 @@ app.use('/create', function (req, res) {
             res.status(400).send('adding new flashcardSet failed');
         });
 });
-
-app.use('/list', function (req, res) {
-    res.send('List');
-});
-app.use('/testAPI', function (req, res) {
-    res.send('TestAPI');
-});
-
-
 
 
 app.listen(PORT, function() {

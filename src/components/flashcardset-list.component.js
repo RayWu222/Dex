@@ -4,10 +4,11 @@ var axios = require('axios');
 
 const FlashcardSet = props => (
     <tr>
-        <td>{props.flashcardSet.flashcardSet_title}</td>
-        <td>{props.flashcardSet.flashcardSet_author}</td>
-        <td>{props.flashcardSet.flashcardSet_description}</td>
-        <td>{props.flashcardSet.flashcardSet_category}</td>
+        <td>{props.flashcardSet.title}</td>
+        <td>{props.flashcardSet.author}</td>
+        <td>{props.flashcardSet.description}</td>
+        <td>{props.flashcardSet.category}</td>
+        <td>{props.flashcardSet.numFlashcards}</td>
         <td>
             <Link to={"/edit/"+props.flashcardSet._id}>Edit</Link>
         </td>
@@ -48,7 +49,9 @@ export default class FlashcardSetList extends Component {
                             <th>Author</th>
                             <th>Description</th>
                             <th>Category</th>
+                            <th># of Flashcards</th>
                             <th>Action</th>
+                            
                         </tr>
                     </thead>
                     <tbody>

@@ -12,6 +12,7 @@ var FlashcardSet = new Schema({
     author: String,
     description: String,
     category: String,
+    numFlashcards: String,
     flashcards: [Flashcard]
 });
 
