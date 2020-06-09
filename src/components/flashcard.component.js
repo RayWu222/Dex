@@ -5,14 +5,15 @@ import "../App.css";
 
 const Flashcard = (counter) => {
       const [color, setColor] = useState('#ffc600');
-      const [width, setWidth] = useState(500);
-      const [height, setHeight] = useState(250);
+      const [width, setWidth] = useState(550);
+      const [height, setHeight] = useState(260);
       const [brushRadius, setBrushRadius] = useState(10);
       const [lazyRadius, setLazyRadius] = useState(2);
       const [editState, setEditState] = useState(false);
       const [frontFlashcard, setFrontFlashcard] = useState('')
       const [backFlashcard, setBackFlashcard] = useState('')
       const [flashcardNum, setFlashcardNum] = useState(counter)
+      const [backgroundImg, setBackgroundImg] = useState('https://i.pinimg.com/originals/e1/89/13/e189135cecb98637bc67e79c5f19e3ea.jpg')
 
     var front = <CanvasDraw 
       brushColor={color}
@@ -21,6 +22,7 @@ const Flashcard = (counter) => {
       canvasWidth={width}
       canvasHeight={height} 
       disabled={!editState}
+      imgSrc={backgroundImg}
       ref={canvasDraw => (setFrontFlashcard(canvasDraw))}
       />
 
@@ -31,6 +33,7 @@ const Flashcard = (counter) => {
       canvasWidth={width}
       canvasHeight={height} 
       disabled={!editState} 
+      imgSrc={backgroundImg}
       ref={canvasDraw => (setBackFlashcard(canvasDraw))}
       />
 

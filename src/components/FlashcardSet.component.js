@@ -9,8 +9,8 @@ const FlashcardSet = () => {
     const [author, setAuthor] = useState('');
     const [description, setDescription] = useState('');
     const [category, setCategory] = useState('');
-    const [numFlashcards, setNumFlashcards] = useState(0);
-    const [flashcards, setFlashcards] = useState([]);
+    const [numFlashcards, setNumFlashcards] = useState(1);
+    const [flashcards, setFlashcards] = useState([<Flashcard counter={0} />]);
    
 
     
