@@ -17,7 +17,6 @@ class App extends Component {
     return (
       <Router>
         <NavBar> </NavBar>
-        <br />
         <Route path="/" exact component={LandingPage} />
         <Route path="/list" exact component={FlashcardSetList} />
         <Route

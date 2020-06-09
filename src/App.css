@@ -11,11 +11,12 @@
 	#014f33 - Black Replacement
 */
 
+/*--------------------------------------------------------------------------------- Global Sytles*/
 .app-wrapper {
   background-color: floralwhite;
 }
 
-/*Landing Page*/
+/*--------------------------------------------------------------------------------- Landing Page*/
 .landing-container {
   height: 100%;
   background-color: #03cc83;
@@ -26,6 +27,7 @@
   background-color: #029a63;
   color: #014f33;
   text-align: center;
+  text-transform: uppercase;
 }
 
 .landing-icon {
@@ -46,34 +48,36 @@
   color: #014f33;
 }
 
-/* Navigation Bar */
+/*--------------------------------------------------------------------------------- Navigation Bar*/
 
 /*Top Level NavBar Container*/
 .nav-container {
   display: flex;
   align-items: center;
-  height: 20%;
+  height: auto;
   background-color: #03cc83;
-  padding: 0 10%;
 }
 
 .navbar {
   display: flex;
   flex-grow: 1;
+  padding-right: 15px;
 }
 
-/* Navbar Items (logo, links, search bar, buttons) */
+/*----------------------------------------------- Navbar Sections */
 
 .navbar-logo {
-  height: 200px;
-  width: 200px;
+  display: flex;
+  height: 100px;
+  width: 50px;
+  flex-grow: 0.2;
+  margin-left: 25px;
   justify-content: space-evenly;
 }
 
 .navbar-left {
   display: flex;
   height: 100px;
-  width: auto;
   flex-grow: 1;
   justify-content: space-evenly;
 }
@@ -81,19 +85,19 @@
 .navbar-right {
   display: flex;
   height: 100px;
-  flex-grow: 0.2;
+  flex-grow: 1;
   justify-content: space-evenly;
 }
 
-/* Navbar Items*/
+/*--------------------------------------------- Navbar Items*/
 .navbar a {
   color: #014f33;
   text-decoration: none;
   display: flex;
-  width: 100px;
   flex-grow: 0;
   justify-content: space-evenly;
   align-items: center;
+  padding: 10px;
 }
 
 .navbar a:hover {
@@ -108,15 +112,17 @@
   background-color: #03b373;
 }
 
-/* NavBar List Properties */
+/* ---------------------------- NavBar List Properties */
 .navbar ul {
   list-style: none;
 }
 
+/*--------------------------------------------------------------------------------- Search Bar*/
 .search-bar-container {
   display: flex;
   height: 100px;
-  flex-grow: 0.2;
+  width: auto;
+  flex-grow: 1;
   justify-content: space-evenly;
   align-items: center;
 }
@@ -124,26 +130,27 @@
 .search-input-field {
   display: flex;
   width: 100px;
+  height: 25px;
+  border-radius: 15px;
   border: hidden;
   background-color: #03b373;
 }
 
-.search-input-field ::placeholder {
-  color: red;
+.search-input-field input:focus{
+  background-color:black;
 }
 
-
-#results-bar {
-  background-color: white;
+.search-submit-button {
+  height: 25px;
+  background-color: #014f33;
+  color: #03cc83;
+  border-radius: 15px;
+  padding: 0px, 1px, 1px, 0px;
+  border: hidden;
+  margin-left: 5px;
 }
 
-.navbar-submit {
-  color: #014f33;
-  text-decoration: none;
-  display: flex;
-  flex-grow: 0;
-  justify-content: space-evenly;
-}
+/*--------------------------------------------------------------------------------- Sign In Page*/
 
 /* Footer */
 .footer-container {
@@ -157,7 +164,7 @@
   width: 100%;
 }
 
-/*copyright color*/
+/*--------------------------------------------------------------------------------- Footer*/
 .copy-colorblack {
   color: #014f33;
   display: flex;
@@ -166,21 +173,20 @@
   height: 50px;
 }
 
-/*Footer Links*/
 .footer-links {
   background-color: #03cc83;
   margin-left: 20px;
 }
 
-/*Footer Logo */
+
 .footer-logo {
   height: 100px;
   padding: 5px;
 }
 
-/* Create New Flashcard Set */
+/*--------------------------------------------------------------------------------- Create Flashcard Page*/
 
-/* Containers */
+/*------------------------------------------------------------------- Containers */
 .set-container {
   border: 1px solid orangered;
   display: flex;
@@ -261,15 +267,6 @@
   flex-direction: row-reverse;
   border: solid 1px #014f33;
   padding: 20px;
-}
-
-.navbar-search {
-  display: flex;
-  padding-top: 20px;
-}
-
-.navbar-form {
-  border: 1px solid #014f33;
 }
 
 .set-container {

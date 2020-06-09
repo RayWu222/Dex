@@ -10,7 +10,7 @@ export default class SearchBar extends Component {
   }
 
   getSearch() {
-    var terms = document.getElementById("search-input-field").value;
+    var terms = document.getElementById("user-input").value;
     //this.setState({ searchTerm: terms});
     console.log("searchTerm: " + terms);
     window.location.replace(
@@ -27,9 +27,10 @@ export default class SearchBar extends Component {
     return (
       <div className="search-bar-container">
         <input
-          className="search-input-field"
-          id="search-input-field"
-          placeholder={this.state.testProp}
+            id="user-input"
+            type="text"
+            className="search-input-field"
+            placeholder={this.state.testProp}
         ></input>
         <button
           className="search-submit-button"
