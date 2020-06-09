@@ -33,6 +33,7 @@ export default class Navbar extends Component {
                             <a class="nav-left" href="/">Home</a>
                             <a class="nav-left" href="/create">Create</a>
                             <a class="nav-left" href="/list">List</a>
+                            
                     </ul>
 
                     <form class="navbar-form" name = "Test" >
@@ -43,6 +44,7 @@ export default class Navbar extends Component {
                     <ul class="navbar-right">
                             <a class="nav-right" href="/signup">Sign Up</a>
                             <a class="nav-right" href="/signin">Login</a>
+                            <a class="nav-right" href="/user">User</a>
                     </ul>
                 </nav>
             </div> 

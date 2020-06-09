@@ -11,6 +11,7 @@ import FlashcardSetList from "./components/flashcardset-list.component";
 import SearchPage from "./components/search.component";
 import SignIn from "./components/signup.component";
 import SignUp from "./components/signup.component";
+import Profile from "./components/profile.component"
 
 
 class App extends Component {
@@ -26,6 +27,9 @@ class App extends Component {
                 <Route path="/create" component={CreateFlashcardSet} />
                 <Route path="/signup" component={SignUp} />
                 <Route path="/signin" component={SignIn} />
+                <Route path= "/user/:user" component={Profile}/>
+
+                
       </Router>
     );
   }

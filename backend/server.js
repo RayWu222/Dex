@@ -30,8 +30,14 @@ connection.once('open', function() {
 
 
 
-
-
+//define User Schema
+var userSchema = new mongoose.Schema({
+    firstname:String,
+    lastname:String,
+    username: String,
+    password: String,
+    
+},{collection: 'users'});
 
 
 var flashcard = new mongoose.Schema({
@@ -46,16 +52,10 @@ var flashcardSet = new mongoose.Schema({
     category: String,
     flashcards: [flashcard]
 });
+
 var FlashcardSet = mongoose.model("FlashcardSet", flashcardSet)
-
-
-
-
-
-
-
-
-
+//compiler user model 
+var Users = mongoose.model("User", userSchema)
 
 
 app.route('/').get(function(req, res) {
@@ -85,6 +85,36 @@ app.route('/:id').get(function(req, res) {
         res.json(flashcardSet);
     });
 });
+
+
+//find the user profile
+app.route('/user/:username').get(function(req,res){
+
+    const user = req.params.username
+    Users.findOne({username:user}, function(err, userSchema){
+        if(err){
+            console.log(err);
+
+        }else{
+            
+            res.send(userSchema)
+            
+        }
+    });
+});
+
+
+//get flashcardsets with user id
+app.route('/userList/:userid').get(function(req,res){
+    let id = req.params.userid;
+    FlashcardSet.find({author:id}, function(err, flashcardSet){
+        res.json(flashcardSet);
+    })
+})
+    
+    
+
+
 
 //search page component, search the database for that value and return flashcardset with that value
 app.route('/search/:value').get(function(req, res){
