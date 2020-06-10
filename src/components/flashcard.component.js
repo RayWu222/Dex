@@ -12,6 +12,7 @@ const Flashcard = (counter) => {
   const [editState, setEditState] = useState(false);
   const [frontFlashcard, setFrontFlashcard] = useState("");
   const [backFlashcard, setBackFlashcard] = useState("");
+  const [flashcardArray, setFlashcardArray] = useState([frontFlashcard, backFlashcard])
   const [flashcardNum, setFlashcardNum] = useState(counter);
 
   var front = (
@@ -132,22 +133,11 @@ const Flashcard = (counter) => {
           </div>
           <div className="right-flashcard">{back}</div>
         </div>
-      </div>
+      
 
       {editState && (
         <div className="save-container">
           <div className="left-save">
-            <button
-              type="button"
-              onClick={() => {
-                localStorage.setItem(
-                  "frontFlashcard" + flashcardNum,
-                  frontFlashcard.getSaveData()
-                );
-              }}
-            >
-              Save
-            </button>
             <button
               type="button"
               onClick={() => {
@@ -156,29 +146,8 @@ const Flashcard = (counter) => {
             >
               Clear
             </button>
-            <button
-              type="button"
-              onClick={() => {
-                frontFlashcard.loadSaveData(
-                  localStorage.getItem("frontFlashcard" + flashcardNum)
-                );
-              }}
-            >
-              Load
-            </button>
           </div>
           <div className="right-save">
-            <button
-              type="button"
-              onClick={() => {
-                localStorage.setItem(
-                  "backFlashcard" + flashcardNum,
-                  backFlashcard.getSaveData()
-                );
-              }}
-            >
-              Save
-            </button>
             <button
               type="button"
               onClick={() => {
@@ -187,19 +156,10 @@ const Flashcard = (counter) => {
             >
               Clear
             </button>
-            <button
-              type="button"
-              onClick={() => {
-                backFlashcard.loadSaveData(
-                  localStorage.getItem("backFlashcard" + flashcardNum)
-                );
-              }}
-            >
-              Load
-            </button>
           </div>
         </div>
       )}
+      </div>
     </div>
   );
 };

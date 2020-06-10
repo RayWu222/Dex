@@ -8,23 +8,9 @@ const EditFlashcardSet = (id) => {
   const [author, setAuthor] = useState("");
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
-  const [numFlashcards, setNumFlashcards] = useState(0);
+  const [numFlashcards, setNumFlashcards] = useState("");
   const [flashcards, setFlashcards] = useState([]);
 
-  React.useEffect(() => {
-    axios
-      .get("http://localhost:4000/flashcardSet/" + id, {
-        title,
-        author,
-        description,
-        category,
-        numFlashcards,
-        flashcards,
-      })
-      .then((res) => {
-        console.log(res.data);
-      });
-  });
 
   const addNewFlashcard = () => {
     var newFlashcard = <Flashcard counter={(num) => numFlashcards} />;
@@ -51,16 +37,16 @@ const EditFlashcardSet = (id) => {
 
   return (
     <form onSubmit={submitFlashcardSet} method="post" action="/create">
-      <div class="title-container">
-        <div class="title-name">
-          <h3>Create New Flashcard Set</h3>
+      <div className="title-container">
+        <div className="title-name">
+          <h3>Edit Flashcard Set</h3>
         </div>
         <div>
           <div className="form-group">
-            <div class="form-title">
+            <div className="form-title">
               <label>Title: </label>
             </div>
-            <div class="form-input">
+            <div className="form-input">
               <input
                 type="text"
                 className="form-control"
@@ -69,10 +55,10 @@ const EditFlashcardSet = (id) => {
             </div>
           </div>
           <div className="form-group">
-            <div class="form-title">
+            <div className="form-title">
               <label>Author: </label>
             </div>
-            <div class="form-input">
+            <div className="form-input">
               <input
                 type="text"
                 className="form-control"
@@ -81,10 +67,10 @@ const EditFlashcardSet = (id) => {
             </div>
           </div>
           <div className="form-group">
-            <div class="form-title">
+            <div className="form-title">
               <label>Description: </label>
             </div>
-            <div class="form-input">
+            <div className="form-input">
               <input
                 type="text"
                 className="form-control"
@@ -93,7 +79,7 @@ const EditFlashcardSet = (id) => {
             </div>
           </div>
           <div className="form-group">
-            <div class="form-title">
+            <div className="form-title">
               <label>Category: </label>
             </div>
             <div>

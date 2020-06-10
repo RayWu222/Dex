@@ -16,7 +16,7 @@ const FlashcardSet = () => {
   React.useEffect(() => {});
 
   const addNewFlashcard = () => {
-    var newFlashcard = <Flashcard counter={(num) => numFlashcards} />;
+    var newFlashcard = <Flashcard counter={(num) => numFlashcards}  />;
     setFlashcards(flashcards.concat(newFlashcard));
     setNumFlashcards(numFlashcards + 1);
   };
