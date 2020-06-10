@@ -32,11 +32,9 @@
 
 .landing-icon {
   float: left;
-  height: 40%;
-  width: 35%;
-  max-width: 250px;
-  max-height: 300px;
-  padding-left: 10%;
+  height: 100%;
+  width: 100%;
+  max-height: 250px;
 }
 
 .landing-body {
@@ -69,8 +67,7 @@
 
 .navbar-logo {
   display: flex;
-  height: 100px;
-  width: 40px;
+  max-height: 150px;
   flex-grow: 0.2;
   margin-left: 25px;
   justify-content: space-evenly;
