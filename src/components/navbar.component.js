@@ -28,11 +28,11 @@ export default class Navbar extends Component {
             <Bar id="navbar-search-bar"></Bar>
           </ul>
           <ul className="navbar-right">
-            <a className="nav-right" href="/signout">
-              Sign Out
+            <a className="nav-right" href="/signup">
+              Sign Up
             </a>
             <a className="nav-right" href="/signin">
-              Login
+              Sign In!
             </a>
           </ul>
         </nav>

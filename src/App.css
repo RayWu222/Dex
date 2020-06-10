@@ -7,18 +7,18 @@
 	#029a63 - Leaf
 	#028153 - Leaf Dark
 	#026843 - Moss
-	#014f33 - Moss Dark
 	#014f33 - Black Replacement
 */
 
 /*--------------------------------------------------------------------------------- Global Sytles*/
 .app-wrapper {
   background-color: floralwhite;
+  height: 1200px;
 }
 
 /*--------------------------------------------------------------------------------- Landing Page*/
 .landing-container {
-  height: 100%;
+  height: 55%;
   background-color: #03cc83;
   border-radius: 25px;
 }
@@ -54,14 +54,15 @@
 .nav-container {
   display: flex;
   align-items: center;
-  height: auto;
-  background-color: #03cc83;
+  height: 150px;
+  background-color: #026843;
 }
 
 .navbar {
   display: flex;
   flex-grow: 1;
-  padding-right: 15px;
+  height:100%;
+  background-color: #026843;
 }
 
 /*----------------------------------------------- Navbar Sections */
@@ -69,10 +70,12 @@
 .navbar-logo {
   display: flex;
   height: 100px;
-  width: 50px;
+  width: 40px;
   flex-grow: 0.2;
   margin-left: 25px;
   justify-content: space-evenly;
+  background-color:#03cc83;
+  border-radius:50px;
 }
 
 .navbar-left {
@@ -91,25 +94,25 @@
 
 /*--------------------------------------------- Navbar Items*/
 .navbar a {
-  color: #014f33;
+  color: #03cc83;
   text-decoration: none;
   display: flex;
-  flex-grow: 0;
-  justify-content: space-evenly;
-  align-items: center;
-  padding: 10px;
+  flex-grow: 1;
+  height: 75px;
+  justify-content: center;
+  padding-top:40px;
 }
 
 .navbar a:hover {
-  background-color: #029a63;
+  background-color: #028153;
 }
 
 .navbar a:focus {
-  background-color: #03b373;
+  background-color: #028153;
 }
 
 .navbar a:active {
-  background-color: #03b373;
+  background-color: #028153;
 }
 
 /* ---------------------------- NavBar List Properties */
@@ -187,33 +190,38 @@
 /*--------------------------------------------------------------------------------- Create Flashcard Page*/
 
 /*------------------------------------------------------------------- Containers */
+.create-flashcard-container{
+  background-color: floralwhite;
+  height: 1200px;
+}
+
+.title-container { /*this the right one*/
+  display:flex;
+  flex-direction: column;
+  width: 100%;
+  background: #029a63;
+  color: #03cc83;
+}
+
 .set-container {
   border: 1px solid orangered;
   display: flex;
-  flex-direction: column;
-  padding: 0px 10%;
-  background: #028153;
-}
-
-.title-container {
-  border: 1px solid greenyellow;
-  flex-direction: column;
-  justify-content: flex-start;
-  width: 50%;
-  background: whitesmoke;
+  flex-direction: inherit;
+  justify-content: center;
 }
 
 .form-group {
   display: flex;
+  flex-direction:inherit;
   padding: 5px;
   border: 1px solid #014f33;
+  background-color: #03cc83;
 }
 
 .form-title {
   display: flex;
   flex-grow: 0;
-  border: 1px solid #014f33;
-  width: 15%;
+  color:#014f33;
 }
 
 .form-input {
@@ -276,12 +284,7 @@
   padding: 0px 10%;
   background: #028153;
 }
-.title-container {
-  border: 1px solid greenyellow;
-  flex-direction: column;
-  width: 80%;
-  background: whitesmoke;
-}
+
 
 .form-group {
   display: flex;
@@ -459,3 +462,26 @@
   display: flex;
   width: 10%;
 }
+
+/*--------------------------------------------------------------------------- Sign-in Page */
+.google-sign-in{
+  display: flex;
+  flex-direction: column;
+  background-color: #03cc83;
+  height: 80%;
+  text-align: center;
+}
+
+.signin-title{
+  display: flex;
+  flex-direction: column;
+  color: #014f33;
+  height: 100px;
+}
+
+.g-signin2{
+  background-color: #03cc83;
+  height: 100px;
+}
+
+/*

@@ -49,7 +49,7 @@ const FlashcardSet = () => {
         </div>
         <div>
           <div className="form-group">
-            <div class="form-title">
+            <div className="form-title">
               <label>Title: </label>
             </div>
             <div class="form-input">
@@ -61,7 +61,7 @@ const FlashcardSet = () => {
             </div>
           </div>
           <div className="form-group">
-            <div class="form-title">
+            <div className="form-title">
               <label>Author: </label>
             </div>
             <div class="form-input">
@@ -73,7 +73,7 @@ const FlashcardSet = () => {
             </div>
           </div>
           <div className="form-group">
-            <div class="form-title">
+            <div className="form-title">
               <label>Description: </label>
             </div>
             <div class="form-input">
@@ -85,7 +85,7 @@ const FlashcardSet = () => {
             </div>
           </div>
           <div className="form-group">
-            <div class="form-title">
+            <div className="form-title">
               <label>Category: </label>
             </div>
             <div>
@@ -144,6 +144,7 @@ const FlashcardSet = () => {
 
         <button
           className="search-field-button"
+          id="add-flashcard"
           type="button"
           onClick={() => addNewFlashcard()}
         >
@@ -152,6 +153,7 @@ const FlashcardSet = () => {
 
         <button
           className="search-field-button"
+          id="submit-flashcard"
           type="button"
           onClick={(e) => submitFlashcardSet(e)}
         >

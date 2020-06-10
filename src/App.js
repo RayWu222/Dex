@@ -25,7 +25,7 @@ class App extends Component {
           component={SearchPage}
         />
         <Route path="/edit/:id" component={ViewFlashcardSet} />
-        <Route path="/create" component={CreateFlashcardSet} />
+        <Route path="/create" exact component={CreateFlashcardSet} />
         <Route path="/signup" component={SignUp} />
         <Route path="/signin" component={SignIn} />
       </Router>
