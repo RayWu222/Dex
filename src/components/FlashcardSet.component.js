@@ -9,8 +9,8 @@ const FlashcardSet = () => {
   const [author, setAuthor] = useState("");
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
-  const [numFlashcards, setNumFlashcards] = useState(1);
-  const [flashcards, setFlashcards] = useState([<Flashcard counter={0} />]);
+  const [numFlashcards, setNumFlashcards] = useState(0);
+  const [flashcards, setFlashcards] = useState([]);
 
   // re-rendering in response to some kind of change, such as state change, API requests, etc.
   React.useEffect(() => {});
@@ -21,8 +21,8 @@ const FlashcardSet = () => {
     setNumFlashcards(numFlashcards + 1);
   };
 
-  const submitFlashcardSet = (e) => {
-    e.preventDefault();
+  const submitFlashcardSet = (event) => {
+    event.preventDefault();
 
     axios
       .post("http://localhost:4000/create", {
@@ -36,9 +36,6 @@ const FlashcardSet = () => {
       .then((res) => console.log(res.data));
 
     alert("Flashcard Set Submitted");
-    setTitle("");
-    setAuthor("");
-    setDescription("");
   };
 
   return (
@@ -153,9 +150,8 @@ const FlashcardSet = () => {
 
         <button
           className="search-field-button"
-          id="submit-flashcard"
           type="button"
-          onClick={(e) => submitFlashcardSet(e)}
+          onClick={(event) => submitFlashcardSet(event)}
         >
           Submit Flashcard Set
         </button>

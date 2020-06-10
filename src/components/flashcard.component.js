@@ -13,9 +13,6 @@ const Flashcard = (counter) => {
   const [frontFlashcard, setFrontFlashcard] = useState("");
   const [backFlashcard, setBackFlashcard] = useState("");
   const [flashcardNum, setFlashcardNum] = useState(counter);
-  const [backgroundImg, setBackgroundImg] = useState(
-    "https://i.pinimg.com/originals/e1/89/13/e189135cecb98637bc67e79c5f19e3ea.jpg"
-  );
 
   var front = (
     <CanvasDraw
@@ -25,7 +22,6 @@ const Flashcard = (counter) => {
       canvasWidth={width}
       canvasHeight={height}
       disabled={!editState}
-      imgSrc={backgroundImg}
       ref={(canvasDraw) => setFrontFlashcard(canvasDraw)}
     />
   );
@@ -38,7 +34,6 @@ const Flashcard = (counter) => {
       canvasWidth={width}
       canvasHeight={height}
       disabled={!editState}
-      imgSrc={backgroundImg}
       ref={(canvasDraw) => setBackFlashcard(canvasDraw)}
     />
   );
