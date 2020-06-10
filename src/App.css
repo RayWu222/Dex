@@ -13,7 +13,7 @@
 /*--------------------------------------------------------------------------------- Global Sytles*/
 .app-wrapper {
   background-color: floralwhite;
-  height: 1200px;
+  height: 100%;
 }
 
 /*--------------------------------------------------------------------------------- Landing Page*/
@@ -197,7 +197,11 @@
   flex-direction: column;
   width: 100%;
   background: #029a63;
-  color: #03cc83;
+  text-align: center;
+}
+
+.title-text{
+  color:#03cc83;
 }
 
 .set-container {
@@ -218,7 +222,12 @@
 .form-title {
   display: flex;
   flex-grow: 0;
-  color:#014f33;
+  text-align: center;
+  border-radius: 25px;
+  color: #03cc83;
+  background-color: #014f33;
+
+
 }
 
 .form-input {
@@ -226,6 +235,10 @@
   flex-grow: 0;
   border: 1px solid #014f33;
   width: 40%;
+}
+
+.category-buttons{
+  color:#014f33;
 }
 
 .flashcard-container {

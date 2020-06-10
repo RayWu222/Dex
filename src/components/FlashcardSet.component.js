@@ -41,21 +41,14 @@ const FlashcardSet = () => {
   return (
     <form onSubmit={submitFlashcardSet} method="post" action="/create">
       <div class="title-container">
-        <div class="title-name">
-          <h3>Create New Flashcard Set</h3>
-        </div>
-        <div>
+        <h3>Create New Flashcard Set</h3>
           <div className="form-group">
-            <div className="form-title">
-              <label>Title: </label>
-            </div>
-            <div class="form-input">
-              <input
-                type="text"
-                className="form-control"
-                onChange={(event) => setTitle(event.target.value)}
+            <label className="form-title">Title: </label>
+            <input
+              type="text"
+              className="form-input"
+              onChange={(event) => setTitle(event.target.value)}
               />
-            </div>
           </div>
           <div className="form-group">
             <div className="form-title">
@@ -99,6 +92,7 @@ const FlashcardSet = () => {
             <div>
               <label>
                 <input
+                  className="category-buttons"
                   type="radio"
                   value="science"
                   checked={category === "Science"}
@@ -110,6 +104,7 @@ const FlashcardSet = () => {
             <div>
               <label>
                 <input
+                  className="category-buttons"
                   type="radio"
                   value="english"
                   checked={category === "English"}
@@ -121,6 +116,7 @@ const FlashcardSet = () => {
             <div>
               <label>
                 <input
+                  className="category-buttons"
                   type="radio"
                   value="other"
                   checked={category === "Other"}
@@ -155,7 +151,6 @@ const FlashcardSet = () => {
         >
           Submit Flashcard Set
         </button>
-      </div>
     </form>
   );
 };
