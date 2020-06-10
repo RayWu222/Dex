@@ -49,7 +49,7 @@ export default class Profile extends Component{
             <div>
                 <h1>User Profile</h1>
                 
-                <img src = "./img/dexOwl.png" alt = "owl"></img>
+                <img src = "./img/dexOwl.png" alt = "image"></img>
             
                 
                 

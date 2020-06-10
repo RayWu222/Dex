@@ -12,7 +12,7 @@ const UserFlashcardSetList = props => (
         <td>{props.userFlashcardSetList.description}</td>
         <td>{props.userFlashcardSetList.category}</td>
         <td>
-            <Link to={"/edit/"+props.userFlashcardSetList._id}>Edit</Link> | <Link to={"/edit/"+props.userFlashcardSetList._id}>Delete</Link>
+        <Link to={"/edit/"+props.userFlashcardSetList._id}>Go</Link> | <Link to={"/edit/"+props.userFlashcardSetList._id}>Edit</Link> | <Link to={"/edit/"+props.userFlashcardSetList._id}>Delete</Link>
         </td>
     </tr>
 )
@@ -48,7 +48,7 @@ export default class UserCardSetsList extends Component{
         // console.log("value " + n)
        
         
-        axios.get('http://localhost:4000/userList/Andrew'  )
+        axios.get('http://localhost:4000/userList/FooBar'  )
         
             .then(response => {
                 console.log(response.data);
@@ -67,7 +67,7 @@ export default class UserCardSetsList extends Component{
         return(
             <div>
                 
-            <h3>FlashcardSet List</h3>
+            <h3>Flashcard Sets</h3>
             <table className="table table-striped" style={{ marginTop: 20 }} >
                 <thead>
                     <tr>
