@@ -8,7 +8,7 @@ export default class SearchBar extends Component {
     super(props);
     this.state = { searchResult: [], searchTerm: " error", instanceID: 0 };
   }
- // const searchResult = "Sucess Search "
+  //const search = "Sucess Search "
 //Search cannot be null 
 
   handleSearch = event => {
