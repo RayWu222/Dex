@@ -26,30 +26,18 @@ var flashcard = new mongoose.Schema({
     back: String
 });
 
+//var flashcardSet = mongoose.model('FlashcardSet', flashcardSetSchema)
 var flashcardSet = new mongoose.Schema({
     title: String,
     author: String,
     description: String,
     category: String,
     numFlashcards: String,
-    flashcards: [flashcard]
+    flashcards: Array
 });
 
 var FlashcardSet = mongoose.model("FlashcardSet", flashcardSet)
 
-
-
-
-app.route('/').get(function(req, res) {
-    
-    FlashcardSet.find({}, function(err, flashcardSet) {
-        if (err) {
-            console.log(err);
-        } else {
-            res.json(flashcardSet);
-        }
-    });
-});
 
 app.route('/list').get(function(req, res) {
     FlashcardSet.find({}, function(err, flashcardSet) {
@@ -61,12 +49,12 @@ app.route('/list').get(function(req, res) {
     });
 });
 
-app.route('/:id').get(function(req, res) {
-    let id = req.params.id;
-    FlashcardSet.findById(id, function(err, flashcardSet) {
-        res.json(flashcardSet);
-    });
-});
+// app.route('/:id').get(function(req, res) {
+//     let id = req.params.id;
+//     FlashcardSet.findById(id, function(err, flashcardSet) {
+//         res.json(flashcardSet);
+//     });
+// });
 
 //search page component, search the database for that value and return flashcardset with that value
 app.route('/search/:value').get(function(req, res){
@@ -77,19 +65,20 @@ app.route('/search/:value').get(function(req, res){
 });
 
 
-
-
 app.use('/create', function (req, res) {
     res.send('Create');
     var flashcardSet = new FlashcardSet(req.body);
     flashcardSet.save()
-        .then(flashcardSet => {
-            res.status(200).json({flashcardSet: 'flashcardSet added successfully'});
-        })
-        .catch(err => {
-            res.status(400).send('adding new flashcardSet failed');
-        });
 });
+
+app.use('/', function (req, res) {
+    res.send('Server.js Home')
+})
+
+app.use('/edit/:id', function (req, res) {
+    res.send('success bittch');
+});
+
 
 
 app.listen(PORT, function() {

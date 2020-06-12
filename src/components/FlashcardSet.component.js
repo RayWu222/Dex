@@ -13,16 +13,25 @@ const FlashcardSet = () => {
   const [flashcards, setFlashcards] = useState([]);
 
   // re-rendering in response to some kind of change, such as state change, API requests, etc.
-  React.useEffect(() => {});
+  useEffect(() => {});
 
   const addNewFlashcard = () => {
     var newFlashcard = <Flashcard counter={(num) => numFlashcards}  />;
     setFlashcards(flashcards.concat(newFlashcard));
-    setNumFlashcards(numFlashcards + 1);
+    var numb = parseInt((numFlashcards)+1);
+    setNumFlashcards(numb);
   };
+
+  const saveFlashcardSet = (event, value) => {
+    if(value === 'title') {
+      setTitle(event)
+    }
+  }
 
   const submitFlashcardSet = (event) => {
     event.preventDefault();
+
+    saveFlashcardSet();
 
     axios
       .post("http://localhost:4000/create", {
@@ -40,8 +49,8 @@ const FlashcardSet = () => {
 
   return (
     <form onSubmit={submitFlashcardSet} method="post" action="/create">
-      <div class="title-container">
-        <div class="title-name">
+      <div className="title-container">
+        <div className="title-name">
           <h3>Create New Flashcard Set</h3>
         </div>
         <div>
@@ -49,11 +58,11 @@ const FlashcardSet = () => {
             <div className="form-title">
               <label>Title: </label>
             </div>
-            <div class="form-input">
+            <div className="form-input">
               <input
                 type="text"
                 className="form-control"
-                onChange={(event) => setTitle(event.target.value)}
+                onChange={(event) => saveFlashcardSet(event.target.value, 'title')}
               />
             </div>
           </div>
@@ -61,7 +70,7 @@ const FlashcardSet = () => {
             <div className="form-title">
               <label>Author: </label>
             </div>
-            <div class="form-input">
+            <div className="form-input">
               <input
                 type="text"
                 className="form-control"
@@ -73,7 +82,7 @@ const FlashcardSet = () => {
             <div className="form-title">
               <label>Description: </label>
             </div>
-            <div class="form-input">
+            <div className="form-input">
               <input
                 type="text"
                 className="form-control"
@@ -133,8 +142,8 @@ const FlashcardSet = () => {
         </div>
         <div>
           <ul>
-            {flashcards.map((flashcard) => (
-              <li key={flashcard.id}>{flashcard}</li>
+            {flashcards.map((flashcard, i) => (
+              <li key={i}>{flashcard}</li>
             ))}
           </ul>
         </div>
@@ -159,5 +168,4 @@ const FlashcardSet = () => {
     </form>
   );
 };
-
 export default FlashcardSet;

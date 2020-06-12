@@ -3,6 +3,7 @@ import axios from "axios";
 import Flashcard from "./flashcard.component";
 //A component to allow the editting of flashcard sets already created in the database.
 
+
 const EditFlashcardSet = (id) => {
   const [title, setTitle] = useState("");
   const [author, setAuthor] = useState("");
@@ -11,11 +12,16 @@ const EditFlashcardSet = (id) => {
   const [numFlashcards, setNumFlashcards] = useState("");
   const [flashcards, setFlashcards] = useState([]);
 
+  useEffect(() => {
+    
+  }, []);
+
 
   const addNewFlashcard = () => {
     var newFlashcard = <Flashcard counter={(num) => numFlashcards} />;
     setFlashcards(flashcards.concat(newFlashcard));
-    setNumFlashcards(numFlashcards + 1);
+    var numb = parseInt((numFlashcards)+1);
+    setNumFlashcards(numb);
   };
 
   const submitFlashcardSet = (e) => {
@@ -50,6 +56,7 @@ const EditFlashcardSet = (id) => {
               <input
                 type="text"
                 className="form-control"
+                value={title}
                 onChange={(event) => setTitle(event.target.value)}
               />
             </div>
@@ -63,6 +70,7 @@ const EditFlashcardSet = (id) => {
                 type="text"
                 className="form-control"
                 onChange={(event) => setAuthor(event.target.value)}
+                value={author}
               />
             </div>
           </div>
@@ -74,7 +82,21 @@ const EditFlashcardSet = (id) => {
               <input
                 type="text"
                 className="form-control"
+                value={description}
                 onChange={(event) => setDescription(event.target.value)}
+              />
+            </div>
+          </div>
+          <div className="form-group">
+            <div className="form-title">
+              <label># Flashcards: </label>
+            </div>
+            <div className="form-input">
+              <input
+                type="text"
+                className="form-control"
+                readOnly = {true}
+                value={numFlashcards}
               />
             </div>
           </div>
@@ -155,5 +177,7 @@ const EditFlashcardSet = (id) => {
     </form>
   );
 };
+
+
 
 export default EditFlashcardSet;
