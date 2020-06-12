@@ -8,6 +8,9 @@ export default class SearchBar extends Component {
     super(props);
     this.state = { searchResult: [], searchTerm: " error", instanceID: 0 };
   }
+ // const searchResult = "Sucess Search "
+//Search cannot be null 
+
   handleSearch = event => {
     event.preventDefault();
     const  isValid =this.validate();
@@ -15,7 +18,7 @@ export default class SearchBar extends Component {
     console.log(this.state);
   
  }
-  //else {"This is not a valid search"}
+  else {alert("Search cannot be empty")}
 }
   getSearch() {
     var terms = document.getElementById("user-input").value;
