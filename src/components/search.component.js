@@ -65,7 +65,7 @@ export default class SearchPage extends Component {
   render() {
     return (
       <div>
-        <h3>{}}</h3>
+        <h3>{}</h3>
         <Bar id="results-bar"></Bar>
         <table className="table table-striped" style={{ marginTop: 20 }}>
           <thead>
