@@ -8,7 +8,7 @@ export default class SearchBar extends Component {
     super(props);
     this.state = { searchResult: [], searchTerm: " error", instanceID: 0 };
   }
- // const search = ("Sucess Search ")
+ search = ("Sucess Search ")
 //Search cannot be null stil trying to figure this part out. 
 // Const can only be used in TypeScript files.
 
