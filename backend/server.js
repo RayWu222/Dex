@@ -22,14 +22,7 @@ connection.once('open', function() {
 
 
 var flashcard = new mongoose.Schema({
-    color: String,
-    width: Number,
-    height: Number,
-    brushRadius: Number,
-    lazyRadius: Number,
-    frontFlashcard: String,
-    backFlashcard: String,
-    flashcardNum: Number
+    text: String
 });
 
 //var flashcardSet = mongoose.model('FlashcardSet', flashcardSetSchema)

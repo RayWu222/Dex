@@ -2,77 +2,74 @@ import React, { useState, useEffect } from "react";
 import CanvasDraw from "react-canvas-draw";
 import "../App.css";
 
+// const front = () => (
+//   <CanvasDraw
+//     brushColor={'#ffc600'}
+//     brushRadius={10}
+//     lazyRadius={2}
+//     canvasWidth={550}
+//     canvasHeight={260}
+//     disabled={false}
+//     saveData={''}
+//   />
+// );
+
+// var back = () => (
+//   <CanvasDraw
+//     brushColor={'#ffc600'}
+//     brushRadius={10}
+//     lazyRadius={2}
+//     canvasWidth={550}
+//     canvasHeight={260}
+//     disabled={false}
+//     saveData={''}
+//   />
+// );
+
 //A component that contains state information, and canvas to contain and give rich flashcard capabilities to the decks
 const Flashcard = (counter) => {
-  const [color, setColor] = useState("#ffc600");
-  const [width, setWidth] = useState(550);
-  const [height, setHeight] = useState(260);
-  const [brushRadius, setBrushRadius] = useState(10);
-  const [lazyRadius, setLazyRadius] = useState(2);
-  const [editState, setEditState] = useState(false);
+  const [color, setColor] = useState("");
+  const [width, setWidth] = useState("");
+  const [height, setHeight] = useState("");
+  const [brushRadius, setBrushRadius] = useState("");
+  const [lazyRadius, setLazyRadius] = useState("");
+  const [editState, setEditState] = useState("");
   const [frontFlashcard, setFrontFlashcard] = useState("");
   const [backFlashcard, setBackFlashcard] = useState("");
   const [flashcardNum] = useState(counter);
-  const [flashcard, setFlashcard] = useState([]);
 
 
-
-  var front = (
-    <CanvasDraw
-      brushColor={color}
-      brushRadius={brushRadius}
-      lazyRadius={lazyRadius}
-      canvasWidth={width}
-      canvasHeight={height}
-      disabled={!editState}
-      saveData={''}
-      ref={(canvasDraw) => setFrontFlashcard(canvasDraw)}
-    />
-  );
-
-  var back = (
-    <CanvasDraw
-      brushColor={color}
-      brushRadius={brushRadius}
-      lazyRadius={lazyRadius}
-      canvasWidth={width}
-      canvasHeight={height}
-      disabled={!editState}
-      saveData={''}
-      ref={(canvasDraw) => setBackFlashcard(canvasDraw)}
-    />
-  );
   
-  useEffect(() => {
-    setFlashcard([front, back])
-  }, []);
+  // useEffect(() => {
+  //   setFlashcard([front, back])
+  // }, []);
 
   const resetFrontFlashcard = () => {
-    frontFlashcard.loadSaveData(
-      localStorage.getItem("frontFlashcard" + flashcardNum)
-    );
+  //   frontFlashcard.loadSaveData(
+  //     localStorage.getItem("frontFlashcard" + flashcardNum)
+  //   );
   }
 
   const resetBackFlashcard = () => {
-    backFlashcard.loadSaveData(
-      localStorage.getItem("backFlashcard" + flashcardNum)
-    );
+  //   backFlashcard.loadSaveData(
+  //     localStorage.getItem("backFlashcard" + flashcardNum)
+  //   );
   }
   
   const swapFlashcard = () => {
-    var frontData = frontFlashcard.getSaveData();
-    localStorage.setItem(
-      "frontFlashcard" + flashcardNum,
-      backFlashcard.getSaveData()
-    );
-    localStorage.setItem("backFlashcard" + flashcardNum, frontData);
+  //   var frontData = frontFlashcard.getSaveData();
+  //   localStorage.setItem(
+  //     "frontFlashcard" + flashcardNum,
+  //     backFlashcard.getSaveData()
+  //   );
+  //   localStorage.setItem("backFlashcard" + flashcardNum, frontData);
 
-    frontFlashcard.loadSaveData(
-      localStorage.getItem("frontFlashcard" + flashcardNum)
-    );
-    backFlashcard.loadSaveData(
-      localStorage.getItem("backFlashcard" + flashcardNum)
-    );
+  //   frontFlashcard.loadSaveData(
+  //     localStorage.getItem("frontFlashcard" + flashcardNum)
+  //   );
+  //   backFlashcard.loadSaveData(
+  //     localStorage.getItem("backFlashcard" + flashcardNum)
+  //   );
   };
 
   return (
@@ -139,7 +136,13 @@ const Flashcard = (counter) => {
         )}
 
         <div className="bottom-flashcard">
-          <div className="left-flashcard">{front}</div>
+          <div className="left-flashcard">
+              <input
+                className="toolbar-input"
+                type="string"
+                onChange={(e) => setFrontFlashcard(e.target.value)}
+              />
+            </div>
 
           <div className="middle-flashcard">
             <div className="middle-swap">
@@ -161,7 +164,13 @@ const Flashcard = (counter) => {
               </button>
             </div>
           </div>
-          <div className="right-flashcard">{back}</div>
+          <div className="right-flashcard">
+                <input
+                className="toolbar-input"
+                type="string"
+                onChange={(e) => setBackFlashcard(e.target.value)}
+              />
+            </div>
         </div>
       
 
