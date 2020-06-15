@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "../App.css";
-
+const search = ("")
 //A compnent to take user input from the input field, validate and hand off to seach.component.
 export default class SearchBar extends Component {
   //create an array for the search results
@@ -9,27 +9,28 @@ export default class SearchBar extends Component {
     this.state = { searchResult: [], searchTerm: " error", instanceID: 0 };
   }
   
- search = ("Sucess Search ")
-//Search cannot be null stil trying to figure this part out. 
-// Const can only be used in TypeScript files.
-
-  handleSearch = event => {
+ 
+    handleSearch = event => {
     event.preventDefault();
     const  isValid =this.validate();
     if (isValid){
     console.log(this.state);
   
  }
-  else {alert("Search cannot be empty")}
+  
 }
   getSearch() {
     var terms = document.getElementById("user-input").value;
     //this.setState({ searchTerm: terms});
     console.log("searchTerm: " + terms);
-    window.location.replace(
+    //validation process starting
+    if (terms.length>0){window.location.replace(
       "http://localhost:3000/flashcardSet/search/search?flashcardSet_title=" +
-        terms
-    );
+        terms);
+
+    }
+    else {alert("Search cannot be empty")}
+  
   }
 
   onSubmit(e) {
