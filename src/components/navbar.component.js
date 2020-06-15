@@ -1,15 +1,14 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import "../App.css";
 
 //import logo from './logo.png';
-import { ReactComponent as Logo } from './img/dexOwl.svg'; 
-import Axios from 'axios';
+import { ReactComponent as Logo } from "./img/dexOwl.svg";
+//import search-bar
+import Bar from "./search-bar.component";
 
-//submit a value and search
-
-
-
+// A Navigation bar component allowing the free movement between sections of the application
 export default class Navbar extends Component {
+
 
     
     getSearch(){
