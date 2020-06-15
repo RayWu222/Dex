@@ -32,12 +32,14 @@ connection.once('open', function() {
 
 //define User Schema
 var userSchema = new mongoose.Schema({
-    firstname:String,
-    lastname:String,
-    username: String,
-    password: String,
+    userName:String,
+    email:String,
+    userToken: String,
+    userImage: String,
     
-},{collection: 'users'});
+}
+//,{collection: 'users'}
+);
 
 
 var flashcard = new mongoose.Schema({
@@ -91,13 +93,13 @@ app.route('/:id').get(function(req, res) {
 app.route('/user/:username').get(function(req,res){
 
     const user = req.params.username
-    Users.findOne({username:user}, function(err, userSchema){
+    Users.findOne({userName:user}, function(err, userSchema){
         if(err){
             console.log(err);
 
         }else{
             
-            res.send(userSchema)
+            res.json(userSchema)
             
         }
     });
