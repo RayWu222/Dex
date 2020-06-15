@@ -8,20 +8,35 @@ import {UserInfo} from './userInfo.component';
 
 export default class Profile extends Component{
     state = {
-        userName: this.props.name,
-        userEmail: this.props.email,
-        userToken: this.props.token,
-        userImage: this.props.image,
-        userID: this.props.id
+        userName: "",
+        userEmail: "",
+        userToken: "",
+        userImage: "",
+        userID: ""
+        // userName: this.props.name,
+        // userEmail: this.props.email,
+        // userToken: this.props.token,
+        // userImage: this.props.image,
+        // userID: this.props.id
     }
   
 
+    componentDidMount(){
+        axios.get('http://localhost:4000/getUser/'+localStorage.getItem("UserInfoToken"))
+            .then(response =>{
+                console.log("profile test " + JSON.stringify(response.data));
+                this.setState({userName: response.data.userName})
+            })
+    }
+
+  
 
     render(){
        console.log(localStorage.getItem('UserInfoName'))
         return(
             <div>
-                <h5><strong>User: {localStorage.getItem('UserInfoName')}</strong></h5>               
+                <h5><strong>User: {localStorage.getItem('UserInfoName')}</strong></h5> 
+                <h5><strong>User: {this.state.userName}</strong></h5>              
                 <img src = {localStorage.getItem('UserInfoImage')} alt = "image"></img>             
                 <br></br>
                
