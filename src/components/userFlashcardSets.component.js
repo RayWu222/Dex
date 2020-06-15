@@ -79,7 +79,7 @@ export default class UserCardSetsList extends Component{
                     </tr>
                 </thead>
                 <tbody>
-                    { this.userFlashCardSetList() }
+                    { this.userFlashCardSetList }
                 </tbody>
             </table>
         </div>
@@ -91,4 +91,3 @@ export default class UserCardSetsList extends Component{
         )
     }
 }
-

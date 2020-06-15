@@ -3,68 +3,100 @@ import ReactDOM from 'react-dom'
 import GoogleLogin from 'react-google-login';
 import NavBar from "./navbar.component"
 import {withRouter} from "react-router-dom"
+import axios from 'axios'
+import UserInfo from "./userInfo.component"
 
 
-
-//value of the Google API Client
-//clientId = '293901008493-duqun9t52bo7dtjbo4n1900nite8sube.apps.googleusercontent.com'
-
-//create variable for name,id, and email
-
-
-
-let name;
-let id;
-let email;
-
-//get Google info 
-const responseGoogle=(response) => {
-    console.log(response.profileObj);
-    console.log(response.profileObj.email)
-    name = response.profileObj.givenName;
-    id = response.profileObj.googleId;
-    email = response.profileObj.email;
-    console.log("name: " + name)
-    console.log("id: " + id)
-    console.log("email: " + email)
-    
-    
-}
-
-// const Profile = () => {
-//     const { googleUser } = GoogleLogin()
-// }
 export class SignIn extends Component {
     constructor(props){
         super(props);
-        this.state = {data: ""}
+        this.state = {
+            name:"",
+            email: "",
+            token:"",
+            image:"",
+            id:""
+            
+    };
         
     }
+   
 
 
+    //return this class state informaiton
+    changeName = () =>{
+        
+        console.log("state " + this.state.name)
     
-    componentDidMount(){
-        this.response = name;
+        return this.state.name;
     }
-    
+
+    //get userinformation
+    signup(res){
+        const googleresponse ={
+            name: res.profileObj.name,
+            email: res.profileObj.email,
+            token: res.profileObj.googleId,
+            image: res.profileObj.imageUrl,
+            providerId: 'Google'
+            
+        };
+        //this.state.name = res.profileObj.name;
+        this.setState({
+            name: res.profileObj.name,
+            email:res.profileObj.email,
+            token:res.profileObj.googleId,
+            image:res.profileObj.imageUrl,
+            id: 'Google'}
+        )
+        // localStorage.setItem('UserInfo', JSON.stringify(googleresponse));
+        localStorage.setItem('UserInfoName', this.state.name);
+        localStorage.setItem('UserInfoEmail', this.state.email);
+        localStorage.setItem('UserInfoToken', this.state.token);
+        localStorage.setItem('UserInfoImage', this.state.image);
+        localStorage.setItem('UserInfoId', this.state.id);
+       
+    }
 
     
 
-    // SignIn = () => {
-    //     this.props.history.push(name)
-    // }
     
     
+    //initalize Googe Login, get user information
     render() {
-        
+        const responseGoogle=(response) => {
+            console.log(response.profileObj);
+            console.log(response.profileObj.email)
+            var name = response.profileObj.givenName;
+            var id = response.profileObj.googleId;
+            var email = response.profileObj.email;
+            console.log("name: " + name)
+            console.log("id: " + id)
+            console.log("email: " + email)
+            console.log("image: " + response.profileObj.imageUrl)
+            this.signup(response);
+            this.state.name = this.changeName();
+            console.log("this name: " + this.state.name)
+        }
+       
         return (
             
             
-                
-                
-
+            
                 <div>
+                <div><p onClick={this.changeName}>Hi, {this.state.name}</p></div>
                 
+               
+                <div>
+                    <UserInfo 
+                    name = {this.state.name} 
+                    email = {this.state.email} 
+                    token = {this.state.token} 
+                    image = {this.state.image}
+                    id = {this.state.id}>
+
+                    </UserInfo>
+                </div>
                 <div className="google-login-container">
                     <GoogleLogin
                     clientId="293901008493-duqun9t52bo7dtjbo4n1900nite8sube.apps.googleusercontent.com"
@@ -77,11 +109,10 @@ export class SignIn extends Component {
                     cookiePolicy={'single_host_origin'}
                     
                 />
-                {/* {console.log("responseGoogleID:" + response.profileObj.givenName)} */}
-                {/* <h1><strong>Hi, {testName}</strong></h1> */}
+                
                 
                 </div>
-                {/* <NavBar name= {this.}></NavBar> */}
+                
                 </div>
            
                
@@ -90,4 +121,5 @@ export class SignIn extends Component {
         )
     }
 }
+
 export default SignIn

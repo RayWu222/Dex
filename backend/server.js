@@ -17,6 +17,8 @@ var testAPIRouter = require('./routes/testAPI');
 
 
 app.use(cors());
+
+app.use(bodyParser.urlencoded({ extended: true}));
 app.use(bodyParser.json());
 
 mongoose.Promise = global.Promise;
@@ -52,6 +54,7 @@ var flashcardSet = new mongoose.Schema({
     author: String,
     description: String,
     category: String,
+    numFlashcards: String,
     flashcards: [flashcard]
 });
 
@@ -98,7 +101,7 @@ app.route('/user/:username').get(function(req,res){
             console.log(err);
 
         }else{
-            
+            console.log(localStorage.getItem("UserName"))
             res.json(userSchema)
             
         }
@@ -115,16 +118,14 @@ app.route('/userList/:userid').get(function(req,res){
 })
     
     
-
-
-
 //search page component, search the database for that value and return flashcardset with that value
 app.route('/search/:value').get(function(req, res){
     let value = req.params.value;
-    FlashcardSet.find({flashcardSet_title: value}, function(err, flashcardSet) {       
+    FlashcardSet.find({title: value}, function(err, flashcardSet) {       
         res.json(flashcardSet);
     });
 });
+
 
 
 app.route('/update/:id').post(function(req, res) {
@@ -160,11 +161,26 @@ app.use('/create', function (req, res) {
         });
 });
 
+//add user to the database
+app.use('/addUser', function(req,res){
+    console.log("test")
+    var user = new Users(req.body);
+    user.save()
+    .then(user => {
+        res.status(200).json({user: 'User added successfully'});
+    })
+    .catch(err => {
+        res.status(400).send('adding new User failed');
+    });
+});
+    
+
+
 app.use('/list', function (req, res) {
     res.send('List');
 });
 app.use('/testAPI', function (req, res) {
-    res.send('TestAPI');
+    res.send('TestAPI');W
 });
 
 

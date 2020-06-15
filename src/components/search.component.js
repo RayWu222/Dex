@@ -7,10 +7,10 @@ import queryString from 'query-string';
 //flash card table componen, to put the result information into the table, such as title/author/description/category
 const SearchResult = props => (
     <tr>
-        <td>{props.searchResult.flashcardSet_title}</td>
-        <td>{props.searchResult.flashcardSet_author}</td>
-        <td>{props.searchResult.flashcardSet_description}</td>
-        <td>{props.searchResult.flashcardSet_category}</td>
+        <td>{props.searchResult.title}</td>
+        <td>{props.searchResult.author}</td>
+        <td>{props.searchResult.description}</td>
+        <td>{props.searchResult.category}</td>
         <td>
             <Link to={"/edit/"+props.searchResult._id}>Edit</Link>
         </td>
