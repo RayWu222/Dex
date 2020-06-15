@@ -75,7 +75,7 @@ app.route('/search/:value').get(function(req, res){
     });
 });
 
-flashcardSetRoutes.route('/subject/:value').get(function(req, res){
+app.route('/subject/:value').get(function(req, res){
     let value = req.params.value;
     FlashcardSet.find({flashcardSet_category: value}, function(err, flashcardSet) {       
         res.json(flashcardSet);
