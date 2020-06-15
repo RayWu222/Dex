@@ -5,10 +5,10 @@ import NavBar from "./components/navbar.component";
 
 import LandingPage from "./components/landing-page.component";
 import CreateFlashcardSet from "./components/create-flashcardset.component";
-import ViewFlashcardSet from "./components/view-flashcardSet.component";
+import EditFlashcardSet from "./components/edit-flashcardset.component";
 import FlashcardSetList from "./components/flashcardset-list.component";
 import SearchPage from "./components/search.component";
-import SignIn from "./components/signup.component";
+import SignIn from "./components/signin.component";
 import SignOut from "./components/signout.component";
 import Footer from "./components/footer.component";
 

@@ -7,7 +7,7 @@ a{
 .container-landing {
   background-color: #03CC83;
   border: 3px solid green;
-
+}
 /*A Styling overwrite for the main Bootstrap .css called in App.Js*/
 
 /*
@@ -351,13 +351,10 @@ a{
 /* Footer */
 .footer-container {
   display: flex;
-  height: 160px;
-  overflow: hidden;
-  background-color: #03cc83;
+  background-color: #028153;
   padding: 0 10%;
-  position: absolute;
   bottom: 0px;
-  width: 100%;
+  width: inherit;
 }
 
 /*--------------------------------------------------------------------------------- Footer*/
