@@ -8,27 +8,36 @@ import CreateFlashcardSet from "./components/create-flashcardset.component";
 import ViewFlashcardSet from "./components/view-flashcardSet.component";
 import FlashcardSetList from "./components/flashcardset-list.component";
 import SearchPage from "./components/search.component";
-import SignIn from "./components/signin.component";
+import SignIn from "./components/signup.component";
 import SignOut from "./components/signout.component";
+import Footer from "./components/footer.component";
+
+
+import Browse from  "./components/browseLink.component";
+import Subject from "./components/browse.component";
+
 //The main application driver javascript
 
 class App extends Component {
   render() {
     return (
+      
+      <div>
       <Router>
         <NavBar> </NavBar>
-        <Route path="/" exact component={LandingPage} />
-        <Route path="/list" exact component={FlashcardSetList} />
-        <Route
-          path="/flashcardSet/search/:search"
-          exact
-          component={SearchPage}
-        />
-        <Route path="/edit/:id" component={ViewFlashcardSet} />
-        <Route path="/create" exact component={CreateFlashcardSet} />
-        <Route path="/signup" component={SignOut} />
-        <Route path="/signin" component={SignIn} />
+                <Route path="/" exact component={LandingPage} />
+                <Route path="/list" exact component={FlashcardSetList} />
+                <Route path="/flashcardSet/search/:search" exact component={SearchPage} />
+                <Route path="/edit/:id" component={EditFlashcardSet} />
+                <Route path="/create" component={CreateFlashcardSet} />
+                <Route path="/signup" component={SignOut} />
+                <Route path="/signin" component={SignIn} />
+                <Route path="/browse" component={Browse} />
+                <Route path="/subject/:subject" component={Subject} />
+
       </Router>
+      <Footer></Footer>
+      </div>
     );
   }
 }
