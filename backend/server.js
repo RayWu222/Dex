@@ -22,8 +22,14 @@ connection.once('open', function() {
 
 
 var flashcard = new mongoose.Schema({
-    front: String,
-    back: String
+    color: String,
+    width: Number,
+    height: Number,
+    brushRadius: Number,
+    lazyRadius: Number,
+    frontFlashcard: String,
+    backFlashcard: String,
+    flashcardNum: Number
 });
 
 //var flashcardSet = mongoose.model('FlashcardSet', flashcardSetSchema)
@@ -38,31 +44,38 @@ var flashcardSet = new mongoose.Schema({
 
 var FlashcardSet = mongoose.model("FlashcardSet", flashcardSet)
 
+app.get('/', function (req, res) {
+    res.send('Homepage');
+})
 
-app.route('/list').get(function(req, res) {
-    FlashcardSet.find({}, function(err, flashcardSet) {
+app.get('/list', function (req, res) {
+        FlashcardSet.find({}, function(err, flashcardSet) {
         if (err) {
             console.log(err);
         } else {
             res.json(flashcardSet);
         }
     });
-});
+})
 
-// app.route('/:id').get(function(req, res) {
-//     let id = req.params.id;
-//     FlashcardSet.findById(id, function(err, flashcardSet) {
-//         res.json(flashcardSet);
+app.get('/edit/:id', function (req, res) {
+    FlashcardSet.find({_id: req.query.value }, function(err, flashcardSet) {       
+        res.json(flashcardSet);
+    });
+})
+
+// app.get('/list').get(function(req, res) {
+//     FlashcardSet.find({}, function(err, flashcardSet) {
+//         if (err) {
+//             console.log(err);
+//         } else {
+//             res.json(flashcardSet);
+//         }
 //     });
 // });
 
-//search page component, search the database for that value and return flashcardset with that value
-app.route('/search/:value').get(function(req, res){
-    let value = req.params.value;
-    FlashcardSet.find({flashcardSet_title: value}, function(err, flashcardSet) {       
-        res.json(flashcardSet);
-    });
-});
+
+
 
 
 app.use('/create', function (req, res) {
@@ -71,14 +84,15 @@ app.use('/create', function (req, res) {
     flashcardSet.save()
 });
 
-app.use('/', function (req, res) {
-    res.send('Server.js Home')
-})
 
-app.use('/edit/:id', function (req, res) {
-    res.send('success bittch');
-});
 
+// //search page component, search the database for that value and return flashcardset with that value
+// app.route('/search/:value').get(function(req, res){
+//     let value = req.params.value;
+//     FlashcardSet.find({flashcardSet_title: value}, function(err, flashcardSet) {       
+//         res.json(flashcardSet);
+//     });
+// });
 
 
 app.listen(PORT, function() {

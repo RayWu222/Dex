@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import CanvasDraw from "react-canvas-draw";
 import "../App.css";
 
@@ -13,6 +13,7 @@ const Flashcard = (counter) => {
   const [frontFlashcard, setFrontFlashcard] = useState("");
   const [backFlashcard, setBackFlashcard] = useState("");
   const [flashcardNum] = useState(counter);
+  const [flashcard, setFlashcard] = useState([]);
 
 
 
@@ -24,6 +25,7 @@ const Flashcard = (counter) => {
       canvasWidth={width}
       canvasHeight={height}
       disabled={!editState}
+      saveData={''}
       ref={(canvasDraw) => setFrontFlashcard(canvasDraw)}
     />
   );
@@ -36,10 +38,15 @@ const Flashcard = (counter) => {
       canvasWidth={width}
       canvasHeight={height}
       disabled={!editState}
+      saveData={''}
       ref={(canvasDraw) => setBackFlashcard(canvasDraw)}
     />
   );
   
+  useEffect(() => {
+    setFlashcard([front, back])
+  }, []);
+
   const resetFrontFlashcard = () => {
     frontFlashcard.loadSaveData(
       localStorage.getItem("frontFlashcard" + flashcardNum)

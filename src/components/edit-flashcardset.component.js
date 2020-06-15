@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Flashcard from "./flashcard.component";
+import { useParams } from 'react-router-dom';
 //A component to allow the editting of flashcard sets already created in the database.
 
 
-const EditFlashcardSet = (id) => {
+const EditFlashcardSet = () => {
+  const { id } = useParams();
   const [title, setTitle] = useState("");
   const [author, setAuthor] = useState("");
   const [description, setDescription] = useState("");
@@ -12,23 +14,12 @@ const EditFlashcardSet = (id) => {
   const [numFlashcards, setNumFlashcards] = useState("");
   const [flashcards, setFlashcards] = useState([]);
 
-  useEffect(() => {
-    
-  }, []);
-
-
-  const addNewFlashcard = () => {
-    var newFlashcard = <Flashcard counter={(num) => numFlashcards} />;
-    setFlashcards(flashcards.concat(newFlashcard));
-    var numb = parseInt((numFlashcards)+1);
-    setNumFlashcards(numb);
-  };
 
   const submitFlashcardSet = (e) => {
     e.preventDefault();
 
     axios
-      .post("http://localhost:4000/flashcardSet/" + id, {
+      .post("http://localhost:4000/create", {
         title,
         author,
         description,
@@ -40,6 +31,27 @@ const EditFlashcardSet = (id) => {
 
     alert("Flashcard Set Updated");
   };
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:4000/edit/:id", {
+        params: {
+          value: id
+        }
+      })
+      .then((response) => {
+        setTitle(response.data[0].title)
+        setAuthor(response.data[0].author)
+        setDescription(response.data[0].description)
+        setCategory(response.data[0].category)
+        setNumFlashcards(response.data[0].numFlashcards)
+        setFlashcards(response.data[0].JSON.stringify(flashcards))
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+    
+  }, []);
 
   return (
     <form onSubmit={submitFlashcardSet} method="post" action="/create">
@@ -152,19 +164,19 @@ const EditFlashcardSet = (id) => {
         </div>
         <div>
           <ul>
-            {flashcards.map((flashcard) => (
-              <li key={flashcard.id}>{flashcard}</li>
+            {flashcards.map((flashcard, i) => (
+              <li key={i}>{flashcard}</li>
             ))}
           </ul>
         </div>
 
-        <button
+        {/* <button
           className="search-field-button"
           type="button"
           onClick={() => addNewFlashcard()}
         >
           Add Flashcard
-        </button>
+        </button> */}
 
         <button
           className="search-field-button"

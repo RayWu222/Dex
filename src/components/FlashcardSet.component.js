@@ -16,9 +16,9 @@ const FlashcardSet = () => {
   useEffect(() => {});
 
   const addNewFlashcard = () => {
-    var newFlashcard = <Flashcard counter={(num) => numFlashcards}  />;
+    var newFlashcard = <Flashcard props={(num) => numFlashcards}  />;
     setFlashcards(flashcards.concat(newFlashcard));
-    var numb = parseInt((numFlashcards)+1);
+    var numb = (flashcards.length + 1);
     setNumFlashcards(numb);
   };
 
@@ -26,6 +26,13 @@ const FlashcardSet = () => {
     if(value === 'title') {
       setTitle(event)
     }
+    if(value === 'author') {
+      setAuthor(event)
+    }
+    if(value === 'description') {
+      setDescription(event)
+    }
+
   }
 
   const submitFlashcardSet = (event) => {
@@ -74,7 +81,7 @@ const FlashcardSet = () => {
               <input
                 type="text"
                 className="form-control"
-                onChange={(event) => setAuthor(event.target.value)}
+                onChange={(event) => saveFlashcardSet(event.target.value, 'author')}
               />
             </div>
           </div>
@@ -86,7 +93,20 @@ const FlashcardSet = () => {
               <input
                 type="text"
                 className="form-control"
-                onChange={(event) => setDescription(event.target.value)}
+                onChange={(event) => saveFlashcardSet(event.target.value, 'description')}
+              />
+            </div>
+          </div>
+          <div className="form-group">
+            <div className="form-title">
+              <label># Flashcards: </label>
+            </div>
+            <div className="form-input">
+              <input
+                type="text"
+                className="form-control"
+                readOnly = {true}
+                value={numFlashcards}
               />
             </div>
           </div>
