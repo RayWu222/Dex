@@ -39,10 +39,9 @@ const FlashcardSet = () => {
   };
 
   return (
-  <div class="app-wrapper">
     <form onSubmit={submitFlashcardSet} method="post" action="/create">
+      <div class="app-wrapper">
         <h1 className="page-title">Create New Flashcard Set</h1>
-        <div className="create-flashcard-container">
           <div className="form-group">
             <label className="form-title">Title: </label>
             <input
@@ -70,7 +69,7 @@ const FlashcardSet = () => {
                 className="form-input"
                 onChange={(event) => setDescription(event.target.value)}
               />
-        </div>
+          </div>
           <div className="form-group">
             <div className="form-title">
               <label>Category: </label>
@@ -131,6 +130,7 @@ const FlashcardSet = () => {
             ))}
           </ul>
         </div>
+
         <button
           className="search-submit-button"
           id="add-flashcard"
@@ -149,7 +149,6 @@ const FlashcardSet = () => {
           Submit Flashcard Set
         </button>
     </form>
-  </div>
   );
 };
 

@@ -43,8 +43,8 @@ export default class FlashcardSetList extends Component {
   render() {
     return (
       <div className="app-wrapper">
-        <h1 className="page-title">FlashcardSet List</h1>
         <div className="page-container">
+          <h1 className="page-title">List of all Dex</h1>
           <table className="flashcard-list">
             <thead>
               <tr>
@@ -52,7 +52,7 @@ export default class FlashcardSetList extends Component {
                 <th>Author</th>
                 <th>Description</th>
                 <th>Category</th>
-                <th># of Flashcards</th>
+                <th>Cards in Deck</th>
                 <th>Action</th>
               </tr>
             </thead>

@@ -9,7 +9,7 @@ import ViewFlashcardSet from "./components/view-flashcardSet.component";
 import FlashcardSetList from "./components/flashcardset-list.component";
 import SearchPage from "./components/search.component";
 import SignIn from "./components/signin.component";
-import SignUp from "./components/signin.component";
+import SignOut from "./components/signout.component";
 //The main application driver javascript
 
 class App extends Component {
@@ -26,7 +26,7 @@ class App extends Component {
         />
         <Route path="/edit/:id" component={ViewFlashcardSet} />
         <Route path="/create" exact component={CreateFlashcardSet} />
-        <Route path="/signup" component={SignUp} />
+        <Route path="/signup" component={SignOut} />
         <Route path="/signin" component={SignIn} />
       </Router>
     );

@@ -7,7 +7,7 @@ export default class LandingPage extends Component {
   render() {
     return (
       <div className="app-wrapper">
-        <div className="landing-container">
+        <div className="page-container">
           <h1 className="page-title">Welcome to Dex!</h1>
             <Link className="landing-icon" to="/">
               <Logo className="landing-icon" alt="owl icon" />

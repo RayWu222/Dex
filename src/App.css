@@ -13,11 +13,11 @@
 /*--------------------------------------------------------------------------------- Global Sytles*/
 .app-wrapper {
   background-color: floralwhite;
-  height: 100%;
+  height: 1200px;
 }
 
 /*--------------------------------------------------------------------------------- Landing Page*/
-.landing-container {
+.page-container {
   height: 1200px;
   background-color: #03cc83;
   border-bottom-left-radius: 25px;
@@ -292,6 +292,10 @@
   flex-direction: row-reverse;
   border: solid 1px #014f33;
   padding: 20px;
+}
+
+.flashcard-list {
+  width: 100%;
 }
 
 .flashcard-list-item {
