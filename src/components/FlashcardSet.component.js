@@ -39,9 +39,10 @@ const FlashcardSet = () => {
   };
 
   return (
+  <div class="app-wrapper">
     <form onSubmit={submitFlashcardSet} method="post" action="/create">
-      <div class="title-container">
-        <h3>Create New Flashcard Set</h3>
+        <h1 className="page-title">Create New Flashcard Set</h1>
+        <div className="create-flashcard-container">
           <div className="form-group">
             <label className="form-title">Title: </label>
             <input
@@ -54,26 +55,22 @@ const FlashcardSet = () => {
             <div className="form-title">
               <label>Author: </label>
             </div>
-            <div class="form-input">
               <input
                 type="text"
-                className="form-control"
+                className="form-input"
                 onChange={(event) => setAuthor(event.target.value)}
               />
-            </div>
           </div>
           <div className="form-group">
             <div className="form-title">
               <label>Description: </label>
             </div>
-            <div class="form-input">
               <input
                 type="text"
-                className="form-control"
+                className="form-input"
                 onChange={(event) => setDescription(event.target.value)}
               />
-            </div>
-          </div>
+        </div>
           <div className="form-group">
             <div className="form-title">
               <label>Category: </label>
@@ -128,15 +125,14 @@ const FlashcardSet = () => {
           </div>
         </div>
         <div>
-          <ul>
+          <ul className="flashcard-list-item">
             {flashcards.map((flashcard) => (
               <li key={flashcard.id}>{flashcard}</li>
             ))}
           </ul>
         </div>
-
         <button
-          className="search-field-button"
+          className="search-submit-button"
           id="add-flashcard"
           type="button"
           onClick={() => addNewFlashcard()}
@@ -145,13 +141,15 @@ const FlashcardSet = () => {
         </button>
 
         <button
-          className="search-field-button"
+          className="search-submit-button"
+          id="submit-flashcard-button"
           type="button"
           onClick={(event) => submitFlashcardSet(event)}
         >
           Submit Flashcard Set
         </button>
     </form>
+  </div>
   );
 };
 
