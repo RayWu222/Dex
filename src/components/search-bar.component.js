@@ -26,7 +26,7 @@ export default class SearchBar extends Component {
     //validation process starting
     if (terms.length>0){window.location.replace(
       "http://localhost:3000/flashcardSet/search/search?flashcardSet_title=" +
-        terms);
+        terms)
 
     }
     else {alert("Search cannot be empty")}
