@@ -23,12 +23,12 @@ a{
 /*--------------------------------------------------------------------------------- Global Sytles*/
 .app-wrapper {
   background-color: floralwhite;
-  height: 1200px;
+  height: 100%;
 }
 
 /*--------------------------------------------------------------------------------- Landing Page*/
 .page-container {
-  height: 1200px;
+  height: 100%;
   background-color: #03cc83;
   border-bottom-left-radius: 25px;
   border-bottom-right-radius: 25px;
@@ -153,25 +153,12 @@ a{
 
     /* Footer */
     .footer-container{
-      display: flex;
-
-      height: 180px;
-      overflow: hidden;
-      background-color: #03cc83;
-      padding: 0 10%;
-      position: relative;
-      margin-top:40vh;
-      
-     
-      width: 100%;
-     
-      
+     background-color: black;
     }
 
     .footer-social-media{
-      position: absolute;
       display: flex;
-     
+      flex-direction: end;
       padding-left: 5px;
       height: 50px;
       right:100px;

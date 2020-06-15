@@ -1,35 +1,35 @@
 import React, { Component } from "react";
+import "../App.css";
 import { ReactComponent as Logo } from "./img/dexOwl.svg";
 export default class Footer extends Component {
+
   render() {
+
     return (
       <footer className="footer-container">
-        <div className="footer links left">
-          <Logo className="footer-logo" />
-        </div>
+        <Logo className="footer-logo" />
         <div className="footer-links">
-          <strong>Pages</strong>
+          <p className="sitemap">Sitemap</p>
           <ul>
             <li>
-              <a className="home" href="/" Home>
+              <a className="footer-links" href="/" Home>
                 Home
               </a>
             </li>
             <li>
-              <a href="/create" Create>
+              <a className="footer-links" href="/create" Create>
                 Create
               </a>
             </li>
             <li>
-              <a href="/list" List>
+              <a className="footer-links" href="/list" List>
                 List
               </a>
             </li>
           </ul>
         </div>
         <div className="footer-subject">
-          <strong>Subjects</strong>
-          <ul>
+          <ul className="subjects">
             <li>
               <a href="/subject/browse?flashcardSet_category=Math" Math>
                 Math
@@ -51,18 +51,15 @@ export default class Footer extends Component {
           <link
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-          ></link>
-          <strong>Social Media:</strong>
-          <ul>
+          />
+          <ul className="social-media-links">
             <a href="#" className="fa fa-facebook"></a>
             <a href="#" className="fa fa-twitter"></a>
             <a href="#" className="fa fa-reddit"></a>
             <a href="#" className="fa fa-google"></a>
           </ul>
         </div>
-        <div class="copy-colorblack">
-          <p>© 2020 All Rights Reserved ~ Authored by AD410 Group C</p>
-        </div>
+        <p className="copyright">© 2020 All Rights Reserved ~ Authored by AD410 Group C</p>
       </footer>
     );
   }
