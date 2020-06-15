@@ -39,48 +39,38 @@ const FlashcardSet = () => {
   };
 
   return (
+  <div class="app-wrapper">
     <form onSubmit={submitFlashcardSet} method="post" action="/create">
-      <div class="title-container">
-        <div class="title-name">
-          <h3>Create New Flashcard Set</h3>
-        </div>
-        <div>
+        <h1 className="page-title">Create New Flashcard Set</h1>
+        <div className="create-flashcard-container">
           <div className="form-group">
-            <div className="form-title">
-              <label>Title: </label>
-            </div>
-            <div class="form-input">
-              <input
-                type="text"
-                className="form-control"
-                onChange={(event) => setTitle(event.target.value)}
+            <label className="form-title">Title: </label>
+            <input
+              type="text"
+              className="form-input"
+              onChange={(event) => setTitle(event.target.value)}
               />
-            </div>
           </div>
           <div className="form-group">
             <div className="form-title">
               <label>Author: </label>
             </div>
-            <div class="form-input">
               <input
                 type="text"
-                className="form-control"
+                className="form-input"
                 onChange={(event) => setAuthor(event.target.value)}
               />
-            </div>
           </div>
           <div className="form-group">
             <div className="form-title">
               <label>Description: </label>
             </div>
-            <div class="form-input">
               <input
                 type="text"
-                className="form-control"
+                className="form-input"
                 onChange={(event) => setDescription(event.target.value)}
               />
-            </div>
-          </div>
+        </div>
           <div className="form-group">
             <div className="form-title">
               <label>Category: </label>
@@ -99,6 +89,7 @@ const FlashcardSet = () => {
             <div>
               <label>
                 <input
+                  className="category-buttons"
                   type="radio"
                   value="science"
                   checked={category === "Science"}
@@ -110,6 +101,7 @@ const FlashcardSet = () => {
             <div>
               <label>
                 <input
+                  className="category-buttons"
                   type="radio"
                   value="english"
                   checked={category === "English"}
@@ -121,6 +113,7 @@ const FlashcardSet = () => {
             <div>
               <label>
                 <input
+                  className="category-buttons"
                   type="radio"
                   value="other"
                   checked={category === "Other"}
@@ -132,15 +125,14 @@ const FlashcardSet = () => {
           </div>
         </div>
         <div>
-          <ul>
+          <ul className="flashcard-list-item">
             {flashcards.map((flashcard) => (
               <li key={flashcard.id}>{flashcard}</li>
             ))}
           </ul>
         </div>
-
         <button
-          className="search-field-button"
+          className="search-submit-button"
           id="add-flashcard"
           type="button"
           onClick={() => addNewFlashcard()}
@@ -149,14 +141,15 @@ const FlashcardSet = () => {
         </button>
 
         <button
-          className="search-field-button"
+          className="search-submit-button"
+          id="submit-flashcard-button"
           type="button"
           onClick={(event) => submitFlashcardSet(event)}
         >
           Submit Flashcard Set
         </button>
-      </div>
     </form>
+  </div>
   );
 };
 

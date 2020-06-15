@@ -42,21 +42,23 @@ export default class FlashcardSetList extends Component {
 
   render() {
     return (
-      <div>
-        <h3>FlashcardSet List</h3>
-        <table className="table table-striped" style={{ marginTop: 20 }}>
-          <thead>
-            <tr>
-              <th>Title</th>
-              <th>Author</th>
-              <th>Description</th>
-              <th>Category</th>
-              <th># of Flashcards</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>{this.flashcardSetList()}</tbody>
-        </table>
+      <div className="app-wrapper">
+        <h1 className="page-title">FlashcardSet List</h1>
+        <div className="page-container">
+          <table className="flashcard-list">
+            <thead>
+              <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Description</th>
+                <th>Category</th>
+                <th># of Flashcards</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>{this.flashcardSetList()}</tbody>
+          </table>
+        </div>
       </div>
     );
   }
