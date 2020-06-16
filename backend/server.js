@@ -91,6 +91,13 @@ app.route('/:id').get(function(req, res) {
     });
 });
 
+//getUserInfo by using there google id(token)
+app.route('/getUser/:googleid').get(function(req,res){
+    let token = req.params.googleid;
+    Users.find({userToken:token}, function(req,userSchema){
+        res.json(userSchema)
+    })
+})
 
 //find the user profile
 app.route('/user/:username').get(function(req,res){
@@ -108,6 +115,20 @@ app.route('/user/:username').get(function(req,res){
     });
 });
 
+//add user to the database
+app.use('/addUser', function(req,res){
+    console.log("test")
+    var user = new Users(req.body);
+    user.save()
+    .then(user => {
+        
+        res.status(200).json({user: 'User added successfully'});
+    })
+    .catch(err => {
+        res.status(400).send('adding new User failed');
+    });
+});
+    
 
 //get flashcardsets with user id
 app.route('/userList/:userid').get(function(req,res){
@@ -161,19 +182,7 @@ app.use('/create', function (req, res) {
         });
 });
 
-//add user to the database
-app.use('/addUser', function(req,res){
-    console.log("test")
-    var user = new Users(req.body);
-    user.save()
-    .then(user => {
-        res.status(200).json({user: 'User added successfully'});
-    })
-    .catch(err => {
-        res.status(400).send('adding new User failed');
-    });
-});
-    
+
 
 
 app.use('/list', function (req, res) {

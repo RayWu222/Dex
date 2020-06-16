@@ -22,8 +22,7 @@ export class UserInfo extends Component{
     }
     
 
-    //put parent component to this child state
-    //change it tomorrow to accept props, state is not working right
+    //put parent component to this child state and to the database
     componentWillReceiveProps(props){
         console.log(props.name)
         this.setState({
@@ -35,9 +34,9 @@ export class UserInfo extends Component{
             console.log("axios" + props.name)
             axios.post('http://localhost:4000/addUser', {
                 userName: props.name,
-                email: this.state.userEmail,
-                token: this.state.userToken,
-                userImage: this.state.userImage
+                email: props.email,
+                userToken: props.token,
+                userImage: props.image
                 
             })
             .then(function (response) {
