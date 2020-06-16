@@ -13,7 +13,9 @@ const FlashcardSet = () => {
   const [flashcards, setFlashcards] = useState([]);
 
   // re-rendering in response to some kind of change, such as state change, API requests, etc.
-  useEffect(() => {});
+  React.useEffect(() => {
+    addNewFlashcard()
+  }, []);
 
   const addNewFlashcard = () => {
     var newFlashcard = <Flashcard props={(num) => numFlashcards}  />;
@@ -56,65 +58,44 @@ const FlashcardSet = () => {
 
   return (
     <form onSubmit={submitFlashcardSet} method="post" action="/create">
-      <div className="title-container">
-        <div className="title-name">
-          <h3>Create New Flashcard Set</h3>
-        </div>
-        <div>
+
+      <div class="app-wrapper">
+        <h1 className="page-title">Create New Flashcard Set</h1>
           <div className="form-group">
-            <div className="form-title">
-              <label>Title: </label>
-            </div>
-            <div className="form-input">
-              <input
-                type="text"
-                className="form-control"
-                onChange={(event) => saveFlashcardSet(event.target.value, 'title')}
+            <label className="form-title">Title: </label>
+            <input
+              type="text"
+              className="form-input"
+              onChange={(event) => saveFlashcardSet(event.target.value, 'title')}
               />
-            </div>
           </div>
           <div className="form-group">
-            <div className="form-title">
-              <label>Author: </label>
-            </div>
-            <div className="form-input">
+              <label className="form-title">Author: </label>
               <input
                 type="text"
-                className="form-control"
+                className="form-input"
                 onChange={(event) => saveFlashcardSet(event.target.value, 'author')}
               />
-            </div>
           </div>
           <div className="form-group">
-            <div className="form-title">
-              <label>Description: </label>
-            </div>
-            <div className="form-input">
+            <label className="form-title">Description: </label>
               <input
                 type="text"
-                className="form-control"
+                className="form-input"
                 onChange={(event) => saveFlashcardSet(event.target.value, 'description')}
               />
-            </div>
           </div>
           <div className="form-group">
-            <div className="form-title">
-              <label># Flashcards: </label>
-            </div>
-            <div className="form-input">
+              <label className="form-title"># Flashcards: </label>
               <input
                 type="text"
-                className="form-control"
+                className="form-input"
                 readOnly = {true}
                 value={numFlashcards}
               />
-            </div>
           </div>
           <div className="form-group">
-            <div className="form-title">
-              <label>Category: </label>
-            </div>
-            <div>
+              <label className="form-title">Category: </label>
               <label>
                 <input
                   type="radio"
@@ -124,10 +105,9 @@ const FlashcardSet = () => {
                 />
                 Math
               </label>
-            </div>
-            <div>
               <label>
                 <input
+                  className="category-buttons"
                   type="radio"
                   value="science"
                   checked={category === "Science"}
@@ -135,41 +115,39 @@ const FlashcardSet = () => {
                 />
                 Science
               </label>
-            </div>
-            <div>
-              <label>
-                <input
-                  type="radio"
-                  value="english"
-                  checked={category === "English"}
-                  onChange={(event) => setCategory("English")}
-                />
-                English
-              </label>
-            </div>
-            <div>
-              <label>
-                <input
-                  type="radio"
-                  value="other"
-                  checked={category === "Other"}
-                  onChange={(event) => setCategory("Other")}
-                />
-                Other
-              </label>
-            </div>
+            <label>
+              <input
+                className="category-buttons"
+                type="radio"
+                value="english"
+                checked={category === "English"}
+                onChange={(event) => setCategory("English")}
+              />
+              English
+            </label>
+            <label>
+              <input
+                className="category-buttons"
+                type="radio"
+                value="other"
+                checked={category === "Other"}
+                onChange={(event) => setCategory("Other")}
+              />
+              Other
+            </label>
           </div>
-        </div>
+      
+
         <div>
-          <ul>
-            {flashcards.map((flashcard, i) => (
-              <li key={i}>{flashcard}</li>
+          <ul className="flashcard-list-item">
+            {flashcards.map((flashcard) => (
+              <li key={flashcard.id}>{flashcard}</li>
             ))}
           </ul>
         </div>
 
         <button
-          className="search-field-button"
+          className="search-submit-button"
           id="add-flashcard"
           type="button"
           onClick={() => addNewFlashcard()}
@@ -178,12 +156,14 @@ const FlashcardSet = () => {
         </button>
 
         <button
-          className="search-field-button"
+          className="search-submit-button"
+          id="submit-flashcard-button"
           type="button"
           onClick={(event) => submitFlashcardSet(event)}
         >
           Submit Flashcard Set
         </button>
+
       </div>
     </form>
   );

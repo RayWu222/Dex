@@ -8,10 +8,8 @@ export default class SearchBar extends Component {
     super(props);
     this.state = { searchResult: [], searchTerm: " error", instanceID: 0 };
   }
-
   getSearch() {
-    var terms = document.getElementById("user-input").value;
-    //this.setState({ searchTerm: terms});
+   var terms = document.getElementById("user-input").value;
     console.log("searchTerm: " + terms);
     window.location.replace(
       "http://localhost:3000/flashcardSet/search/search?flashcardSet_title=" +

@@ -98,18 +98,24 @@ const Flashcard = (counter) => {
               </div>
             </div>
 
-            <div className="text-container">Text</div>
-
-            <div className="color-container">
-            <div className="brush-group">
-                <div className="toolbar-icon">Color:</div>
-                <input
-                  className="toolbar-input"
-                  type="string"
-                  value={color}
+            <div class="text-container">
+              <div class="toolbar-icon">Text:</div>
+              <input
+                  class="toolbar-input"
+                  type="number"
+                  value={''}
                   onChange={(e) => setColor(e.target.value)}
                 />
-              </div>
+            </div>
+
+            <div class="color-container">
+              <div class="toolbar-icon">Color:</div>
+              <input
+                  class="toolbar-input"
+                  type="number"
+                  value={''}
+                  onChange={(e) => setColor(e.target.value)}
+                />
             </div>
 
             <div className="background-container">
@@ -148,7 +154,7 @@ const Flashcard = (counter) => {
             <div className="middle-swap">
               <button
                 type="button"
-                className="middle-button"
+                className="search-submit-button"
                 onClick={() => setEditState(!editState)}
               >
                 Edit
@@ -157,7 +163,7 @@ const Flashcard = (counter) => {
             <div className="middle-swap">
               <button
                 type="button"
-                className="middle-button"
+                className="search-submit-button"
                 onClick={() => swapFlashcard()}
               >
                 Swap
@@ -178,6 +184,19 @@ const Flashcard = (counter) => {
         <div className="save-container">
           <div className="left-save">
             <button
+              className="search-submit-button"
+              type="button"
+              onClick={() => {
+                localStorage.setItem(
+                  "frontFlashcard" + flashcardNum,
+                  frontFlashcard.getSaveData()
+                );
+              }}
+            >
+              Save
+            </button>
+            <button
+              className="search-submit-button"
               type="button"
               onClick={() => {
                 frontFlashcard.clear();
@@ -192,9 +211,33 @@ const Flashcard = (counter) => {
               >
                 Reset
               </button>
+              <button
+              className="search-submit-button"
+              type="button"
+              onClick={() => {
+                frontFlashcard.loadSaveData(
+                  localStorage.getItem("frontFlashcard" + flashcardNum)
+                );
+              }}
+            >
+              Load
+            </button>
           </div>
           <div className="right-save">
             <button
+              className="search-submit-button"
+              type="button"
+              onClick={() => {
+                localStorage.setItem(
+                  "backFlashcard" + flashcardNum,
+                  backFlashcard.getSaveData()
+                );
+              }}
+            >
+              Save
+            </button>
+            <button
+              className="search-submit-button"
               type="button"
               onClick={() => {
                 backFlashcard.clear();
@@ -209,6 +252,17 @@ const Flashcard = (counter) => {
               >
                 Reset
               </button>
+              <button
+              className="search-submit-button"
+              type="button"
+              onClick={() => {
+                backFlashcard.loadSaveData(
+                  localStorage.getItem("backFlashcard" + flashcardNum)
+                );
+              }}
+            >
+              Load
+            </button>
           </div>
         </div>
       )}

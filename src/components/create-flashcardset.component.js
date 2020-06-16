@@ -6,10 +6,7 @@ import FlashcardSet from "./FlashcardSet.component";
 export default class CreateFlashcardSet extends Component {
   render() {
     return (
-      <div className="app-wrapper">
-        <br></br>
         <FlashcardSet></FlashcardSet>
-      </div>
     );
   }
 }
