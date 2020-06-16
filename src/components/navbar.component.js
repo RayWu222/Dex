@@ -4,6 +4,7 @@ import "../App.css";
 //import logo from './logo.png';
 import { ReactComponent as Logo } from './img/dexOwl.svg'; 
 import Axios from 'axios';
+import {SignOut} from "./signout.component"
 
 //submit a value and search
 
@@ -20,6 +21,8 @@ export default class Navbar extends Component {
         window.location.replace("http://localhost:3000/flashcardSet/search/search?flashcardSet_title=" + searchValue)
         
     }
+
+  
     
 
     render (){
