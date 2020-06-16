@@ -4,16 +4,8 @@ const app = express();
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
-const router = express.Router();
 
 const PORT = 4000;
-
-var indexRouter = require('./routes/index');
-var createRouter = require('./routes/create');
-var listRouter = require('./routes/list');
-var testAPIRouter = require('./routes/testAPI');
-
-
 
 
 app.use(cors());
@@ -31,6 +23,7 @@ connection.once('open', function() {
 })
 
 
+<<<<<<< HEAD
 
 //define User Schema
 var userSchema = new mongoose.Schema({
@@ -44,17 +37,20 @@ var userSchema = new mongoose.Schema({
 );
 
 
+=======
+>>>>>>> 148c5b3a062fe1db99f124f549a10e29d5ab3756
 var flashcard = new mongoose.Schema({
-    front: String,
-    back: String
+    text: String
 });
 
+//var flashcardSet = mongoose.model('FlashcardSet', flashcardSetSchema)
 var flashcardSet = new mongoose.Schema({
     title: String,
     author: String,
     description: String,
     category: String,
     numFlashcards: String,
+<<<<<<< HEAD
     flashcards: [flashcard]
 });
 
@@ -150,12 +146,26 @@ app.route('/deleteSet/:id').get(function(req, res) {
 
 app.route('/list').get(function(req, res) {
     FlashcardSet.find({}, function(err, flashcardSet) {
+=======
+    flashcards: Array
+});
+
+var FlashcardSet = mongoose.model("FlashcardSet", flashcardSet)
+
+app.get('/', function (req, res) {
+    res.send('Homepage');
+})
+
+app.get('/list', function (req, res) {
+        FlashcardSet.find({}, function(err, flashcardSet) {
+>>>>>>> 148c5b3a062fe1db99f124f549a10e29d5ab3756
         if (err) {
             console.log(err);
         } else {
             res.json(flashcardSet);
         }
     });
+<<<<<<< HEAD
 });
     
     
@@ -163,11 +173,36 @@ app.route('/list').get(function(req, res) {
 app.route('/search/:value').get(function(req, res){
     let value = req.params.value;
     FlashcardSet.find({title: value}, function(err, flashcardSet) {       
+=======
+})
+
+app.get('/edit/:id', function (req, res) {
+    FlashcardSet.find({_id: req.query.value }, function(err, flashcardSet) {       
+        res.json(flashcardSet);
+    });
+})
+
+// app.get('/list').get(function(req, res) {
+//     FlashcardSet.find({}, function(err, flashcardSet) {
+//         if (err) {
+//             console.log(err);
+//         } else {
+//             res.json(flashcardSet);
+//         }
+//     });
+// });
+
+
+app.route('/subject/:value').get(function(req, res){
+    let value = req.params.value;
+    FlashcardSet.find({flashcardSet_category: value}, function(err, flashcardSet) {       
+>>>>>>> 148c5b3a062fe1db99f124f549a10e29d5ab3756
         res.json(flashcardSet);
     });
 });
 
 
+<<<<<<< HEAD
 
 
 app.route('/update/:id').post(function(req, res) {
@@ -187,22 +222,18 @@ app.route('/update/:id').post(function(req, res) {
                 res.status(400).send("Update not possible");
             });
     });
+=======
+>>>>>>> 148c5b3a062fe1db99f124f549a10e29d5ab3756
 
-});
 
 
 app.use('/create', function (req, res) {
     res.send('Create');
     var flashcardSet = new FlashcardSet(req.body);
     flashcardSet.save()
-        .then(flashcardSet => {
-            res.status(200).json({flashcardSet: 'flashcardSet added successfully'});
-        })
-        .catch(err => {
-            res.status(400).send('adding new flashcardSet failed');
-        });
 });
 
+<<<<<<< HEAD
 
 
 
@@ -212,8 +243,17 @@ app.use('/list', function (req, res) {
 app.use('/testAPI', function (req, res) {
     res.send('TestAPI');W
 });
+=======
+>>>>>>> 148c5b3a062fe1db99f124f549a10e29d5ab3756
 
 
+// //search page component, search the database for that value and return flashcardset with that value
+// app.route('/search/:value').get(function(req, res){
+//     let value = req.params.value;
+//     FlashcardSet.find({flashcardSet_title: value}, function(err, flashcardSet) {       
+//         res.json(flashcardSet);
+//     });
+// });
 
 
 app.listen(PORT, function() {

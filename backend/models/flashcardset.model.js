@@ -2,18 +2,19 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-var Flashcard = new Schema({
+const flashcard = new Schema({
     front: String,
     back: String
 });
 
-var FlashcardSet = new Schema({
+const flashcardSetSchema = new Schema({
     title: String,
     author: String,
     description: String,
     category: String,
-    flashcards: [Flashcard]
+    numFlashcards: String,
+    flashcards: Array
 });
 
 
-module.exports = mongoose.model('FlashcardSet', FlashcardSet);
+module.exports = mongoose.model('FlashcardSet', flashcardSetSchema);
