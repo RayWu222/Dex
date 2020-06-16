@@ -47,7 +47,7 @@ export default class Navbar extends Component {
                     <ul class="navbar-right">
                             <a class="nav-right" href="/signout">Sign out</a>
                             <a class="nav-right" href="/signin">Login</a>
-                            <a class="nav-right" href= "/user"> {localStorage.getItem("UserInfoName")} </a>
+                            <a class="nav-right" href= "/user"> {sessionStorage.getItem("SessionUserName")} </a>
                         
                     </ul>
                 </nav>

@@ -50,6 +50,7 @@ export class SignIn extends Component {
         sessionStorage.setItem('SessionUserImage', this.state.image);
         sessionStorage.setItem('SessionUserInfoId', this.state.id);
         console.log("session" + sessionStorage.getItem('SessionUserName'))
+        window.location.replace("http://localhost:3000")
        
     }
     
