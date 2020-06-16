@@ -42,7 +42,7 @@ export default class Navbar extends Component {
                     </form>
 
                     <ul class="navbar-right">
-                            <a class="nav-right" href="/signup">Sign Up</a>
+                            <a class="nav-right" href="/signout">Sign Out</a>
                             <a class="nav-right" href="/signin">Login</a>
                             <a class="nav-right" href= "/user"> {this.props.name} </a>
                             {console.log("test " + this.props.name)}
