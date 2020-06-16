@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import ReactDOM from "react-dom";
-import GoogleLogin from "react-google-login";
+//import ReactDOM from "react-dom";
+//import GoogleLogin from "react-google-login";
 
 //A non-package implementation of Google OAuth2 Sign in
 
@@ -20,8 +20,8 @@ export default class SignIn extends Component {
 
   render() {
     return (
-        <div className="google-sign-in">
-          <h3 className="signin-title">Sign in with Google below!</h3>
+        <div className="page-container">
+          <h1 className="page-title">Sign in with Google below!</h1>
           <div class="g-signin2" data-onsuccess="onSignIn"></div>
         </div> 
     );

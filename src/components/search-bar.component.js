@@ -8,6 +8,7 @@ export default class SearchBar extends Component {
     super(props);
     this.state = { searchResult: [], searchTerm: " error", instanceID: 0 };
   }
+
   
  
     handleSearch = event => {
@@ -19,9 +20,9 @@ export default class SearchBar extends Component {
  }
   
 }
+
   getSearch() {
-    var terms = document.getElementById("user-input").value;
-    //this.setState({ searchTerm: terms});
+   var terms = document.getElementById("user-input").value;
     console.log("searchTerm: " + terms);
     //validation process starting
     if (terms.length>0){window.location.replace(

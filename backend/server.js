@@ -22,58 +22,59 @@ connection.once('open', function() {
 
 
 var flashcard = new mongoose.Schema({
-    front: String,
-    back: String
+    text: String
 });
 
+//var flashcardSet = mongoose.model('FlashcardSet', flashcardSetSchema)
 var flashcardSet = new mongoose.Schema({
     title: String,
     author: String,
     description: String,
     category: String,
     numFlashcards: String,
-    flashcards: [flashcard]
+    flashcards: Array
 });
+
 var FlashcardSet = mongoose.model("FlashcardSet", flashcardSet)
 
+app.get('/', function (req, res) {
+    res.send('Homepage');
+})
 
-
-
-app.route('/').get(function(req, res) {
-    
-    FlashcardSet.find({}, function(err, flashcardSet) {
+app.get('/list', function (req, res) {
+        FlashcardSet.find({}, function(err, flashcardSet) {
         if (err) {
             console.log(err);
         } else {
             res.json(flashcardSet);
         }
     });
-});
+})
 
-app.route('/list').get(function(req, res) {
-    FlashcardSet.find({}, function(err, flashcardSet) {
-        if (err) {
-            console.log(err);
-        } else {
-            res.json(flashcardSet);
-        }
-    });
-});
-
-app.route('/:id').get(function(req, res) {
-    let id = req.params.id;
-    FlashcardSet.findById(id, function(err, flashcardSet) {
+app.get('/edit/:id', function (req, res) {
+    FlashcardSet.find({_id: req.query.value }, function(err, flashcardSet) {       
         res.json(flashcardSet);
     });
-});
+})
 
-//search page component, search the database for that value and return flashcardset with that value
-app.route('/search/:value').get(function(req, res){
+// app.get('/list').get(function(req, res) {
+//     FlashcardSet.find({}, function(err, flashcardSet) {
+//         if (err) {
+//             console.log(err);
+//         } else {
+//             res.json(flashcardSet);
+//         }
+//     });
+// });
+
+
+app.route('/subject/:value').get(function(req, res){
     let value = req.params.value;
-    FlashcardSet.find({flashcardSet_title: value}, function(err, flashcardSet) {       
+    FlashcardSet.find({flashcardSet_category: value}, function(err, flashcardSet) {       
         res.json(flashcardSet);
     });
 });
+
 
 
 
@@ -82,13 +83,17 @@ app.use('/create', function (req, res) {
     res.send('Create');
     var flashcardSet = new FlashcardSet(req.body);
     flashcardSet.save()
-        .then(flashcardSet => {
-            res.status(200).json({flashcardSet: 'flashcardSet added successfully'});
-        })
-        .catch(err => {
-            res.status(400).send('adding new flashcardSet failed');
-        });
 });
+
+
+
+// //search page component, search the database for that value and return flashcardset with that value
+// app.route('/search/:value').get(function(req, res){
+//     let value = req.params.value;
+//     FlashcardSet.find({flashcardSet_title: value}, function(err, flashcardSet) {       
+//         res.json(flashcardSet);
+//     });
+// });
 
 
 app.listen(PORT, function() {

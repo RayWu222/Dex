@@ -21,11 +21,13 @@ export default class SearchPage extends Component {
   //create an empty array for the table of the search results
   constructor(props) {
     super(props);
-    this.state = { searchResult: [] };
+    this.state = { searchResult: [], searchTerms: " error"};
   }
 
   //testing how to put custom title's and placeholder texts
-  getSearchTerms() {}
+  getSearchTerms() {
+    return Bar.props.searchTerm;
+  }
   //Put the result in a list
   searchResultList() {
     return this.state.searchResult.map(function (currentFlashcardSet, i) {
@@ -66,8 +68,10 @@ export default class SearchPage extends Component {
     return (
       <div>
         <h3>{}</h3>
+      <div className="page-container">
+        <h1 className="page-title">Search Results for "{this.state.searchTerms}"</h1>
         <Bar id="results-bar"></Bar>
-        <table className="table table-striped" style={{ marginTop: 20 }}>
+        <table className="table table-striped">
           <thead>
             <tr>
               <th>Title</th>
