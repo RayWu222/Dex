@@ -6,12 +6,12 @@ import Bar from "./search-bar.component";
 //A component to take input from search-bar component, return results from MongoDB and dsiplays the results.
 const SearchResult = (props) => (
   <tr>
-    <td>{props.searchResult.flashcardSet_title}</td>
-    <td>{props.searchResult.flashcardSet_author}</td>
-    <td>{props.searchResult.flashcardSet_description}</td>
-    <td>{props.searchResult.flashcardSet_category}</td>
+    <td>{props.searchResult.title}</td>
+    <td>{props.searchResult.author}</td>
+    <td>{props.searchResult.description}</td>
+    <td>{props.searchResult.category}</td>
     <td>
-      <Link to={"/edit/" + props.searchResult._id}>Edit</Link>
+      <Link to={"/edit/" + props.searchResult._id}>Go</Link>
     </td>
   </tr>
 );
@@ -40,20 +40,24 @@ export default class SearchPage extends Component {
     console.log(JSON.stringify(this.props.location.search));
     let value = JSON.stringify(this.props.location.search);
     var n;
+    
     value = value.split("=").pop();
+
+    console.log(value)
     value = value.substring(0, value.length - 1);
-    if (value === "") {
+    console.log(value)
+    if (value == "") {
       value = "empty";
     }
     if (value.indexOf("%20") > -1) {
-      n = value.replace("%20", " ");
+      value = value.replace("%20", " ");
     }
-    console.log("value " + n);
+    console.log("value = " + value);
 
     //let value = this.props.location.search
     //console.log(`flashcardSet_Title` + value)
     axios
-      .get("http://localhost:4000/flashcardSet/search/" + value)
+      .get("http://localhost:4000/search/" + value)
       .then((response) => {
         console.log(response.data);
         this.setState({ searchResult: response.data });

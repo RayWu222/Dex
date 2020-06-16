@@ -7,12 +7,12 @@ import { Link } from 'react-router-dom';
 
 const BrowseResult = props => (
     <tr>
-        <td>{props.browseResult.flashcardSet_title}</td>
-        <td>{props.browseResult.flashcardSet_author}</td>
-        <td>{props.browseResult.flashcardSet_description}</td>
-        <td>{props.browseResult.flashcardSet_category}</td>
+        <td>{props.browseResult.title}</td>
+        <td>{props.browseResult.author}</td>
+        <td>{props.browseResult.description}</td>
+        <td>{props.browseResult.category}</td>
         <td>
-            <Link to={"/edit/"+props.browseResult._id}>Edit</Link>
+            <Link to={"/edit/"+props.browseResult._id}>Go</Link>
         </td>
     </tr>
 )
@@ -43,13 +43,13 @@ export default class Browse extends Component{
             value = "empty";
         }
         if(value.indexOf('%20') > -1){
-            n = value.replace('%20', ' ')
+            value = value.replace('%20', ' ')
         }
         console.log("value " + n)
        
         //let value = this.props.location.search
         //console.log(`flashcardSet_Title` + value)
-        axios.get('http://localhost:4000/flashcardSet/subject/' + value )
+        axios.get('http://localhost:4000/subject/' + value )
         //axios.get('http://localhost:4000/flashcardSet/browse/' + value)
             .then(response => {
                 console.log(response.data);
