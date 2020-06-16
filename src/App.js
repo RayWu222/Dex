@@ -36,7 +36,7 @@ class App extends Component {
     const { imageURL } = this.state;
     return (
       
-      <div>
+      <div className="app-wrapper">
       <Router>
         <NavBar/>
         <Route path="/" exact component={LandingPage} />
