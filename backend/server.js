@@ -107,7 +107,7 @@ app.route('/user/:username').get(function(req,res){
     });
 });
 
-//add user to the database
+//add user to the database, need to implement count so it won't keep adding the same person 
 app.use('/addUser', function(req,res){
     console.log("test")
     var user = new Users(req.body);

@@ -9,12 +9,11 @@ import axios from 'axios';
 const FlashcardSetList = props => (
     <tr>
         <td>{props.flashcardSetList.title}</td>
-        <td>{props.flashcardSetList.author}</td>
         <td>{props.flashcardSetList.description}</td>
         <td>{props.flashcardSetList.category}</td>
         <td>{props.flashcardSetList.numFlashcards}</td>
         <td>
-        <Link to={"/edit/"+props.flashcardSetList._id}>Go</Link> | <Link to={"/edit/"+props.flashcardSetList._id}>Edit</Link> | <Link to={"/deleteSet/"+props.flashcardSetList._id}>Delete</Link>
+        <Link to={"/edit/"+props.flashcardSetList._id}>Go</Link> | <Link to={"/edit/"+props.flashcardSetList._id}>Edit</Link> | <Link to={"/deleteSet/"+props.flashcardSetList._id} onclick="return confirm('Are you sure?')">Delete</Link>
         </td>
     </tr>
 )
@@ -30,7 +29,7 @@ export default class UserCardSetsList extends Component{
     componentDidMount() {
  
            
-        axios.get('http://localhost:4000/userList/'+ localStorage.getItem("UserInfoToken"))
+        axios.get('http://localhost:4000/userList/'+ sessionStorage.getItem("SessionUserGoogleId"))
         
             .then((response) => {
                 console.log(response.data);
@@ -59,7 +58,7 @@ export default class UserCardSetsList extends Component{
                 <thead>
                     <tr>
                         <th>Title</th>
-                        <th>Author</th>
+                        
                         <th>Description</th>
                         <th>Category</th>
                         <th>Cards in Deck</th>

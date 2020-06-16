@@ -1,9 +1,5 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom'
 import GoogleLogin from 'react-google-login';
-import NavBar from "./navbar.component"
-import {withRouter} from "react-router-dom"
-import axios from 'axios'
 import UserInfo from "./userInfo.component"
 
 
@@ -15,13 +11,10 @@ export class SignIn extends Component {
             email: "",
             token:"",
             image:"",
-            id:""
-            
-    };
-        
+            id:""          
+    };   
     }
    
-
 
     //return this class state informaiton
     changeName = () =>{
@@ -49,15 +42,17 @@ export class SignIn extends Component {
             image:res.profileObj.imageUrl,
             id: 'Google'}
         )
-        // localStorage.setItem('UserInfo', JSON.stringify(googleresponse));
-        localStorage.setItem('UserInfoName', this.state.name);
-        localStorage.setItem('UserInfoEmail', this.state.email);
-        localStorage.setItem('UserInfoToken', this.state.token);
-        localStorage.setItem('UserInfoImage', this.state.image);
-        localStorage.setItem('UserInfoId', this.state.id);
+       
+        
+        sessionStorage.setItem('SessionUserName', this.state.name);
+        sessionStorage.setItem('SessionUserEmail', this.state.email);
+        sessionStorage.setItem('SessionUserGoogleId', this.state.token)
+        sessionStorage.setItem('SessionUserImage', this.state.image);
+        sessionStorage.setItem('SessionUserInfoId', this.state.id);
+        console.log("session" + sessionStorage.getItem('SessionUserName'))
        
     }
-
+    
     
 
     
@@ -77,16 +72,14 @@ export class SignIn extends Component {
             this.signup(response);
             this.state.name = this.changeName();
             console.log("this name: " + this.state.name)
+           
+            
         }
        
         return (
-            
-            
-            
+
                 <div>
-                
-                
-               
+             
                 <div>
                     <UserInfo 
                     name = {this.state.name} 
@@ -112,7 +105,9 @@ export class SignIn extends Component {
                 
                 
                 </div>
-                
+                <div>
+                    
+                </div>    
                 </div>
            
                

@@ -20,14 +20,15 @@ export default class Profile extends Component{
         // userID: this.props.id
     }
   
+    
 
     componentDidMount(){
-        axios.get('http://localhost:4000/getUser/'+localStorage.getItem("UserInfoToken"))
+        axios.get('http://localhost:4000/getUser/'+sessionStorage.getItem("SessionUserGoogleId"))
             .then(response => {
                 
                 this.setState({
                     userName: response.data.userName,
-                    userEmail: response.data.userEmail,
+                    userEmail: response.data.email,
                     userToken: response.data.userToken,
                     userImage: response.data.userImage
                 })
@@ -38,11 +39,13 @@ export default class Profile extends Component{
   
 
     render(){
-       console.log(localStorage.getItem('UserInfoName'))
+        console.log("userEmail " + this.state.userEmail)
         return(
             <div>
                 
-                <h5><strong>User: {this.state.userName}</strong></h5> 
+                <h3><strong>User: {this.state.userName}</strong></h3> 
+                <h3><strong>Email: {this.state.userEmail}</strong></h3> 
+
                 <img src = {this.state.userImage} alt = "image"></img>             
                          
                 <br></br>
