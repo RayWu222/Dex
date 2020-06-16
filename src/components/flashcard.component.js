@@ -80,9 +80,25 @@ const Flashcard = (counter) => {
               </div>
             </div>
 
-            <div class="text-container">Text</div>
+            <div class="text-container">
+              <div class="toolbar-icon">Text:</div>
+              <input
+                  class="toolbar-input"
+                  type="number"
+                  value={''}
+                  onChange={(e) => setColor(e.target.value)}
+                />
+            </div>
 
-            <div class="color-container">Color</div>
+            <div class="color-container">
+              <div class="toolbar-icon">Color:</div>
+              <input
+                  class="toolbar-input"
+                  type="number"
+                  value={''}
+                  onChange={(e) => setColor(e.target.value)}
+                />
+            </div>
 
             <div class="background-container">
               <div class="background-group">
@@ -114,7 +130,7 @@ const Flashcard = (counter) => {
             <div class="middle-swap">
               <button
                 type="button"
-                class="middle-button"
+                className="search-submit-button"
                 onClick={() => setEditState(!editState)}
               >
                 Edit
@@ -123,7 +139,7 @@ const Flashcard = (counter) => {
             <div class="middle-swap">
               <button
                 type="button"
-                class="middle-button"
+                className="search-submit-button"
                 onClick={() => swapFlashcard()}
               >
                 Swap
@@ -132,12 +148,13 @@ const Flashcard = (counter) => {
           </div>
           <div className="right-flashcard">{back}</div>
         </div>
-      </div>
+      
 
       {editState && (
         <div className="save-container">
           <div className="left-save">
             <button
+              className="search-submit-button"
               type="button"
               onClick={() => {
                 localStorage.setItem(
@@ -149,6 +166,7 @@ const Flashcard = (counter) => {
               Save
             </button>
             <button
+              className="search-submit-button"
               type="button"
               onClick={() => {
                 frontFlashcard.clear();
@@ -157,6 +175,7 @@ const Flashcard = (counter) => {
               Clear
             </button>
             <button
+              className="search-submit-button"
               type="button"
               onClick={() => {
                 frontFlashcard.loadSaveData(
@@ -169,6 +188,7 @@ const Flashcard = (counter) => {
           </div>
           <div className="right-save">
             <button
+              className="search-submit-button"
               type="button"
               onClick={() => {
                 localStorage.setItem(
@@ -180,6 +200,7 @@ const Flashcard = (counter) => {
               Save
             </button>
             <button
+              className="search-submit-button"
               type="button"
               onClick={() => {
                 backFlashcard.clear();
@@ -188,6 +209,7 @@ const Flashcard = (counter) => {
               Clear
             </button>
             <button
+              className="search-submit-button"
               type="button"
               onClick={() => {
                 backFlashcard.loadSaveData(
@@ -200,6 +222,7 @@ const Flashcard = (counter) => {
           </div>
         </div>
       )}
+    </div>
     </div>
   );
 };

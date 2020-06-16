@@ -13,7 +13,9 @@ const FlashcardSet = () => {
   const [flashcards, setFlashcards] = useState([]);
 
   // re-rendering in response to some kind of change, such as state change, API requests, etc.
-  React.useEffect(() => {});
+  React.useEffect(() => {
+    addNewFlashcard()
+  }, []);
 
   const addNewFlashcard = () => {
     var newFlashcard = <Flashcard counter={(num) => numFlashcards} />;

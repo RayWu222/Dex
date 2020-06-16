@@ -436,7 +436,6 @@ a{
 .top-flashcard {
   display: flex;
   flex-grow: 1;
-  background: red;
   height: 40px;
   margin: 20px;
 }
@@ -515,6 +514,7 @@ a{
   margin-top: 40px;
   margin-bottom: 40px;
   border: 1px solid black;
+  
 }
 
 /* Bottom Flashcard */
@@ -528,14 +528,12 @@ a{
 .left-flashcard {
   display: flex;
   width: 45%;
-  border: solid 1px blue;
 }
 
 /* Middle Flashcard */
 .middle-flashcard {
   display: flex;
   width: 10%;
-  border: solid 1px blue;
   justify-content: center;
   align-items: center;
 
@@ -554,7 +552,6 @@ a{
 .right-flashcard {
   display: flex;
   width: 45%;
-  border: solid 1px blue;
 }
 
 /* Toolbar Properties */
@@ -563,14 +560,13 @@ a{
   flex-direction: row;
   justify-content: space-evenly;
   height: 50px;
-  border: solid 1px red;
+  border: solid 1px black;
 }
 
 /* Brush */
 .brush-container {
   display: flex;
   width: 20%;
-  border: solid 1px green;
 }
 
 .brush-group {
@@ -582,33 +578,32 @@ a{
 .text-container {
   display: flex;
   width: 40%;
-  border: solid 1px blue;
+  border: solid 1px black;
 }
 
 .text-button {
-  border: solid 1px blue;
+  border: solid 1px black;
 }
 
 /* Color */
 .color-container {
   display: flex;
   width: 10%;
-  border: solid 1px yellow;
+  border: solid 1px black;
 }
 
-.color-selected {
+/* .color-selected {
   border: solid 1px yellow;
-}
+} */
 
-.color-picker {
+/* .color-picker {
   border: solid 1px yellow;
-}
+} */
 
 /* Background */
 .background-container {
   display: flex;
   width: 20%;
-  border: solid 1px orange;
 }
 
 .background-group {
@@ -617,14 +612,12 @@ a{
 }
 
 .background-dropdown {
-  border: solid 1px orange;
 }
 
 /* Save Container */
 .save-container {
   display: flex;
   justify-content: space-between;
-  border: solid 1px purple;
 }
 
 .left-save {
@@ -639,7 +632,6 @@ a{
 .submitBar {
   display: flex;
   flex-direction: row-reverse;
-  border: solid 1px black;
   padding: 20px;
 }
 
@@ -649,8 +641,9 @@ a{
   width: 60%;
   justify-content: center;
   align-items: center;
-  background-color: green;
-  border: 1px solid black;
+  background-color: #014f33;
+  border: solid 1px black;
+  color: #03cc83;
 }
 
 .toolbar-input {
