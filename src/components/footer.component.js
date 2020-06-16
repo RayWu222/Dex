@@ -8,21 +8,21 @@ export default class Footer extends Component {
     return (
       <footer className="footer-container">
         <Logo className="footer-logo" />
-        <div className="footer-links">
-          <p className="sitemap">Sitemap</p>
+        <div className="footer-links-container">
+          <p className="footer-links">Sitemap</p>
           <ul>
-            <li>
+            <li className="footer-links" >
               <a className="footer-links" href="/" Home>
                 Home
               </a>
             </li>
-            <li>
+            <li className="footer-links" >
               <a className="footer-links" href="/create" Create>
                 Create
               </a>
             </li>
-            <li>
-              <a className="footer-links" href="/list" List>
+            <li className="footer-links" >
+              <a className="footer-links"  href="/list" List>
                 List
               </a>
             </li>

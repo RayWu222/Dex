@@ -38,19 +38,18 @@ class App extends Component {
       
       <div>
       <Router>
-        <NavBar> </NavBar>
-                <Route path="/" exact component={LandingPage} />
-                <Route path="/list" exact component={FlashcardSetList} />
-                <Route path="/flashcardSet/search/:search" exact component={SearchPage} />
-                <Route path="/edit/:id" component={EditFlashcardSet} />
-                <Route path="/create" component={CreateFlashcardSet} />
-                <Route path="/signup" component={SignOut} />
-                <Route path="/signin" component={SignIn} />
-                <Route path="/browse" component={Browse} />
-                <Route path="/subject/:subject" component={Subject} />
-
+        <NavBar/>
+        <Route path="/" exact component={LandingPage} />
+        <Route path="/list" exact component={FlashcardSetList} />
+        <Route path="/flashcardSet/search/:search" exact component={SearchPage} />
+        <Route path="/edit/:id" component={EditFlashcardSet} />
+        <Route path="/create" component={CreateFlashcardSet} />
+        <Route path="/signup" component={SignOut} />
+        <Route path="/signin" component={SignIn} />
+        <Route path="/browse" component={Browse} />
+        <Route path="/subject/:subject" component={Subject} />
       </Router>
-      <Footer></Footer>
+      <Footer/>
       </div>
     );
   }

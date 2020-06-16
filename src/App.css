@@ -1,11 +1,10 @@
-
 /* I have no idea what this stuff is for */
-a{
-  color:black;
+a {
+  color: black;
 }
 
 .container-landing {
-  background-color: #03CC83;
+  background-color: #03cc83;
   border: 3px solid green;
 }
 /*A Styling overwrite for the main Bootstrap .css called in App.Js*/
@@ -56,142 +55,98 @@ a{
   line-height: 1.8;
   font-size: 150%;
   height: 400px;
-  padding:0% 5% 5% 5%;
+  padding: 0% 5% 5% 5%;
   color: #014f33;
 }
 /* Navigation Bar */
-    /* Style the navigation bar */
+/* Style the navigation bar */
 
-    .nav-container {
-      display: flex;
-      height: 100px;
-      overflow: hidden;
-      background-color: #03cc83;
-      padding: 0 10%;
-    }
+.nav-container {
+  display: flex;
+  height: 100px;
+  overflow: hidden;
+  background-color: #03cc83;
+  padding: 0 10%;
+}
 
-    .navbar {
-      display: flex;
-      flex-grow: 1;
-    }
+.navbar {
+  display: flex;
+  flex-grow: 1;
+}
 
-    /* Navbar Containers */
-    .logo {
-      height: 100px;
-      padding: 5px;
-    }
+/* Navbar Containers */
+.logo {
+  height: 100px;
+  padding: 5px;
+}
 
-    .navbar-left {
-      display: flex;
-        height: 100px;
-        flex-grow: 1;
-        justify-content: flex-start;
-    }
+.navbar-left {
+  display: flex;
+  height: 100px;
+  flex-grow: 1;
+  justify-content: flex-start;
+}
 
-    .navbar-form {
-        display: flex;
-        flex-grow: .2;
-        height: 100px;
-        align-items: center;
-    }
+.navbar-form {
+  display: flex;
+  flex-grow: 0.2;
+  height: 100px;
+  align-items: center;
+}
 
-    .navbar-right {
-        display: flex;
-        height: 100px;
-        flex-grow: .2;
-        justify-content: flex-end;
-    }
+.navbar-right {
+  display: flex;
+  height: 100px;
+  flex-grow: 0.2;
+  justify-content: flex-end;
+}
 
+/* Navbar Button */
+.navbar a {
+  color: black;
+  text-decoration: none;
+  display: flex;
+  width: 100px;
+  flex-grow: 0;
+  justify-content: center;
+  align-items: center;
+}
 
-    /* Navbar Button */
-    .navbar a {
-      color: black;
-      text-decoration: none;
-      display: flex;
-      width: 100px;
-      flex-grow: 0;
-      justify-content: center;
-      align-items: center;
-    }
+/* Navbar Form */
+.navbar-submit {
+  border: 1px solid black;
+  background: #026843;
+  display: flex;
+  flex-grow: 3;
+  height: 50px;
+}
 
+.navbar-text {
+  border: 1px solid black;
+  display: flex;
+  flex-grow: 1;
+  padding-left: 5px;
+  height: 50px;
+}
 
-    /* Navbar Form */
-    .navbar-submit {
-      border: 1px solid black;
-      background: #026843;
-      display: flex;
-      flex-grow: 3;
-      height: 50px;
-    }
+/* Navbar links on mouse-over */
+.navbar a:hover {
+  background-color: #029a63;
+}
 
-    .navbar-text {
-      border: 1px solid black;
-      display: flex;
-      flex-grow: 1;
-      padding-left: 5px;
-      height: 50px;
-    }
+.navbar a:focus {
+  background-color: #03b373;
+}
 
-    /* Navbar links on mouse-over */
-    .navbar a:hover {
-      background-color: #029a63;
-    }
+.navbar a:active {
+  background-color: #03b373;
+}
 
-    .navbar a:focus {
-      background-color: #03b373;
-    }
+/* NavBar List Properties */
+.navbar ul {
+  list-style: none;
+}
 
-    .navbar a:active {
-      background-color: #03b373;
-    }
-
-
-    /* NavBar List Properties */
-    .navbar ul {
-      list-style: none;
-    }
-
-    /* Footer */
-    .footer-container{
-     background-color: black;
-    }
-
-    .footer-social-media{
-      display: flex;
-      flex-direction: end;
-      padding-left: 5px;
-      height: 50px;
-      right:100px;
-      
-    
-    }
-  
-    /*copyright color*/
-    .copy-colorblack{
-      position: absolute;
-      color: #060e0b;
-      display: flex;
-      flex-grow: 1;
-     
-      height: 50px;
-      bottom:0px;
-      
-    }
-
-    .footer-subject{
-      position: absolute;
-      left:50%;
-      margin-right: -50%;
-      
-    }
-    /*Footer Links*/
-    .footer-links{
-      background-color: #03cc83;
-      margin-left:10%;
-     
-      
-      
-    }
 /*--------------------------------------------------------------------------------- Navigation Bar*/
 
 /*Top Level NavBar Container*/
@@ -199,13 +154,16 @@ a{
   display: flex;
   align-items: center;
   height: 150px;
+  width: 100%;
   background-color: #026843;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
 }
 
 .navbar {
   display: flex;
   flex-grow: 1;
-  height:100%;
+  height: 100%;
   background-color: #026843;
 }
 
@@ -217,8 +175,8 @@ a{
   flex-grow: 0.2;
   margin-left: 25px;
   justify-content: space-evenly;
-  background-color:#03cc83;
-  border-radius:50px;
+  background-color: #03cc83;
+  border-radius: 50px;
 }
 
 .navbar-left {
@@ -243,45 +201,9 @@ a{
   flex-grow: 1;
   height: 75px;
   justify-content: center;
-  padding-top:40px;
-  }
-  /* Style all font awesome icons */
-    .fa {
-      padding: 20px;
-      font-size: 30px;
-      width: 50px;
-      text-align: center;
-      text-decoration: none;
-    }
+  padding-top: 40px;
+}
 
-    /* Add a hover effect if you want */
-    .fa:hover {
-      opacity: 0.7;
-    }
-
-    /* Set a specific color for each brand */
-
-    /* Facebook */
-    .fa-facebook {
-      background: #3B5998;
-      color: white;
-    }
-
-    /* Twitter */
-    .fa-twitter {
-      background: #55ACEE;
-      color: white;
-    } 
-
-    .fa-reddit {
-      background: #ff5700;
-      color: white;
-    }
-    .fa-google {
-      background: #dd4b39;
-      color: white;
-    }
-  
 .navbar a:hover {
   background-color: #028153;
   border-radius: 25px;
@@ -295,7 +217,6 @@ a{
   background-color: #028153;
 }
 
-/* ---------------------------- NavBar List Properties */
 .navbar ul {
   list-style: none;
 }
@@ -319,8 +240,8 @@ a{
   background-color: #03b373;
 }
 
-.search-input-field input:focus{
-  background-color:black;
+.search-input-field input:focus {
+  background-color: black;
 }
 
 .search-submit-button {
@@ -335,16 +256,16 @@ a{
 
 /*--------------------------------------------------------------------------------- Sign In Page*/
 
+/*--------------------------------------------------------------------------------- Footer*/
 /* Footer */
 .footer-container {
   display: flex;
   background-color: #028153;
-  padding: 0 10%;
-  bottom: 0px;
-  width: inherit;
+  width: 100%;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
 }
 
-/*--------------------------------------------------------------------------------- Footer*/
 .copy-colorblack {
   color: #014f33;
   display: flex;
@@ -353,34 +274,88 @@ a{
   height: 50px;
 }
 
-.footer-links {
-  background-color: #03cc83;
-  margin-left: 20px;
+.footer-logo {
+  height: fit-content;
+  width: fit-content;
 }
 
+.footer-social-media {
+  display: flex;
+  flex-direction: end;
+  padding-left: 5px;
+  height: 50px;
+  right: 100px;
+}
 
-.footer-logo {
-  height: 100px;
-  padding: 5px;
+.footer-subject {
+  position: absolute;
+  left: 50%;
+  margin-right: -50%;
+}
+/*Footer Links*/
+.footer-links {
+  display: flex;
+  flex-direction: row;
+  text-decoration: none;
+  color: #014f33;
+  list-style: none;
+  margin: 10px;
+}
+/* Style all font awesome icons */
+.fa {
+  padding: 20px;
+  font-size: 30px;
+  width: 50px;
+  text-align: center;
+  text-decoration: none;
+}
+
+/* Add a hover effect if you want */
+.fa:hover {
+  opacity: 0.7;
+}
+
+/* Set a specific color for each brand */
+
+/* Facebook */
+.fa-facebook {
+  background: #3b5998;
+  color: white;
+}
+
+/* Twitter */
+.fa-twitter {
+  background: #55acee;
+  color: white;
+}
+
+.fa-reddit {
+  background: #ff5700;
+  color: white;
+}
+.fa-google {
+  background: #dd4b39;
+  color: white;
 }
 
 /*--------------------------------------------------------------------------------- Create Flashcard Page*/
 
 /*------------------------------------------------------------------- Containers */
-.create-flashcard-container{
+.create-flashcard-container {
   background-color: #03cc83;
 }
 
-.title-container { /*this the right one*/
-  display:flex;
+.title-container {
+  /*this the right one*/
+  display: flex;
   flex-direction: column;
   width: 100%;
   background: #029a63;
   text-align: center;
 }
 
-.title-text{
-  color:#03cc83;
+.title-text {
+  color: #03cc83;
 }
 
 .set-container {
@@ -393,7 +368,7 @@ a{
 
 .form-group {
   display: flex;
-  flex-direction:inherit;
+  flex-direction: inherit;
   align-content: center;
   padding: 5px;
   border: 1px solid #014f33;
@@ -419,8 +394,8 @@ a{
   margin-left: 5px;
 }
 
-.category-buttons{
-  color:#014f33;
+.category-buttons {
+  color: #014f33;
 }
 
 .flashcard-container {
@@ -485,7 +460,6 @@ a{
   background: #028153;
 }
 
-
 .form-group {
   display: flex;
   padding: 5px;
@@ -514,7 +488,6 @@ a{
   margin-top: 40px;
   margin-bottom: 40px;
   border: 1px solid black;
-  
 }
 
 /* Bottom Flashcard */
@@ -658,7 +631,7 @@ a{
 }
 
 /*--------------------------------------------------------------------------- Sign-in Page */
-.google-sign-in{
+.google-sign-in {
   display: flex;
   flex-direction: column;
   background-color: #03cc83;
@@ -666,14 +639,14 @@ a{
   text-align: center;
 }
 
-.signin-title{
+.signin-title {
   display: flex;
   flex-direction: column;
   color: #014f33;
   height: 100px;
 }
 
-.g-signin2{
+.g-signin2 {
   background-color: #03cc83;
   height: 100px;
 }
@@ -681,5 +654,4 @@ a{
 table {
   background-color: #03cc83;
   color: #014f33;
-  
 }
