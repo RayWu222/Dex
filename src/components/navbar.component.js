@@ -23,9 +23,9 @@ export default class Navbar extends Component {
 
     render (){
                     return (
-            <div class="nav-container">     
-                <div class="navbar-brand" href="/">
-                <Logo class="logo" />
+            <div className="nav-container">     
+                <div className="navbar-brand" href="/">
+                <Logo className="logo" />
                 </div>
                 <nav class="navbar">    
                     <ul class="navbar-left">
@@ -36,14 +36,14 @@ export default class Navbar extends Component {
                             
                     </ul>
 
-                    <form class="navbar-form" name = "Test" >
-                        <input class="navbar-text"  placeholder="Search" id ="search"/>
-                        <a class="navbar-submit"  type = "submit" onClick ={this.getSearch} > Submit</a>
+                    <form className="navbar-form" name = "Test" >
+                        <input className="navbar-text"  placeholder="Search" id ="search"/>
+                        <a className="navbar-submit"  type = "submit" onClick ={this.getSearch} > Submit</a>
                     </form>
 
-                    <ul class="navbar-right">
-                            <a class="nav-right" href="/signup">Sign Up</a>
-                            <a class="nav-right" href="/signin">Login</a>
+                    <ul className="navbar-right">
+                            <a className="nav-right" href="/signup">Sign Up</a>
+                            <a className="nav-right" href="/signin">Login</a>
                     </ul>
                 </nav>
             </div> 
