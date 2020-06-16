@@ -66,6 +66,8 @@ export default class SearchPage extends Component {
 
   render() {
     return (
+      <div>
+        <h3>{}</h3>
       <div className="page-container">
         <h1 className="page-title">Search Results for "{this.state.searchTerms}"</h1>
         <Bar id="results-bar"></Bar>
