@@ -54,8 +54,8 @@ export class UserInfo extends Component{
             <div>
             <div><p onClick={this.changeName}>Hi, {this.state.userFirstName}</p></div>
             <h1>Name: {this.props.name}</h1>
-            <Profile name = {this.state.userFirstName}></Profile>
-            <UserList></UserList>
+            <Profile></Profile>
+           
             
             
             </div>

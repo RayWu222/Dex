@@ -26,7 +26,7 @@ class App extends Component {
                 <Route path="/create" component={CreateFlashcardSet} />
                 <Route path="/signout" component={SignOut} />
                 <Route path="/signin" component={SignIn} />
-                <Route path= "/user/:user" component={Profile}/>
+                <Route path= "/user" component={Profile}/>
       </Router>
     );
   }

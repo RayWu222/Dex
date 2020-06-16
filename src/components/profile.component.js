@@ -24,11 +24,14 @@ export default class Profile extends Component{
     componentDidMount(){
         axios.get('http://localhost:4000/getUser/'+localStorage.getItem("UserInfoToken"))
             .then(response => {
-                console.log("profile test " + JSON.stringify(response.data.userName));
+                
                 this.setState({
                     userName: response.data.userName,
+                    userEmail: response.data.userEmail,
+                    userToken: response.data.userToken,
+                    userImage: response.data.userImage
                 })
-                console.log("username in profile " + this.state.userName)
+                
             })
     }
 
@@ -38,9 +41,10 @@ export default class Profile extends Component{
        console.log(localStorage.getItem('UserInfoName'))
         return(
             <div>
-                <h5><strong>User: {localStorage.getItem('UserInfoName')}</strong></h5> 
-                <h5><strong>User: {this.state.userName}</strong></h5>              
-                <img src = {localStorage.getItem('UserInfoImage')} alt = "image"></img>             
+                
+                <h5><strong>User: {this.state.userName}</strong></h5> 
+                <img src = {this.state.userImage} alt = "image"></img>             
+                         
                 <br></br>
                
                 
