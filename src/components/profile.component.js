@@ -23,9 +23,12 @@ export default class Profile extends Component{
 
     componentDidMount(){
         axios.get('http://localhost:4000/getUser/'+localStorage.getItem("UserInfoToken"))
-            .then(response =>{
-                console.log("profile test " + JSON.stringify(response.data));
-                this.setState({userName: response.data.userName})
+            .then(response => {
+                console.log("profile test " + JSON.stringify(response.data.userName));
+                this.setState({
+                    userName: response.data.userName,
+                })
+                console.log("username in profile " + this.state.userName)
             })
     }
 

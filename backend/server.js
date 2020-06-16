@@ -94,7 +94,7 @@ app.route('/:id').get(function(req, res) {
 //getUserInfo by using there google id(token)
 app.route('/getUser/:googleid').get(function(req,res){
     let token = req.params.googleid;
-    Users.find({userToken:token}, function(req,userSchema){
+    Users.findOne({userToken:token}, function(req,userSchema){
         res.json(userSchema)
     })
 })
