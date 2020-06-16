@@ -74,15 +74,7 @@ app.route('/').get(function(req, res) {
     });
 });
 
-app.route('/list').get(function(req, res) {
-    FlashcardSet.find({}, function(err, flashcardSet) {
-        if (err) {
-            console.log(err);
-        } else {
-            res.json(flashcardSet);
-        }
-    });
-});
+
 
 app.route('/:id').get(function(req, res) {
     let id = req.params.id;
@@ -133,10 +125,38 @@ app.use('/addUser', function(req,res){
 //get flashcardsets with user id
 app.route('/userList/:userid').get(function(req,res){
     let id = req.params.userid;
-    FlashcardSet.find({author:id}, function(err, flashcardSet){
-        res.json(flashcardSet);
-    })
-})
+    FlashcardSet.find({userId:id}, function(err, flashcardSet){
+        if (err) {
+            console.log(err);
+        } else {
+            res.json(flashcardSet);
+        }
+    });
+});
+
+//delete flashcardset
+app.route('/deleteSet/:id').get(function(req, res) {
+    let id = req.params.id;
+    FlashcardSet.findByIdAndRemove(id, function(err) {
+        if(!err){
+            console.log("Success");
+        }else{
+            console.log("Failed to delete")
+        }
+        
+    });
+});
+    
+
+app.route('/list').get(function(req, res) {
+    FlashcardSet.find({}, function(err, flashcardSet) {
+        if (err) {
+            console.log(err);
+        } else {
+            res.json(flashcardSet);
+        }
+    });
+});
     
     
 //search page component, search the database for that value and return flashcardset with that value
@@ -146,6 +166,7 @@ app.route('/search/:value').get(function(req, res){
         res.json(flashcardSet);
     });
 });
+
 
 
 

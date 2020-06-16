@@ -12,6 +12,7 @@ import FlashcardSetList from "./components/flashcardset-list.component";
 import SignIn from "./components/signin-pack.component";
 import SignOut from "./components/signout.component";
 import Profile from "./components/profile.component"
+import DeleteFlashcardSet from "./components/deleteCardSet.component"
 
 
 class App extends Component {
@@ -27,6 +28,7 @@ class App extends Component {
                 <Route path="/signout" component={SignOut} />
                 <Route path="/signin" component={SignIn} />
                 <Route path= "/user" component={Profile}/>
+                <Route path= "/deleteSet/:id" component={DeleteFlashcardSet}/>
       </Router>
     );
   }

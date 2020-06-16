@@ -52,9 +52,9 @@ export class UserInfo extends Component{
         
         return(
             <div>
-            <div><p onClick={this.changeName}>Hi, {this.state.userFirstName}</p></div>
-            <h1>Name: {this.props.name}</h1>
-            <Profile></Profile>
+            <div><p onClick={this.changeName}></p></div>
+           
+            
            
             
             

@@ -84,7 +84,7 @@ export class SignIn extends Component {
             
             
                 <div>
-                <div><p onClick={this.changeName}>Hi, {this.state.name}</p></div>
+                
                 
                
                 <div>
