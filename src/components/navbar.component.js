@@ -36,17 +36,17 @@ export default class Navbar extends Component {
                             
                     </ul>
 
-                    <form className="navbar-form" name = "Test" >
+                    {/* <form className="navbar-form" name = "Test" >
                         <input className="navbar-text"  placeholder="Search" id ="search"/>
                         <a className="navbar-submit"  type = "submit" onClick ={this.getSearch} > Submit</a>
-                    </form>
-
+                    </form> */}
+                    <Bar/>
                     <ul className="navbar-right">
                             <a className="nav-right" href="/signup">Sign Up</a>
                             <a className="nav-right" href="/signin">Login</a>
                     </ul>
                 </nav>
-            </div>
+            </div> 
         )
     }
 }

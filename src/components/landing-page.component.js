@@ -11,7 +11,8 @@ export default class LandingPage extends Component {
             <Link className="landing-icon" to="/">
               <Logo className="landing-icon" alt="owl icon" />
             </Link>
-          <h3 className="landing-body">
+          <div className="landing-body">
+          <h3>
             Remember when you had hundreds of boxes of different flashcards? Well
             maybe you don't but you definitely are familiar with flashcards. Well
             Dex is here to bring it all back. It's never been easier to create,
@@ -22,6 +23,7 @@ export default class LandingPage extends Component {
             immerisive feel. Search user created decks for a subject you need a
             crash course in. All of it availble here at Dex. The Study App.
           </h3>
+          </div>
         </div>
     );
   }
