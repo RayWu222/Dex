@@ -11,7 +11,7 @@ const responseGoogle=(response) => {
 }
 
 // Using Google oauth api to logout user
-const signOut = () => {
+const signOutPass = () => {
     console.log("signout")
     
       const auth2 = window.gapi.auth2.getAuthInstance()
@@ -32,15 +32,11 @@ export class SignOut extends Component {
                 clientId="293901008493-duqun9t52bo7dtjbo4n1900nite8sube.apps.googleusercontent.com"
                
                 render={renderProps => (
-                  <button onClick={renderProps.onClick} disabled={renderProps.disabled}>Log Out Google button</button>
+                  <button onClick={renderProps.onClick} disabled={renderProps.disabled}>Log Out Button</button>
                   
                 )}
-                
-                onLogoutSuccess={signOut}
-                onFailure={"fail"}
-                prompt = {"bye"}
-               
-               ></GoogleLogout>
+                onLogoutSuccess={signOutPass}
+            ></GoogleLogout>
               
             </div>
 
@@ -48,6 +44,7 @@ export class SignOut extends Component {
         )
     }
 
+       
 
 }
 

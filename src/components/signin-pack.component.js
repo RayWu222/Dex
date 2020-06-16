@@ -101,7 +101,7 @@ export class SignIn extends Component {
                     <GoogleLogin
                     clientId="293901008493-duqun9t52bo7dtjbo4n1900nite8sube.apps.googleusercontent.com"
                     render={renderProps => (
-                    <button onClick={renderProps.onClick} disabled={renderProps.disabled}>This is my custom Google button</button>
+                    <button onClick={renderProps.onClick} disabled={renderProps.disabled}>Sign In Button</button>
                     )}
                     onSuccess={responseGoogle}
                     onFailure={console.log("fail")}
