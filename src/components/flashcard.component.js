@@ -2,47 +2,50 @@ import React, { useState, useEffect } from "react";
 import CanvasDraw from "react-canvas-draw";
 import "../App.css";
 
-const front = () => (
-  <CanvasDraw
-    brushColor={'#ffc600'}
-    brushRadius={10}
-    lazyRadius={2}
-    canvasWidth={550}
-    canvasHeight={260}
-    disabled={false}
-    saveData={''}
-  />
-);
-
-var back = () => (
-  <CanvasDraw
-    brushColor={'#ffc600'}
-    brushRadius={10}
-    lazyRadius={2}
-    canvasWidth={550}
-    canvasHeight={260}
-    disabled={false}
-    saveData={''}
-  />
-);
-
 //A component that contains state information, and canvas to contain and give rich flashcard capabilities to the decks
 const Flashcard = (counter) => {
-  const [color, setColor] = useState("");
-  const [width, setWidth] = useState();
-  const [height, setHeight] = useState();
+  const [color, setColor] = useState("#ffc600");
+  const [width, setWidth] = useState(550);
+  const [height, setHeight] = useState(260);
   const [brushRadius, setBrushRadius] = useState(10);
   const [lazyRadius, setLazyRadius] = useState(2);
-  const [editState, setEditState] = useState();
-  const [frontFlashcard, setFrontFlashcard] = useState(front);
-  const [backFlashcard, setBackFlashcard] = useState(back);
+  const [editState, setEditState] = useState(false);
+  const [frontFlashcard, setFrontFlashcard] = useState("");
+  const [backFlashcard, setBackFlashcard] = useState("");
   const [flashcardNum] = useState(counter);
+  const [flashcard, setFlashcard] = useState([]);
 
 
+
+  var front = (
+    <CanvasDraw
+      brushColor={color}
+      brushRadius={brushRadius}
+      lazyRadius={lazyRadius}
+      canvasWidth={width}
+      canvasHeight={height}
+      disabled={!editState}
+      saveData={''}
+      ref={(canvasDraw) => setFrontFlashcard(canvasDraw)}
+    />
+  );
+
+  var back = (
+    <CanvasDraw
+      brushColor={color}
+      brushRadius={brushRadius}
+      lazyRadius={lazyRadius}
+      canvasWidth={width}
+      canvasHeight={height}
+      disabled={!editState}
+      saveData={''}
+      ref={(canvasDraw) => setBackFlashcard(canvasDraw)}
+    />
+  );
   
-  // useEffect(() => {
-  //   setFlashcard([front, back])
-  // }, []);
+  useEffect(() => {
+    setFlashcard([front, back])
+  }, []);
 
   const resetFrontFlashcard = () => {
     frontFlashcard.loadSaveData(
