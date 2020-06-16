@@ -57,7 +57,9 @@ export default class Footer extends Component {
             <a href="#" className="fa fa-google"></a>
           </ul>
         </div>
-        <p className="copyright">© 2020 All Rights Reserved ~ Authored by AD410 Group C</p>
+        <div  className="copyright">
+        <p>© 2020 All Rights Reserved ~ Authored by AD410 Group C</p>
+        </div>
       </footer>
     );
   }

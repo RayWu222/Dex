@@ -212,6 +212,7 @@
 .search-bar-container {
   display: inherit;
   align-items: center;
+  margin-left: 25px;
 }
 
 .search-input-field {
@@ -248,31 +249,11 @@
   border-top-right-radius: 25px;
 }
 
-.copy-colorblack {
+.copyright {
   color: #014f33;
-  display: flex;
-  flex-grow: 1;
-  padding-left: 5px;
-  height: 50px;
+  margin-left: 1000px;
 }
 
-.footer-logo {
-  display: flex;
-  max-height: 150px;
-  flex-grow: 0.2;
-  margin-left: 25px;
-  justify-content: space-evenly;
-  background-color: #03cc83;
-  border-radius: 50px;
-}
-
-.footer-social-media {
-  display: flex;
-  flex-direction: end;
-  padding-left: 5px;
-  height: 50px;
-  right: 100px;
-}
 
 /*Footer Links*/
 .footer-links {
@@ -283,7 +264,12 @@
   margin: 10px;
 }
 /* Style all font awesome icons */
-.fa {
+.social-media-links{
+  margin-left: 250px;
+}
+
+.fa { 
+  margin-left: 15px;
   padding: 20px;
   font-size: 30px;
   width: 50px;
