@@ -188,9 +188,7 @@
   text-decoration: none;
   display: flex;
   flex-grow: 1;
-  height: 75px;
   justify-content: center;
-  padding-top: 40px;
 }
 
 .navbar a:hover {
@@ -212,29 +210,19 @@
 
 /*--------------------------------------------------------------------------------- Search Bar*/
 .search-bar-container {
-  display: flex;
-  height: 100px;
-  width: auto;
-  flex-grow: 1;
-  justify-content: space-evenly;
+  display: inherit;
   align-items: center;
 }
 
 .search-input-field {
-  display: flex;
-  width: 100px;
-  height: 25px;
+  height: fit-content;
   border-radius: 15px;
   border: hidden;
   background-color: #03b373;
 }
 
-.search-input-field input:focus {
-  background-color: black;
-}
-
 .search-submit-button {
-  height: 25px;
+  height: fit-content;
   background-color: #014f33;
   color: #03cc83;
   border-radius: 15px;
