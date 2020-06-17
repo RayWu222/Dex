@@ -66,16 +66,14 @@ export default class Browse extends Component{
 
     render(){
         return(
-            <div>
-                <div>
-               <strong>Subjects</strong> 
+            <div className="page-container">
+               <h1 className="page-title">Subjects</h1> 
                 <ul>
                  <li><a href ="/subject/browse?flashcardSet_category=Math" Math>Math</a></li> 
                  <li><a href ="/subject/browse?flashcardSet_category=Science" Science>Science</a></li> 
                  <li><a href ="/subject/browse?flashcardSet_category=English" English>English</a></li>
                  <li><a href ="/browse/" Search></a></li>
                 </ul>
-                </div>
                 <div>
             <h3>FlashcardSet List</h3>
             <table className="table table-striped" style={{ marginTop: 20 }} >

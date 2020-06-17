@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import ReactDOM from "react-dom";
-import GoogleLogin from "react-google-login";
+//import ReactDOM from "react-dom";
+//import GoogleLogin from "react-google-login";
 
 //A non-package implementation of Google OAuth2 Sign in
 

@@ -12,7 +12,10 @@ const Flashcard = (counter) => {
   const [editState, setEditState] = useState(false);
   const [frontFlashcard, setFrontFlashcard] = useState("");
   const [backFlashcard, setBackFlashcard] = useState("");
-  const [flashcardNum, setFlashcardNum] = useState(counter);
+  const [flashcardNum] = useState(counter);
+  const [flashcard, setFlashcard] = useState([]);
+
+
 
   var front = (
     <CanvasDraw
@@ -22,6 +25,7 @@ const Flashcard = (counter) => {
       canvasWidth={width}
       canvasHeight={height}
       disabled={!editState}
+      saveData={''}
       ref={(canvasDraw) => setFrontFlashcard(canvasDraw)}
     />
   );
@@ -34,17 +38,33 @@ const Flashcard = (counter) => {
       canvasWidth={width}
       canvasHeight={height}
       disabled={!editState}
+      saveData={''}
       ref={(canvasDraw) => setBackFlashcard(canvasDraw)}
     />
   );
+  
+  useEffect(() => {
+    setFlashcard([front, back])
+  }, []);
 
+  const resetFrontFlashcard = () => {
+    frontFlashcard.loadSaveData(
+      localStorage.getItem("frontFlashcard" + flashcardNum)
+    );
+  }
+
+  const resetBackFlashcard = () => {
+    backFlashcard.loadSaveData(
+      localStorage.getItem("backFlashcard" + flashcardNum)
+    );
+  }
+  
   const swapFlashcard = () => {
     var frontData = frontFlashcard.getSaveData();
     localStorage.setItem(
       "frontFlashcard" + flashcardNum,
       backFlashcard.getSaveData()
     );
-
     localStorage.setItem("backFlashcard" + flashcardNum, frontData);
 
     frontFlashcard.loadSaveData(
@@ -54,25 +74,26 @@ const Flashcard = (counter) => {
       localStorage.getItem("backFlashcard" + flashcardNum)
     );
   };
+
   return (
-    <div class="set-container">
+    <div className="set-container">
       <div className="flashcard-container">
         {editState && (
-          <div class="tools-container">
-            <div class="brush-container">
-              <div class="brush-group">
-                <div class="toolbar-icon">Brush-Radius:</div>
+          <div className="tools-container">
+            <div className="brush-container">
+              <div className="brush-group">
+                <div className="toolbar-icon">Brush-Radius:</div>
                 <input
-                  class="toolbar-input"
+                  className="toolbar-input"
                   type="number"
                   value={brushRadius}
                   onChange={(e) => setBrushRadius(e.target.value)}
                 />
               </div>
-              <div class="brush-group">
-                <div class="toolbar-icon">Lazy-Radius:</div>
+              <div className="brush-group">
+                <div className="toolbar-icon">Lazy-Radius:</div>
                 <input
-                  class="toolbar-input"
+                  className="toolbar-input"
                   type="number"
                   value={lazyRadius}
                   onChange={(e) => setLazyRadius(e.target.value)}
@@ -80,40 +101,34 @@ const Flashcard = (counter) => {
               </div>
             </div>
 
-            <div class="text-container">
-              <div class="toolbar-icon">Text:</div>
-              <input
-                  class="toolbar-input"
-                  type="number"
-                  value={''}
-                  onChange={(e) => setColor(e.target.value)}
-                />
-            </div>
+            <div className="text-container">Text</div>
 
-            <div class="color-container">
-              <div class="toolbar-icon">Color:</div>
-              <input
-                  class="toolbar-input"
-                  type="number"
-                  value={''}
-                  onChange={(e) => setColor(e.target.value)}
-                />
-            </div>
-
-            <div class="background-container">
-              <div class="background-group">
-                <div class="toolbar-icon">Width:</div>
+            <div className="color-container">
+            <div className="brush-group">
+                <div className="toolbar-icon">Color:</div>
                 <input
-                  class="toolbar-input"
+                  className="toolbar-input"
+                  type="string"
+                  value={color}
+                  onChange={(e) => setColor(e.target.value)}
+                />
+              </div>
+            </div>
+
+            <div className="background-container">
+              <div className="background-group">
+                <div className="toolbar-icon">Width:</div>
+                <input
+                  className="toolbar-input"
                   type="number"
                   value={width}
                   onChange={(e) => setWidth(e.target.value)}
                 />
               </div>
-              <div class="background-group">
-                <div class="toolbar-icon">Height:</div>
+              <div className="background-group">
+                <div className="toolbar-icon">Height:</div>
                 <input
-                  class="toolbar-input"
+                  className="toolbar-input"
                   type="number"
                   value={height}
                   onChange={(e) => setHeight(e.target.value)}
@@ -127,19 +142,19 @@ const Flashcard = (counter) => {
           <div className="left-flashcard">{front}</div>
 
           <div className="middle-flashcard">
-            <div class="middle-swap">
+            <div className="middle-swap">
               <button
                 type="button"
-                className="search-submit-button"
+                className="middle-button"
                 onClick={() => setEditState(!editState)}
               >
                 Edit
               </button>
             </div>
-            <div class="middle-swap">
+            <div className="middle-swap">
               <button
                 type="button"
-                className="search-submit-button"
+                className="middle-button"
                 onClick={() => swapFlashcard()}
               >
                 Swap
@@ -154,19 +169,6 @@ const Flashcard = (counter) => {
         <div className="save-container">
           <div className="left-save">
             <button
-              className="search-submit-button"
-              type="button"
-              onClick={() => {
-                localStorage.setItem(
-                  "frontFlashcard" + flashcardNum,
-                  frontFlashcard.getSaveData()
-                );
-              }}
-            >
-              Save
-            </button>
-            <button
-              className="search-submit-button"
               type="button"
               onClick={() => {
                 frontFlashcard.clear();
@@ -175,32 +177,15 @@ const Flashcard = (counter) => {
               Clear
             </button>
             <button
-              className="search-submit-button"
-              type="button"
-              onClick={() => {
-                frontFlashcard.loadSaveData(
-                  localStorage.getItem("frontFlashcard" + flashcardNum)
-                );
-              }}
-            >
-              Load
-            </button>
+                type="button"
+                className="middle-button"
+                onClick={() => resetFrontFlashcard()}
+              >
+                Reset
+              </button>
           </div>
           <div className="right-save">
             <button
-              className="search-submit-button"
-              type="button"
-              onClick={() => {
-                localStorage.setItem(
-                  "backFlashcard" + flashcardNum,
-                  backFlashcard.getSaveData()
-                );
-              }}
-            >
-              Save
-            </button>
-            <button
-              className="search-submit-button"
               type="button"
               onClick={() => {
                 backFlashcard.clear();
@@ -209,20 +194,16 @@ const Flashcard = (counter) => {
               Clear
             </button>
             <button
-              className="search-submit-button"
-              type="button"
-              onClick={() => {
-                backFlashcard.loadSaveData(
-                  localStorage.getItem("backFlashcard" + flashcardNum)
-                );
-              }}
-            >
-              Load
-            </button>
+                type="button"
+                className="middle-button"
+                onClick={() => resetBackFlashcard()}
+              >
+                Reset
+              </button>
           </div>
         </div>
       )}
-    </div>
+      </div>
     </div>
   );
 };
