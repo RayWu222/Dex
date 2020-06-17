@@ -151,6 +151,12 @@ app.route('/subject/:value').get(function(req, res){
     });
 });
 
+app.get('/edit/:id', function (req, res) {
+    FlashcardSet.find({_id: req.query.value }, function(err, flashcardSet) {       
+        res.json(flashcardSet);
+    });
+})
+
 
 
 
