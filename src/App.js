@@ -50,6 +50,7 @@ class App extends Component {
           <Route path="/flashcardSet/search/:search" exact component={SearchPage} />
           <Route path="/signin" component={SignIn} />
           <Route path="/browse" component={Browse} />
+          <Route path="/deleteSet/:id" component = {DeleteFlashcardSet}/>
           <Route path="/subject/:subject" component={Subject} />
       </Router>
       <Footer/>
