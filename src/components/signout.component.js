@@ -30,17 +30,19 @@ export class SignOut extends Component {
 
     render() {
         return (
-            <div className="google-logout-container">
-                <GoogleLogout
-                clientId="293901008493-duqun9t52bo7dtjbo4n1900nite8sube.apps.googleusercontent.com"
+            <div className="page-container">
+                <h1 className="page-title">User Logout</h1>
+                <div className="google-login-container">  
+                    <GoogleLogout
+                        clientId="293901008493-duqun9t52bo7dtjbo4n1900nite8sube.apps.googleusercontent.com"
                
-                render={renderProps => (
-                  <button onClick={renderProps.onClick} disabled={renderProps.disabled}>Log Out Button</button>
+                    render={renderProps => (
+                     <button className="search-submit-button" onClick={renderProps.onClick} disabled={renderProps.disabled}>Log Out Button</button>
                   
-                )}
-                onLogoutSuccess={signOutPass}
-            ></GoogleLogout>
-              
+                    )}
+                    onLogoutSuccess={signOutPass}
+                    />
+                </div>
             </div>
 
            

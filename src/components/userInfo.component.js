@@ -51,8 +51,8 @@ export class UserInfo extends Component{
     render(){
         
         return(
-            <div>
-            <div><p onClick={this.changeName}></p></div>
+            <div className="page-container">
+            <div className="page-title"><p onClick={this.changeName}></p></div>
            
             
            

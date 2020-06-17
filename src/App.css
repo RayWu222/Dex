@@ -251,7 +251,7 @@
 
 .copyright {
   color: #014f33;
-  margin-left: 1000px;
+  margin-left: 150px;
 }
 
 
@@ -265,7 +265,7 @@
 }
 /* Style all font awesome icons */
 .social-media-links{
-  margin-left: 250px;
+  margin-left: 100px;
 }
 
 .fa { 
@@ -604,6 +604,11 @@
   background-color: #03cc83;
   height: 80%;
   text-align: center;
+}
+
+.google-login-container {
+  display: flex;
+  justify-content: center;
 }
 
 .signin-title {

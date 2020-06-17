@@ -79,7 +79,8 @@ export class SignIn extends Component {
        
         return (
 
-                <div>
+                <div className="page-container">
+                    <h1 className="page-title">User Console</h1>
              
                 <div>
                     <UserInfo 
@@ -95,7 +96,7 @@ export class SignIn extends Component {
                     <GoogleLogin
                     clientId="293901008493-duqun9t52bo7dtjbo4n1900nite8sube.apps.googleusercontent.com"
                     render={renderProps => (
-                    <button onClick={renderProps.onClick} disabled={renderProps.disabled}>Sign In Button</button>
+                    <button className="search-submit-button" onClick={renderProps.onClick} disabled={renderProps.disabled}>Sign In Button</button>
                     )}
                     onSuccess={responseGoogle}
                     onFailure={console.log("fail")}
