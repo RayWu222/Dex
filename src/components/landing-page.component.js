@@ -8,7 +8,7 @@ export default class LandingPage extends Component {
     return (
         <div className="page-container">
           <h1 className="page-title">Welcome to Dex!</h1>
-            <Link className="landing-icon" to="/">
+            <Link className="logo" id="nav-logo" to="/">
               <Logo className="landing-icon" alt="owl icon" />
             </Link>
           <div className="landing-body">

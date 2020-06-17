@@ -2,19 +2,24 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { ReactComponent as Logo } from './img/dexOwl.svg';
 import { Link } from 'react-router-dom';
+import "../App.css";
 
 
 
 const BrowseResult = props => (
-    <tr>
-        <td>{props.browseResult.flashcardSet_title}</td>
-        <td>{props.browseResult.flashcardSet_author}</td>
-        <td>{props.browseResult.flashcardSet_description}</td>
-        <td>{props.browseResult.flashcardSet_category}</td>
-        <td>
-            <Link to={"/edit/"+props.browseResult._id}>Edit</Link>
-        </td>
-    </tr>
+    <div className="page-container">
+        <div className="page-title">
+            <tr>
+                <td>{props.browseResult.flashcardSet_title}</td>
+                <td>{props.browseResult.flashcardSet_author}</td>
+                <td>{props.browseResult.flashcardSet_description}</td>
+                <td>{props.browseResult.flashcardSet_category}</td>
+                <td>
+                    <Link to={"/edit/"+props.browseResult._id}>Edit</Link>
+                </td>
+            </tr>
+        </div>
+    </div>
 )
 
 export default class Browse extends Component{
