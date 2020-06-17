@@ -618,7 +618,7 @@
   height: 100px;
 }
 
-table {
+table, tr {
   background-color: #03cc83;
   color: #014f33;
   border-bottom-left-radius: 25px;

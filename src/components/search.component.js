@@ -21,7 +21,7 @@ export default class SearchPage extends Component {
   //create an empty array for the table of the search results
   constructor(props) {
     super(props);
-    this.state = { searchResult: [], searchTerms: " error"};
+    this.state = { searchResult: [], searchTerms: this.getSearchTerms};
   }
 
   //testing how to put custom title's and placeholder texts

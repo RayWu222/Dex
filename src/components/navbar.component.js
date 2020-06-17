@@ -4,7 +4,9 @@ import "../App.css";
 //import logo from './logo.png';
 import { ReactComponent as Logo } from './img/dexOwl.svg'; 
 import Axios from 'axios';
-import {SignOut} from "./signout.component"
+
+//import signout
+import SignOut from "./signout.component";
 
 //import search-bar
 import Bar from "./search-bar.component";
@@ -37,12 +39,11 @@ export default class Navbar extends Component {
                             <a class="nav-left" href="/">Home</a>
                             <a class="nav-left" href="/create">Create</a>
                             <a class="nav-left" href="/list">List</a>
-                            
+                            <a class="nav-left" href="/browse">Browse</a>
                     </ul>
 
                     <Bar></Bar>
-                
-
+        
                     <ul class="navbar-right">
                             <a class="nav-right" href="/signout">Sign out</a>
                             <a class="nav-right" href="/signin">Login</a>

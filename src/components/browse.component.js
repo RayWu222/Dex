@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { ReactComponent as Logo } from './img/dexOwl.svg';
 import { Link } from 'react-router-dom';
+import "../App.css";
 
 
 
