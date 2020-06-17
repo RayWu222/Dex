@@ -2,7 +2,10 @@ import React, { Component } from "react";
 import "../App.css";
 
 //import logo from './logo.png';
-import { ReactComponent as Logo } from "./img/dexOwl.svg";
+import { ReactComponent as Logo } from './img/dexOwl.svg'; 
+import Axios from 'axios';
+import {SignOut} from "./signout.component"
+
 //import search-bar
 import Bar from "./search-bar.component";
 
@@ -19,6 +22,8 @@ export default class Navbar extends Component {
         window.location.replace("http://localhost:3000/flashcardSet/search/search?flashcardSet_title=" + searchValue)
         
     }
+
+  
     
 
     render (){
@@ -32,18 +37,17 @@ export default class Navbar extends Component {
                             <a class="nav-left" href="/">Home</a>
                             <a class="nav-left" href="/create">Create</a>
                             <a class="nav-left" href="/list">List</a>
-                            <a class="nav-left" href="/browse">Browse</a>
                             
                     </ul>
 
-                    {/* <form className="navbar-form" name = "Test" >
-                        <input className="navbar-text"  placeholder="Search" id ="search"/>
-                        <a className="navbar-submit"  type = "submit" onClick ={this.getSearch} > Submit</a>
-                    </form> */}
-                    <Bar/>
-                    <ul className="navbar-right">
-                            <a className="nav-right" href="/signup">Sign Up</a>
-                            <a className="nav-right" href="/signin">Login</a>
+                    <Bar></Bar>
+                
+
+                    <ul class="navbar-right">
+                            <a class="nav-right" href="/signout">Sign out</a>
+                            <a class="nav-right" href="/signin">Login</a>
+                            <a class="nav-right" href= "/user"> {sessionStorage.getItem("SessionUserName")} </a>
+                        
                     </ul>
                 </nav>
             </div> 
