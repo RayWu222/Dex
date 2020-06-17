@@ -23,7 +23,6 @@ connection.once('open', function() {
 })
 
 
-<<<<<<< HEAD
 
 //define User Schema
 var userSchema = new mongoose.Schema({
@@ -37,8 +36,6 @@ var userSchema = new mongoose.Schema({
 );
 
 
-=======
->>>>>>> 148c5b3a062fe1db99f124f549a10e29d5ab3756
 var flashcard = new mongoose.Schema({
     text: String
 });
@@ -50,7 +47,6 @@ var flashcardSet = new mongoose.Schema({
     description: String,
     category: String,
     numFlashcards: String,
-<<<<<<< HEAD
     flashcards: [flashcard]
 });
 
@@ -61,23 +57,8 @@ var Users = mongoose.model("User", userSchema)
 
 app.route('/').get(function(req, res) {
     
-    FlashcardSet.find({}, function(err, flashcardSet) {
-        if (err) {
-            console.log(err);
-        } else {
-            res.json(flashcardSet);
-        }
-    });
 });
 
-
-
-app.route('/:id').get(function(req, res) {
-    let id = req.params.id;
-    FlashcardSet.findById(id, function(err, flashcardSet) {
-        res.json(flashcardSet);
-    });
-});
 
 //getUserInfo by using there google id(token)
 app.route('/getUser/:googleid').get(function(req,res){
@@ -146,26 +127,12 @@ app.route('/deleteSet/:id').get(function(req, res) {
 
 app.route('/list').get(function(req, res) {
     FlashcardSet.find({}, function(err, flashcardSet) {
-=======
-    flashcards: Array
-});
-
-var FlashcardSet = mongoose.model("FlashcardSet", flashcardSet)
-
-app.get('/', function (req, res) {
-    res.send('Homepage');
-})
-
-app.get('/list', function (req, res) {
-        FlashcardSet.find({}, function(err, flashcardSet) {
->>>>>>> 148c5b3a062fe1db99f124f549a10e29d5ab3756
         if (err) {
             console.log(err);
         } else {
             res.json(flashcardSet);
         }
     });
-<<<<<<< HEAD
 });
     
     
@@ -173,57 +140,10 @@ app.get('/list', function (req, res) {
 app.route('/search/:value').get(function(req, res){
     let value = req.params.value;
     FlashcardSet.find({title: value}, function(err, flashcardSet) {       
-=======
-})
-
-app.get('/edit/:id', function (req, res) {
-    FlashcardSet.find({_id: req.query.value }, function(err, flashcardSet) {       
-        res.json(flashcardSet);
-    });
-})
-
-// app.get('/list').get(function(req, res) {
-//     FlashcardSet.find({}, function(err, flashcardSet) {
-//         if (err) {
-//             console.log(err);
-//         } else {
-//             res.json(flashcardSet);
-//         }
-//     });
-// });
-
-
-app.route('/subject/:value').get(function(req, res){
-    let value = req.params.value;
-    FlashcardSet.find({flashcardSet_category: value}, function(err, flashcardSet) {       
->>>>>>> 148c5b3a062fe1db99f124f549a10e29d5ab3756
         res.json(flashcardSet);
     });
 });
 
-
-<<<<<<< HEAD
-
-
-app.route('/update/:id').post(function(req, res) {
-    FlashcardSet.findById(req.params.id, function(err, flashcardSet) {
-        if (!flashcardSet)
-            res.status(404).send("data is not found (server.js:41)");
-        else
-            flashcardSet.flashcardSet_title = req.body.flashcardSet_title;
-            flashcardSet.flashcardSet_author = req.body.flashcardSet_author;
-            flashcardSet.flashcardSet_description = req.body.flashcardSet_description;
-            flashcardSet.flashcardSet_category = req.body.flashcardset_category;
-
-            flashcardSet.save().then(flashcardSet => {
-                res.json('FlashcardSet updated!');
-            })
-            .catch(err => {
-                res.status(400).send("Update not possible");
-            });
-    });
-=======
->>>>>>> 148c5b3a062fe1db99f124f549a10e29d5ab3756
 
 
 
@@ -233,27 +153,6 @@ app.use('/create', function (req, res) {
     flashcardSet.save()
 });
 
-<<<<<<< HEAD
-
-
-
-app.use('/list', function (req, res) {
-    res.send('List');
-});
-app.use('/testAPI', function (req, res) {
-    res.send('TestAPI');W
-});
-=======
->>>>>>> 148c5b3a062fe1db99f124f549a10e29d5ab3756
-
-
-// //search page component, search the database for that value and return flashcardset with that value
-// app.route('/search/:value').get(function(req, res){
-//     let value = req.params.value;
-//     FlashcardSet.find({flashcardSet_title: value}, function(err, flashcardSet) {       
-//         res.json(flashcardSet);
-//     });
-// });
 
 
 app.listen(PORT, function() {

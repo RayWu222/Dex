@@ -3,7 +3,6 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import Bar from "./search-bar.component";
 
-<<<<<<< HEAD
 
 //flash card table componen, to put the result information into the table, such as title/author/description/category
 const SearchResult = props => (
@@ -17,20 +16,6 @@ const SearchResult = props => (
         </td>
     </tr>
 )
-=======
-//A component to take input from search-bar component, return results from MongoDB and dsiplays the results.
-const SearchResult = (props) => (
-  <tr>
-    <td>{props.searchResult.flashcardSet_title}</td>
-    <td>{props.searchResult.flashcardSet_author}</td>
-    <td>{props.searchResult.flashcardSet_description}</td>
-    <td>{props.searchResult.flashcardSet_category}</td>
-    <td>
-      <Link to={"/edit/" + props.searchResult._id}>Edit</Link>
-    </td>
-  </tr>
-);
->>>>>>> 148c5b3a062fe1db99f124f549a10e29d5ab3756
 
 //perform search with mongoDB by taking the search value submitted by the user
 export default class SearchPage extends Component {
