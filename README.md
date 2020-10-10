@@ -3,9 +3,11 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+CSS: Theory by TEMPLATED
+
 ## Available Scripts
 
-In the project directory, you can run:
+To initialize the project locally run
 
 ### `npm start`
 
@@ -14,6 +16,12 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
+
+### `cd backend`
+### `nodemon server`
+Launches the MongoDB server. <br />
+No need for further confuguration. 
+Navigate to [http://localhost:3000/list](http://localhost:3000/list) to confirm the MongoDB connection.
 
 ### `npm test`
 
